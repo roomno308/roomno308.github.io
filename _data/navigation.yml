@@ -1,3 +1,6 @@
 # Site navigation links
 - title: "Test"
   url: /blog/test
+
+- title: "Test2"
+  url: /blog/test
