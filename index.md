@@ -1,6 +1,7 @@
 ---
 layout: page
 excerpt: "About Me..."
+title: page1
 ---
 
 ## Welcome!
