@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="top-navigation">
   <nav role="navigation">
-      <ul id="selector">
+      <ul id="selector"> <b>
           {% for link in site.data.navigation %}
           {% if link.url contains 'http' %}
               {% assign domain = '' %}
@@ -12,7 +12,7 @@ layout: default
           {% endif %}
           <li id = "navbutton"><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
       {% endfor %}
-      </ul>
+      </b></ul>
   </nav>
 </div><!-- /.top-navigation -->
 
