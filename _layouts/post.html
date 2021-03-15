@@ -2,8 +2,8 @@
 layout: default
 ---
 <div class="top-navigation">
-  <nav role="navigation" id="selector">
-      <ul>
+  <nav role="navigation">
+      <ul id="selector">
           {% for link in site.data.navigation %}
           {% if link.url contains 'http' %}
               {% assign domain = '' %}
