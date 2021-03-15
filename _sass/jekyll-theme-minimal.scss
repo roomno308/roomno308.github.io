@@ -270,3 +270,22 @@ footer {
     color:#444;
   }
 }
+#selector{
+  list-style-type: none;
+  overflow: hidden;
+  background-color:#2F2F2F;
+}
+#navbutton{
+  color: white;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px;
+  -moz-transition:all 1s;
+  -webkit-transition:all 1s;
+  transition:all 1s;
+}
+#navbutton:hover{
+  color:rgb(202, 52, 52);
+  background-color:rgb(114, 0, 0);
+}
