@@ -1,3 +1,8 @@
+---
+layout: page
+excerpt: "About Me..."
+---
+
 ## Welcome!
 
 [Test](Test)
