@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<div class="top-navigation">
+  <nav role="navigation">
+      <ul id="selector"> <b>
+          {% for link in site.data.navigation %}
+          {% if link.url contains 'http' %}
+              {% assign domain = '' %}
+              {% else %}
+              {% assign domain = site.github.url %}
+          {% endif %}
+          <li id = "navbutton"><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+      {% endfor %}
+      </b></ul>
+  </nav>
+</div><!-- /.top-navigation -->
+
+<small>{{ page.date | date: "%-d %B %Y" }}</small>
+<h1>{{ page.title }}</h1>
+
+{{content}}
+
+{% if page.tags %}
+  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+{% endif %}
