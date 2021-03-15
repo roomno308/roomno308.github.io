@@ -1,6 +1,5 @@
 ---
-layout: page
-excerpt: "About Me..."
+layout: post 
 title: page1
 ---
 
