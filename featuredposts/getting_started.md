@@ -16,3 +16,5 @@ author: <your name>
 ---
 ```
 - Add an entry for your post in the file `posts.md`. The entry should be a list item having the title and name of the file as `[Title](filename)`.
+
+<!-- [Here]() is an example post. -->
