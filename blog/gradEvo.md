@@ -1,3 +1,10 @@
+---
+layout: post
+title: Gradient Evolution
+author: 308
+---
+
+
 ## AD (After Darwin):
 
 Evolution has always seemed a very interesting theory - random genetic mutations leading to all sorts of weird creations. In other words, it leads to optimizations on very complex, natural functions. Evolution makes sure that the species that fit their natural environment survive, while others perish.
