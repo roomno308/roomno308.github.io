@@ -57,6 +57,4 @@ Therefore, if we know the directional derivative along some vector, we know the 
 
 This approximate gradient can be used in place of the random permutations of the evolutionary algorithm.
 
-The reconstruction problem of the gradient can be written as a linear equation: \\(Ax = b\\) where the matrix \\(A\\) is a \\(d \times n\\) matrix with the directions \\(\eta_1, \eta_2, \cdots, \eta_d\\) as the rows, and \\(b\\) is the vector with the directional derivatives: \\(b_i = \nabla_{\eta_i} f(\theta)\\). This can be solved using least squares methods. However since we are free to choose the directions as we want, it is best to choose \\(d\\) orthonormal vectors such as \\(d\\) random basis vectors. Also, it is best to keep changing these directions in each iteration to get maximum exploration.
-
-
+The reconstruction problem of the gradient can be written as a linear equation: \\(\mathbf{A}x = b\\) where the matrix \\(\mathbf{A}\\) is a \\(d \times n\\) matrix with the directions \\(\eta_1, \eta_2, \cdots, \eta_d\\) as the rows, and \\(b\\) is the vector with the directional derivatives: \\(b_i = \nabla_{\eta_i} f(\theta)\\). This can be solved using least squares methods. However since we are free to choose the directions as we want, it is best to choose \\(d\\) orthonormal vectors such as \\(d\\) random basis vectors. Also, it is best to keep changing these directions in each iteration to get maximum exploration.
