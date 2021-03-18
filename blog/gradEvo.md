@@ -38,10 +38,13 @@ Instead of random mutations, we may use the gradient to guarantee increase in ou
 The main idea behind gradient evolution is to approximate the gradient using only function calls to $f$. 
 
 The directional derivative of $f$ at some point $\theta$, along a direction $\eta$, is given by 
+
 $$
 \nabla_\eta f(\theta) = \lim_{t \to 0} \frac{f(\theta+t\eta) - f(\theta)}{t}
 $$
+
 One important observation is that the directional derivative can be approximated using function calls as a finite difference:
+
 $$
 \nabla_\eta f(\theta) \approx \frac{f(\theta+t\eta) - f(\theta)}{t}, \ 0 < t < 1
 $$
