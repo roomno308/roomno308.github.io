@@ -35,20 +35,20 @@ Instead of random mutations, we may use the gradient to guarantee increase in ou
 ## Gradient Evolution, but how?
 The main idea behind gradient evolution is to approximate the gradient using only function calls to \\(f\\). 
 
-The directional derivative of \\(f\\) at some point $\theta$, along a direction \\(\eta\\), is given by 
-$$
+The directional derivative of \\(f\\) at some point \\(\theta\\), along a direction \\(\eta\\), is given by 
+\\[
 \nabla_\eta f(\theta) = \lim_{t \to 0} \frac{f(\theta+t\eta) - f(\theta)}{t}
-$$
+\\]
 One important observation is that the directional derivative can be approximated using function calls as a finite difference:
-$$
+\\[
 \nabla_\eta f(\theta) \approx \frac{f(\theta+t\eta) - f(\theta)}{t}, \ 0 < t < 1
-$$
+\\]
 
 
 The gradient has the special property (indeed, this can be viewed as the defining property) that it is the unique vector \\(\nabla f(\theta)\\) such that, for all directions \\(\eta\\), the directional derivative along \\(\eta\\) is equal to the dot product of \\(\eta\\) and the gradient: 
-$$
+\\[
 \eta \cdot \nabla f(\theta) = \nabla_\eta f(\theta)
-$$
+\\]
 
 ![](https://i.imgur.com/j7tOknK.png)
 
