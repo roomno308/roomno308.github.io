@@ -19,7 +19,7 @@ Learning a neural network is essentially the problem of finding weights for the 
 
 ![](https://i.imgur.com/RhYWI1I.png)
 
-<i><center>How a blonde skateboarder perceives gradient descent</center></i>
+<i><center>A blonde skateboarder hoping to reach Mariana Trench (global minimum)</center></i>
 
 Most gradient based algorithms rely on approximating the reward as some differentiable function, for which computing the gradient is feasible. 
 
