@@ -88,7 +88,7 @@ However, the algorithm also has a few major drawbacks. As with any gradient-base
 
 ## Final Thoughts
 
-For further reading on gradient evolution, we suggest the [following paper](https://www.sciencedirect.com/science/article/abs/pii/S0020025515002996). For a better reading on nature inspired algorithms in general, we suggest *Nature-Inspired Algorithms for Optimisation by Thomas Weise, Michael Zapf, Raymond Chiong, Antonio J. Nebro*(the gradient evolution algorithm is explained in the chapter *The Evolutionary-Gradient-Search Procedure in Theory and Practice*).
+For further reading on gradient evolution, we suggest the [this paper](https://www.sciencedirect.com/science/article/abs/pii/S0020025515002996). For a better reading on nature inspired algorithms in general, we suggest *Nature-Inspired Algorithms for Optimisation by Thomas Weise, Michael Zapf, Raymond Chiong, Antonio J. Nebro*(the gradient evolution algorithm is explained in the chapter *The Evolutionary-Gradient-Search Procedure in Theory and Practice*).
 
 Gradient evolution is an example of a broader class of algorithms inspired by nature called Evolutionary and Genetic Algorithms. We have barely scratched the surface of this vast field. We may talk more about such algorithms in future posts.
 
