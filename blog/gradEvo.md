@@ -58,3 +58,30 @@ Therefore, if we know the directional derivative along some vector, we know the 
 This approximate gradient can be used in place of the random permutations of the evolutionary algorithm.
 
 The reconstruction problem of the gradient can be written as a linear equation: \\(\mathbf{A}x = b\\) where the matrix \\(\mathbf{A}\\) is a \\(d \times n\\) matrix with the directions \\(\eta_1, \eta_2, \cdots, \eta_d\\) as the rows, and \\(b\\) is the vector with the directional derivatives: \\(b_i = \nabla_{\eta_i} f(\theta)\\). This can be solved using least squares methods. However since we are free to choose the directions as we want, it is best to choose \\(d\\) orthonormal vectors such as \\(d\\) random basis vectors. Also, it is best to keep changing these directions in each iteration to get maximum exploration.
+
+
+## Experiments
+
+As a proof of concept, consider a standard test function for optimization functions, the [Rastrigin Function](https://en.wikipedia.org/wiki/Rastrigin_function). We take this as a blackbox and compare the performance against other classical evolutionary algorithms.
+
+| Maximization problem: | Minimization problem: |
+| :---: | :---: |
+| ![](https://i.imgur.com/2Woay2K.png)| ![](https://i.imgur.com/rvWYxQh.png)|
+
+Next we considered some OpenAI environments. We tried lander and the Bipedal Walker. 
+
+| Gradient evolution: | Normal ES: |
+| :---: | :---: |
+| ![](https://i.imgur.com/E4Gstz1.gif)| ![](https://i.imgur.com/TBllf3n.gif)|
+| ![](https://i.imgur.com/pF9RpaY.gif)| ![](https://i.imgur.com/dH3i53X.gif)|
+
+*<center>Bipedal Walker and Lunar Lander results after 80 iterations</center>*
+
+## Pros and Cons
+
+The major advantage of Gradient Evolution over classical RL techniques is its highly parallizable nature and search space exploration. Since we don't need any sort of backpropagation, the neural network implementation reduces to a buch of matrix multiplications. unlike other RL algorithms that try to model the **value function** of the environment, this algorithm treats the reward function as a black box (and therefore falls under the category of **blackbox optimization**). Moreover, unlike the classical evolutionary algorithms, gradient evolution does not have entirely random mutations. 
+
+![](https://i.imgur.com/CX0zxdK.png)
+*<center>Stuck in the local minimum</center>*
+
+However, the algorithm also has a few major drawbacks. As with any gradient-based algorithm, the evolution might get stuck in local optimums, where the gradient becomes very small. There are a few ways to get around this problem, but it nevertheless remains a nuisance. Also, many functions might actually be very ill-behaved where gradient might not give a very good idea for how to explore. For example, the function might consist of largely flat terrain, with little curvature, and large values only at certain points. In such a case, computing gradients would not be very worthwhile, and simple evolutionary strategies might be better. 
