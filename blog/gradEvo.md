@@ -73,7 +73,7 @@ Next we considered some OpenAI environments. We tried lander and the Bipedal Wal
 | Gradient evolution: | Normal ES: |
 | :---: | :---: |
 | ![](https://i.imgur.com/E4Gstz1.gif)| ![](https://i.imgur.com/TBllf3n.gif)|
-| ![](https://i.imgur.com/pF9RpaY.gif)| ![](https://i.imgur.com/dH3i53X.gif)|
+| ![](https://i.imgur.com/pF9RpaY.gif)| ![](https://i.imgur.com/1jIBYia.gif)|
 
 *<center>Bipedal Walker and Lunar Lander results after 80 iterations</center>*
 
