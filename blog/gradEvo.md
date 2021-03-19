@@ -75,7 +75,7 @@ Next we considered some OpenAI environments. We tried lander and the Bipedal Wal
 
 *<center>Bipedal Walker and Lunar Lander results after 80 iterations</center>*
 
-The code and results are availabler [here](https://github.com/kharyal/gradient-evolution).
+The code and results are available [here](https://github.com/kharyal/gradient-evolution).
 
 ## Pros and Cons
 
