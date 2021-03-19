@@ -3,9 +3,7 @@ layout: post
 title: Gradient Evolution
 author: 308
 ---
-## AD (After Darwin):
-
-Evolution has always seemed a very interesting theory - random genetic mutations leading to all sorts of weird creations. In other words, it leads to optimizations on very complex, natural functions. Evolution makes sure that the species that fit their natural environment survive, while others perish.
+Evolution has always seemed to us a very fascinating theory - random genetic mutations leading to all sorts of weird creations, specialized for different tasks. In other words, it leads to optimizations on very complex, natural functions. Evolution makes sure that the species that fit their natural environment survive, while others perish.
 
 Naturally, this has led to many attempts to replicate this procedure in more controlled settings. A whole class of algorithms called **Evolutionary algorithms** have been discovered (invented? this is a deeper question for another time) that are inspired from natural evolution. Here we discuss one such algorithm that we stumbled upon.
 
@@ -77,6 +75,8 @@ Next we considered some OpenAI environments. We tried lander and the Bipedal Wal
 
 *<center>Bipedal Walker and Lunar Lander results after 80 iterations</center>*
 
+The code and results are availabler [here](https://github.com/kharyal/gradient-evolution).
+
 ## Pros and Cons
 
 The major advantage of Gradient Evolution over classical RL techniques is its highly parallizable nature and search space exploration. Since we don't need any sort of backpropagation, the neural network implementation reduces to a buch of matrix multiplications. unlike other RL algorithms that try to model the **value function** of the environment, this algorithm treats the reward function as a black box (and therefore falls under the category of **blackbox optimization**). Moreover, unlike the classical evolutionary algorithms, gradient evolution does not have entirely random mutations. 
@@ -85,3 +85,13 @@ The major advantage of Gradient Evolution over classical RL techniques is its hi
 *<center>Stuck in the local minimum</center>*
 
 However, the algorithm also has a few major drawbacks. As with any gradient-based algorithm, the evolution might get stuck in local optimums, where the gradient becomes very small. There are a few ways to get around this problem, but it nevertheless remains a nuisance. Also, many functions might actually be very ill-behaved where gradient might not give a very good idea for how to explore. For example, the function might consist of largely flat terrain, with little curvature, and large values only at certain points. In such a case, computing gradients would not be very worthwhile, and simple evolutionary strategies might be better. 
+
+## Final Thoughts
+
+For further reading on gradient evolution, we suggest the [following paper](https://www.sciencedirect.com/science/article/abs/pii/S0020025515002996). For a better reading on nature inspired algorithms in general, we suggest *Nature-Inspired Algorithms for Optimisation by Thomas Weise, Michael Zapf, Raymond Chiong, Antonio J. Nebro*(the gradient evolution algorithm is explained in the chapter *The Evolutionary-Gradient-Search Procedure in Theory and Practice*).
+
+Gradient evolution is an example of a broader class of algorithms inspired by nature called Evolutionary and Genetic Algorithms. We have barely scratched the surface of this vast field. We may talk more about such algorithms in future posts.
+
+Apart from evolutionary algorithms, another class of algorithms for predictive control with huge applicability is the class of Reinforcement Learning (RL) algorithms. We may also take more about them in the future.
+
+*For any issues, suggestions, or questions, reach out to us at* roomnumber308@gmail.com.
