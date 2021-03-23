@@ -34,6 +34,4 @@ RANdom SAmple Consensus, or RANSAC, is an iterative algorithm to estimate parame
 
 ![](https://lh3.googleusercontent.com/proxy/zHRkWxBbleexFl6gfUvPg0t-3NX4DgEeQPER3ALTLBHbeQihR4pOrUbsX4i7TkFrhs-vdoxylxN1QAO_mrEx9DZhH1G_zI0gGViAXj786sE8i3B_EFzDvCfFJZa62EoJgiqYj8waq-qd-i7Gz2-rq0kE)
 
-<center>
-<i>RANSAC in working. Source: [visual-experiments.com](http://www.visual-experiments.com/tag/ransac/)</i>
-</center>
+<center>RANSAC in working. Source: <a href="http://www.visual-experiments.com/tag/ransac/">visual-experiments.com</a></center>
