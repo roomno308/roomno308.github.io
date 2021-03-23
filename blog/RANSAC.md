@@ -32,9 +32,8 @@ Everything you have read till now might even be useless if you don't like to see
 
 RANdom SAmple Consensus, or RANSAC, is an iterative algorithm to estimate parameters of a mathematical model. For understanding the algorithm, we will take the task of fitting a line to given datapoints. We will also see that how RANSAC performs in the presence of outliers and do an analysis of its convergence.
 
-<center>
-
 ![](https://lh3.googleusercontent.com/proxy/zHRkWxBbleexFl6gfUvPg0t-3NX4DgEeQPER3ALTLBHbeQihR4pOrUbsX4i7TkFrhs-vdoxylxN1QAO_mrEx9DZhH1G_zI0gGViAXj786sE8i3B_EFzDvCfFJZa62EoJgiqYj8waq-qd-i7Gz2-rq0kE)
 
+<center>
 <i>RANSAC in working. Source: [visual-experiments.com](http://www.visual-experiments.com/tag/ransac/)</i>
 </center>
