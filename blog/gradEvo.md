@@ -10,12 +10,12 @@ Naturally, this has led to many attempts to replicate this procedure in more con
 ## Optimization and Neural Nets
 Nowadays, neural networks are used to model a large class of problems. Consider the problem of an AI playing some game. We want to "learn" a neural network such that, given the input parameter vector, it outputs the action (the input might be anything from a few numbers representing some state of the game, or the entire RAM at some stage of the game).
 
-![](https://i.imgur.com/oiw8L9W.png)
+![](graphics/gradEvo/NN.png)
 <!-- <i><center>hello</center></i> -->
 
 Learning a neural network is essentially the problem of finding weights for the net which maximize (or minimize) some objective function, like the score obtained. Traditionally, this optimization is done using *gradient descent* (or related algorithms) - if our objective function is differentiable wrt to the parameters, and perhaps more importantly, the gradient is easy to compute, we update the parameters by travelling along the gradient(either ascending or descending, depending on if we want to maximize or minimize).
 
-![](https://i.imgur.com/RhYWI1I.png)
+![](graphics/gradEvo/gradient.png)
 
 <i><center>A blonde skateboarder hoping to reach Mariana Trench (global minimum)</center></i>
 
@@ -48,7 +48,7 @@ The gradient has the special property (indeed, this can be viewed as the definin
 \eta \cdot \nabla f(\theta) = \nabla_\eta f(\theta)
 \\]
 
-![](https://i.imgur.com/j7tOknK.png)
+![](graphics/gradEvo/directinonalDerivative.png)
 
 
 Therefore, if we know the directional derivative along some vector, we know the component of the gradient along that direction. This allows us to reconstruct some part of the gradient. If we knew the component along \\(n\\) such linearly independent directions, we will be able to reconstruct the gradient precisely; however, this is practically very expensive, as \\(n\\) can be very large. So, we compute some \\(d\\) directional derivatives (which, remember, we can do using function calls), and then get an approximation of the gradient.
@@ -64,14 +64,14 @@ As a proof of concept, consider a standard test function for optimization functi
 
 | Maximization problem: | Minimization problem: |
 | :---: | :---: |
-| ![](https://i.imgur.com/2Woay2K.png)| ![](https://i.imgur.com/rvWYxQh.png)|
+| ![](graphics/gradEvo/results_grad_ascent_rastrigin.png)| ![](graphics/gradEvo/results_rastrigin.png)|
 
 Next we considered some OpenAI environments. We tried lander and the Bipedal Walker. 
 
 | Gradient evolution: | Normal ES: |
 | :---: | :---: |
-| ![](https://i.imgur.com/E4Gstz1.gif)| ![](https://i.imgur.com/TBllf3n.gif)|
-| ![](https://i.imgur.com/pF9RpaY.gif)| ![](https://i.imgur.com/1jIBYia.gif)|
+| ![](graphics/gradEvo/walker_ours.gif)| ![](graphics/gradEvo/walker_random.gif)|
+| ![](graphics/gradEvo/lander_ours.gif)| ![](graphics/gradEvo/lander_random.gif)|
 
 *<center>Bipedal Walker and Lunar Lander results after 80 iterations</center>*
 
@@ -81,7 +81,7 @@ The code and results are available [here](https://github.com/kharyal/gradient-ev
 
 The major advantage of Gradient Evolution over classical RL techniques is its highly parallizable nature and search space exploration. Since we don't need any sort of backpropagation, the neural network implementation reduces to a buch of matrix multiplications. unlike other RL algorithms that try to model the **value function** of the environment, this algorithm treats the reward function as a black box (and therefore falls under the category of **blackbox optimization**). Moreover, unlike the classical evolutionary algorithms, gradient evolution does not have entirely random mutations. 
 
-![](https://i.imgur.com/CX0zxdK.png)
+![](graphics/gradEvo/gradientButStuck.png)
 *<center>Stuck in the local minimum</center>*
 
 However, the algorithm also has a few major drawbacks. As with any gradient-based algorithm, the evolution might get stuck in local optimums, where the gradient becomes very small. There are a few ways to get around this problem, but it nevertheless remains a nuisance. Also, many functions might actually be very ill-behaved where gradient might not give a very good idea for how to explore. For example, the function might consist of largely flat terrain, with little curvature, and large values only at certain points. In such a case, computing gradients would not be very worthwhile, and simple evolutionary strategies might be better. 
