@@ -37,7 +37,7 @@ As such, the RANSAC algorithm is quite simple. We iteratively sample random samp
 
 For example, in the case of line fitting, we pick two random points from the sample space, try to fit a line on to them. We call the points having distance \\(< \epsilon \\) from the fitted line inliers. We do this for \\(N\\) iterations and pick the line with the maximum number of inliers.
 
-![](http://www.visual-experiments.com/blog/wp-content/uploads/2012/04/ransac_line_fitting1.gif)
+![](graphics/RANSAC/ransac.gif)
 
 <center><i>RANSAC in working. Source: </i><a href="http://www.visual-experiments.com/tag/ransac/"><i>visual-experiments.com</i></a></center>
 
