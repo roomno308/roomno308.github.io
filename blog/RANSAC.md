@@ -24,7 +24,7 @@ As you might have noticed already, there are some obvious flaws in this system. 
 
 Apart from these minor flaws, there is a major flaw in the system. A temporary ruler's main objective is to put a 4-month effort to sway the judgment day voting to his favour. This can be done in various ways, one of which is pleasing people with your work. Another way of achieving this might be committing mass murder of the people who don't support you before the judgement day arrives.
 
-Because of these flaws and the potential risk of civil wars every 4-months, the system is discarded. The statisticians feel that there is more to it; they believe that there is a takeaway message. This system would work if humans are not allowed to commit mass murder (or if the sample is not changing), i.e. the population from which the person is selected to become a temporary ruler is the same as the population voting on the judgement day. These are the conditions that datapoints usually satisfy.
+Because of these flaws and the potential risk of civil wars every 4-months, the system is discarded. But, the statisticians feel that there is more to it; they believe that there is a takeaway message. This system would work if humans are not allowed to commit mass murder (or if the sample is not changing), i.e. the population from which the person is selected to become a temporary ruler is the same as the population voting on the judgement day. These are the conditions that datapoints usually satisfy.
 
 ## RANSAC, Finally!!
 
