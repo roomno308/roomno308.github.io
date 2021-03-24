@@ -76,3 +76,5 @@ RANSAC is primarily used to discard outliers from a set of datapoints that are e
 Epipolar geometry and Computer Vision have huge applicability in modern world. Given enough time, we would like to talk more about these in the future. We suggest reading the book *Multiple View Geometry in Computer Vision* to expand one's knowledge about these topics.
 
 In future, we might also talk about why humans fight wars, would they ever stop and what is AI's role to play in it.
+
+*For any issues, suggestions, or questions, reach out to us at* roomnumber308@gmail.com.
