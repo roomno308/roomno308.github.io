@@ -6,7 +6,7 @@ author: 308
 
 ## The voting system
 
-In the year 2999 in alternate reality, when everyone is fed up with the imperial governments, a new form of government is proposed. With the imperial government, most of the problems arise due to the incompetency of the ruler, who is selected by the previous king. The people who this new king would rule over have no say in the selection process. 
+In the year 2999 in alternate reality, when everyone is fed up with the imperial governments, a new form of government is proposed. With the imperial government, most of the problems arise due to the incompetency of the ruler, who is selected by the previous king. The people, who this new king would rule over, have no say in the selection process. 
 
 To remove this paradox, mathematicians propose a new form of government called **Consensus Government**. The main idea behind this consensus government would be that people would choose their own ruler.
 
