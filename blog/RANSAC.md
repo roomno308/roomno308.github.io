@@ -55,7 +55,7 @@ RANSAC will converge in
 
 steps. Here, \\(p \\) is the probability with which we want our algorithm to give correct output, \\(e \\) is the probability of a data point being outlier and \\(s\\) is the size of our sample (for eg, 2 in the case of line fitting).
 
-Assuming that the algorithm fits the mathematical model only if at least one of the \\(N\\) samples don't have any outliers. Therefore, we want the probability to have at least one outlier free sample in \\(N\\) iterations to be greater than \\(p\\). In other words, the probability of having at least one outlier in all of the samples to be less than \\((1-p)\\).
+Assuming that the algorithm fits the mathematical model only if at least one of the \\(N\\) samples is outlier free. Therefore, we want the probability to have at least one outlier free sample in \\(N\\) iterations to be greater than \\(p\\). In other words, the probability of having at least one outlier in all of the samples to be less than \\((1-p)\\).
 
 Now, if \\(e\\) is the probability of a data point being outlier, \\((1-e)\\) is the probability of it being an inlier. Then, \\((1-e)^s\\) becomes the probability of all the points in a sample being inliers. \\((1-(1-e)^s)\\) is the probability of having at least one outlier in the sample. And, \\((1-(1-e)^s)^N\\) extends this idea to all the samples in \\(N\\) iterations *i.e.* at least one data point in all samples is an outlier.
 
