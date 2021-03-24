@@ -4,4 +4,9 @@ title: Blogs
 author: 308
 ---
 
-- [Gradient Evolution](gradEvo.md)
+<ol>
+
+<li> <a href = "RANSAC.md"> RANSAC </a> </li>
+<li> <a href = "gradEvo.md"> Gradient Evolution </a> </li>
+
+</ol>
