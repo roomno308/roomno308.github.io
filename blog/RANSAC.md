@@ -39,7 +39,7 @@ For example, in the case of line fitting, we pick two random points from the sam
 
 ![](https://lh3.googleusercontent.com/proxy/zHRkWxBbleexFl6gfUvPg0t-3NX4DgEeQPER3ALTLBHbeQihR4pOrUbsX4i7TkFrhs-vdoxylxN1QAO_mrEx9DZhH1G_zI0gGViAXj786sE8i3B_EFzDvCfFJZa62EoJgiqYj8waq-qd-i7Gz2-rq0kE)
 
-<center><i>RANSAC in working. Source: </i><a href="http://www.visual-experiments.com/tag/ransac/"><i>visual-experiments.com</a></i></center>
+<center><i>RANSAC in working. Source: <a href="http://www.visual-experiments.com/tag/ransac/"><i>visual-experiments.com</i></a></center>
 
 <br>
 
