@@ -41,7 +41,6 @@ For example, in the case of line fitting, we pick two random points from the sam
 
 <center><i>RANSAC in working. Source: </i><a href="http://www.visual-experiments.com/tag/ransac/"><i>visual-experiments.com</i></a></center>
 
-<br>
 
 The above gif shows RANSAC in working. In each iteration, 2 points are chosen at random and a *blue line* is fitted. Blue points are the inliers for the blue line and the red ones are the outliers. The green line shows the best line (the line with most inliers) till that iteration.
 
@@ -65,3 +64,15 @@ Therefore,
 \\[(1-(1-e)^s)^N \ge 1-p\\]
 
 \\[\implies N \ge \frac{log(1-p)}{log(1-(1-e)^s)} \\]
+
+## Why RANSAC?
+
+While reading this, the question that might have come to your mind is why should one use RANSAC? There clearly are many better methods to perform line fitting like Linear Regression etc., then what makes RANSAC different and what is its application?
+
+RANSAC is primarily used to discard outliers from a set of datapoints that are expected to adhere to a mathematical model and find the parameters to the model that fit the inliers best. Typical applications of RANSAC can be found in the [Fudamental Matrix](https://en.wikipedia.org/wiki/Fundamental_matrix_(computer_vision)#:~:text=The%20fundamental%20matrix%20is%20a%20relationship%20between%20any%20two%20images,can%20occur%20in%20both%20images.) / [Homography](https://en.wikipedia.org/wiki/Homography) computation in Epipolar geometry (Things that can't be computed using other methods like regression).
+
+## Final Thoughts
+
+Epipolar geometry and Computer Vision have huge applicability in modern world. Given enough time, we would like to talk more about these in the future. We suggest reading the book *Multiple View Geometry in Computer Vision* to expand one's knowledge about these topics.
+
+In future, we might also talk about why humans fight wars, would they ever stop and what is AI's role to play in it.
