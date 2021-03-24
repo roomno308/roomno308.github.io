@@ -6,7 +6,7 @@ author: 308
 
 <ol>
 
-<li> <a href = "RANSAC.md"> RANSAC </a> </li>
-<li> <a href = "gradEvo.md"> Gradient Evolution </a> </li>
+<li> <a href = "RANSAC.html"> RANSAC </a> </li>
+<li> <a href = "gradEvo.html"> Gradient Evolution </a> </li>
 
 </ol>
