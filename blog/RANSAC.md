@@ -32,6 +32,36 @@ Everything you have read till now might even be useless if you don't like to see
 
 RANdom SAmple Consensus, or RANSAC, is an iterative algorithm to estimate parameters of a mathematical model. For understanding the algorithm, we will take the task of fitting a line to given datapoints. We will also see that how RANSAC performs in the presence of outliers and do an analysis of its convergence.
 
+### The algorithm:
+As such, the RANSAC algorithm is quite simple. We iteratively sample random samples from our sample and try to fit our model to that data. We find the number of inliers with our fitted model. We pick the model which has maximum number of inliers.
+
+For example, in the case of line fitting, we pick two random points from the sample space, try to fit a line on to them. We call the points having distance \\(< \epsilon \\) from the fitted line inliers. We do this for \\(N\\) iterations and pick the line with the maximum number of inliers.
+
 ![](https://lh3.googleusercontent.com/proxy/zHRkWxBbleexFl6gfUvPg0t-3NX4DgEeQPER3ALTLBHbeQihR4pOrUbsX4i7TkFrhs-vdoxylxN1QAO_mrEx9DZhH1G_zI0gGViAXj786sE8i3B_EFzDvCfFJZa62EoJgiqYj8waq-qd-i7Gz2-rq0kE)
 
-<center>RANSAC in working. Source: <a href="http://www.visual-experiments.com/tag/ransac/">visual-experiments.com</a></center>
+<center><i>RANSAC in working. Source: </i><a href="http://www.visual-experiments.com/tag/ransac/"><i>visual-experiments.com</a></i></center>
+
+<br>
+
+The above gif shows RANSAC in working. In each iteration, 2 points are chosen at random and a *blue line* is fitted. Blue points are the inliers for the blue line and the red ones are the outliers. The green line shows the best line (the line with most inliers) till that iteration.
+
+As you might have noticed, RANSAC is a non deterministic algorithm which has some probability of success which increases with number of iterations.
+
+### Analysis of the convergence
+
+Before the analysis, let us report the result:
+RANSAC will converge in
+
+\\[N \ge \frac{log(1-p)}{log(1-(1-e)^s)} \\]
+
+steps. Here, \\(p \\) is the probability with which we want our algorithm to give correct output, \\(e \\) is the probability of a data point being outlier and \\(s\\) is the size of our sample (for eg, 2 in the case of line fitting).
+
+Assuming that the algorithm fits the mathematical model only if at least one of the \\(N\\) samples don't have any outliers. Therefore, we want the probability to have at least one outlier free sample in \\(N\\) iterations to be greater than \\(p\\). In other words, the probability of having at least one outlier in all of the samples to be less than \\((1-p)\\).
+
+Now, if \\(e\\) is the probability of a data point being outlier, \\((1-e)\\) is the probability of it being an inlier. Then, \\((1-e)^s\\) becomes the probability of all the points in a sample being inliers. \\((1-(1-e)^s)\\) is the probability of having at least one outlier in the sample. And, \\((1-(1-e)^s)^N\\) extends this idea to all the samples in \\(N\\) iterations *i.e.* at least one data point in all samples is an outlier.
+
+Therefore,
+
+\\[(1-(1-e)^s)^N \ge 1-p\\]
+
+\\[\implies N \ge \frac{log(1-p)}{log(1-(1-e)^s)} \\]
