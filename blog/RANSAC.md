@@ -51,7 +51,7 @@ As you might have noticed, RANSAC is a non deterministic algorithm which has som
 Before the analysis, let us report the result:
 RANSAC will converge in
 
-\\[N \ge \frac{log(1-p)}{log(1-(1-e)^s)} \\]
+\\[N \le \frac{log(1-p)}{log(1-(1-e)^s)} \\]
 
 steps. Here, \\(p \\) is the probability with which we want our algorithm to give correct output, \\(e \\) is the probability of a data point being outlier and \\(s\\) is the size of our sample (for eg, 2 in the case of line fitting).
 
@@ -61,9 +61,9 @@ Now, if \\(e\\) is the probability of a data point being outlier, \\((1-e)\\) is
 
 Therefore,
 
-\\[(1-(1-e)^s)^N \ge 1-p\\]
+\\[(1-(1-e)^s)^N \le 1-p\\]
 
-\\[\implies N \ge \frac{log(1-p)}{log(1-(1-e)^s)} \\]
+\\[\implies N \le \frac{log(1-p)}{log(1-(1-e)^s)} \\]
 
 ## Why RANSAC?
 
