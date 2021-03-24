@@ -37,7 +37,7 @@ As such, the RANSAC algorithm is quite simple. We iteratively sample random samp
 
 For example, in the case of line fitting, we pick two random points from the sample space, try to fit a line on to them. We call the points having distance \\(< \epsilon \\) from the fitted line inliers. We do this for \\(N\\) iterations and pick the line with the maximum number of inliers.
 
-![](https://lh3.googleusercontent.com/proxy/zHRkWxBbleexFl6gfUvPg0t-3NX4DgEeQPER3ALTLBHbeQihR4pOrUbsX4i7TkFrhs-vdoxylxN1QAO_mrEx9DZhH1G_zI0gGViAXj786sE8i3B_EFzDvCfFJZa62EoJgiqYj8waq-qd-i7Gz2-rq0kE)
+![](http://www.visual-experiments.com/blog/wp-content/uploads/2012/04/ransac_line_fitting1.gif)
 
 <center><i>RANSAC in working. Source: </i><a href="http://www.visual-experiments.com/tag/ransac/"><i>visual-experiments.com</i></a></center>
 
@@ -67,7 +67,7 @@ Therefore,
 
 ## Why RANSAC?
 
-While reading this, the question that might have come to your mind is why should one use RANSAC? There clearly are many better methods to perform line fitting like Linear Regression etc., then what makes RANSAC different and what is its application?
+While reading this, the question that might have come to your mind is why should one use RANSAC? There clearly are many better methods to perform line fitting, like Linear Regression etc., then what makes RANSAC different and what is its application?
 
 RANSAC is primarily used to discard outliers from a set of datapoints that are expected to adhere to a mathematical model and find the parameters to the model that fit the inliers best. Typical applications of RANSAC can be found in the [Fudamental Matrix](https://en.wikipedia.org/wiki/Fundamental_matrix_(computer_vision)#:~:text=The%20fundamental%20matrix%20is%20a%20relationship%20between%20any%20two%20images,can%20occur%20in%20both%20images.) / [Homography](https://en.wikipedia.org/wiki/Homography) computation in Epipolar geometry (Things that can't be computed using other methods like regression).
 
