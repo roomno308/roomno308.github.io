@@ -5,6 +5,8 @@
 - title: "Blog"
   url: /blog/blogs
 
+- title: "Random Ramblings"
+  url: /RandomRamblings/randomramblings
+
 - title: "featured posts"
   url: /featuredposts/fp
-
