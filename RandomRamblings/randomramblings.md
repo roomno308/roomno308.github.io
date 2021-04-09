@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blogs
+title: Random Ramblings
 author: 308
 ---
 
