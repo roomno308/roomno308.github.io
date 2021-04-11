@@ -68,13 +68,13 @@ This brings us to the famous mind-body problem. If each of our experience maps t
 
 <a id="4">[4]</a>  "Tesla's Self-Driving Autopilot Was Turned On In ... - WIRED." https://www.wired.com/story/tesla-autopilot-self-driving-crash-california/.
 
-<a id="5">[5]</a>  "Global car sales 2010-2020 | Statista." 05 Feb. 2021, https://www.statista.com/statistics/200002/international-car-sales-since-1990/.
+<a id="5">[5]</a>  "Global car sales 2010-2020 \| Statista." 05 Feb. 2021, https://www.statista.com/statistics/200002/international-car-sales-since-1990/.
 
 <a id="6">[6]</a>   "Road traffic injuries - World Health Organization." https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries.
 
-<a id="7">[7]</a>    "Every Tesla Accident Resulting in Death | Tesla Deaths." https://www.tesladeaths.com/.
+<a id="7">[7]</a>    "Every Tesla Accident Resulting in Death \| Tesla Deaths." https://www.tesladeaths.com/.
 
-<a id="8">[8]</a> "Tesla deliveries by quarter 2020 | Statista." 04 Jan. 2021, https://www.statista.com/statistics/502208/tesla-quarterly-vehicle-deliveries/.
+<a id="8">[8]</a> "Tesla deliveries by quarter 2020 \| Statista." 04 Jan. 2021, https://www.statista.com/statistics/502208/tesla-quarterly-vehicle-deliveries/.
 
 <a id="9">[9]</a>  "Fundamental Attribution Error: What It Is & How to Avoid It." https://online.hbs.edu/blog/post/the-fundamental-attribution-error?sf55808584=1.
 
