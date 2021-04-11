@@ -61,13 +61,23 @@ This brings us to the famous mind-body problem. If each of our experience maps t
 
 ### References
 <a id="1">[1]</a> "AlphaGo | DeepMind." https://deepmind.com/research/alphago/.
+
 <a id="2">[2]</a> "The Artificial Intelligence Revolution: Part 2 - Wait But Why." 27 Jan. 2015, https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-2.html.
+
 <a id="3">[3]</a>  "Tesla’s Autopilot keeps causing its cars to crash - Vox." 26 Feb. 2020, https://www.vox.com/recode/2020/2/26/21154502/tesla-autopilot-fatal-crashes.
+
 <a id="4">[4]</a>  "Tesla's Self-Driving Autopilot Was Turned On In ... - WIRED." https://www.wired.com/story/tesla-autopilot-self-driving-crash-california/.
+
 <a id="5">[5]</a>  "Global car sales 2010-2020 | Statista." 05 Feb. 2021, https://www.statista.com/statistics/200002/international-car-sales-since-1990/.
+
 <a id="6">[6]</a>   "Road traffic injuries - World Health Organization." https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries.
+
 <a id="7">[7]</a>    "Every Tesla Accident Resulting in Death | Tesla Deaths." https://www.tesladeaths.com/.
+
 <a id="8">[8]</a> "Tesla deliveries by quarter 2020 | Statista." 04 Jan. 2021, https://www.statista.com/statistics/502208/tesla-quarterly-vehicle-deliveries/.
+
 <a id="9">[9]</a>  "Fundamental Attribution Error: What It Is & How to Avoid It." https://online.hbs.edu/blog/post/the-fundamental-attribution-error?sf55808584=1.
+
 <a id="10">[10]</a>  "Evolution: Extinction: A Modern Mass Extinction?." https://www.pbs.org/wgbh/evolution/extinction/massext/statement_03.html.
+
 <a id="11">[11]</a>  "The Artificial Intelligence Revolution: Part 1 - Wait But Why." 22 Jan. 2015, https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html.
