@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Image of Vanishing Point and Rotation Matrix
+title: Rotation Matrix and Image of Vanishing Point 
 author: 308
 ---
 
