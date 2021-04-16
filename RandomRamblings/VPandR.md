@@ -13,7 +13,7 @@ Where \\(p\\) is the point in image co-ordingates \\([u, v,1]^T\\), \\(K\\) is t
 
 Now, if we put a vanishing point (say, vanishing point corresponding to \\(\hat{x}\\)) in place of \\(X\\) in the camera projection equation:
 
-\\[v_\hat{x} = K[R \; t]\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}\\]
+\\[v_\hat{x} = K[R \; t][1 \\ 0 \\ 0 \\ 0]^T \\]
 
 where \\(v_\hat{x}\\) is the image of the vanishing point.
 
