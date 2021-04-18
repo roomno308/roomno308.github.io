@@ -9,7 +9,7 @@ We know that North Star was used by sailors to navigate through the seas. North 
 We know that the camera projection equation looks like:
 \\[p = K[R \; t]X\\]
 
-Where \\(p\\) is the point in image co-ordingates \\([u, v,1]^T\\), \\(K\\) is the camera caliberation matrix, \\(R\\) and \\(T\\) are the rotation and translation respectively, and \\(X\\) is the poin in world co-ordinate \\([x,y,z,d]^T\\) (in homogeneous coordenates) of which image is taken.
+Where \\(p\\) is the point in image co-ordingates \\([u, v,1]^T\\), \\(K\\) is the camera caliberation matrix, \\(R\\) and \\(T\\) are the rotation and translation respectively, and \\(X\\) is the point in world co-ordinate \\([x,y,z,d]^T\\) (in homogeneous coordenates) of which image is taken.
 
 Now, if we put a vanishing point (say, vanishing point corresponding to \\(\hat{x}\\)) in place of \\(X\\) in the camera projection equation:
 
