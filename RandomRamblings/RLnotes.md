@@ -11,7 +11,7 @@ Discussions on Reinforcement Learning based on [RL lecture series](https://www.y
 #### Action Value
 For a single state environment, action value is defined as the expected reward recieved for performing the action. Formally,
 
-\\[q(a) = \mathbb{E}(R_t|A_t = a)\\]
+\\[q(a) = \mathbb{E}(R_t \mid A_t = a)\\]
 
 Therefore, the sample average will become:
 
@@ -22,3 +22,4 @@ Where, \\(\mathcal{I}\\) works as a delta function giving 1 if \\(A_n = a\\), el
 #### Why is exploration important?
 
 ![](https://i.imgur.com/CfFOH5p.png)
+
