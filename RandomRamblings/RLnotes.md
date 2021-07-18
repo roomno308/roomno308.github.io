@@ -35,5 +35,10 @@ Obviously, the optimal strategy here is to spam the black lever. But, let's say 
 
 \\[Q_2(Black\ lever) = -1\\] \\[Q_2(White\ lever) = 1\\]
 
+![](https://i.imgur.com/h75zyio.png)
 
+Since the sample value of the white lever is higher, it keeps on choosing the white lever again and again and keeps getting shocked again and again. Since the sample value of black lever is -1, the sample value of the white lever will never go below it, and hence, the greedy mouse will never be able to select the "optimal" black lever.
 
+So what went wrong here? We knew that the sample value of white lever is greater than that of the black lever, but since that value came from one sample of each action, we weren'e very confident if the sample value matches the actual action value...
+
+In order to gain confidence in some action, exploration is required along with exploitation.
