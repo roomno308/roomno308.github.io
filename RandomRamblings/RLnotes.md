@@ -41,4 +41,4 @@ Since the sample value of the white lever is higher, it keeps on choosing the wh
 
 So what went wrong here? We knew that the sample value of white lever is greater than that of the black lever, but since that value came from one sample of each action, we weren'e very confident if the sample value matches the actual action value...
 
-In order to gain confidence in some action, exploration is required along with exploitation.
+In order to gain **confidence** in some action, exploration is required along with exploitation.
