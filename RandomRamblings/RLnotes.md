@@ -3,7 +3,6 @@ layout: post
 title: RL Notes 
 author: Chaitanya, Tanmay, Yashas
 ---
-
 Discussions on Reinforcement Learning based on [RL lecture series](https://www.youtube.com/watch?v=ISk80iLhdfU&list=PLqYmG7hTraZBKeNJ-JE_eyJHZ7XgBoAyb)
 
 ## Lecture 2
@@ -49,10 +48,24 @@ for trading off between exploration and exploitation based on our confidence of 
 
 **Optimal Value** is defined as the maximum true action value among all the actions. Formally,
 
-\\[v_* = \underset{a \in \mathcal{A}}{\operatorname{max}} q(a) = \underset{a \in \mathcal{A}}{\operatorname{max}} \mathbb{E}(R_t \mid A_t = a)\\]
+\\[v_* = \underset{a \in \mathcal{A}}{\operatorname{max}} \: q(a) = \underset{a \in \mathcal{A}}{\operatorname{max}} \: \mathbb{E}(R_t \mid A_t = a)\\]
 
 **Regret** for a step is defined as the opportuinity loss in that step, i.e. the difference between the optimal value and value of the action performed. Therefore, total regret till time \\(t\\) becomes the sum of all step regrets,
 
 \\[L_t = \sum_{i=1}^{t}(v_* - q(a_i))\\]
 
-*Note that an agent doesn't know the true value of any action and therefore the optimal value. Hence, it can never know the total regret.*
+**Action regret** of a particular action is the difference between the optimal value and value of the action,
+\\[\Delta_a = v_* - q(a)\\]
+
+Therefore, the total regret becomes,
+\\[L_t = \sum_{a \in \mathcal{A}} N(a)\Delta_a\\]
+
+Where \\(N(a)\\) is the number of times action \\(a\\) is performed.
+
+*Note that an agent doesn't know the true value of any action and therefore the optimal value. Hence, it can never know the total regret. It is just used for analysis of the algorithms, for example, the greedy policy has linear regret in the number of steps.*
+
+#### \\(\epsilon\\)-greedy policy
+
+One way to tradeoff between exploration and exploitation is to perform actions according to an \\(\epsilon\\)-greedy policy, i.e., perform the greedy (learnt) action with probability \\(1-\epsilon\\) and random action with probability \\(\epsilon\\).
+
+But once you have explored enough, you won't really need a random action (since the learnt action values will tend to the true action values).Therefore, in practice, the value of \\(\epsilon\\) is reduced as the number of steps grow.
