@@ -1,7 +1,7 @@
 ---
 layout: post
 title: RL Notes 
-author: Yashas, Tanmay, Chaitanya
+author: Chaitanya, Tanmay, Yashas
 ---
 
 Discussions on Reinforcement Learning based on [RL lecture series](https://www.youtube.com/watch?v=ISk80iLhdfU&list=PLqYmG7hTraZBKeNJ-JE_eyJHZ7XgBoAyb)
@@ -39,6 +39,20 @@ Obviously, the optimal strategy here is to spam the black lever. But, let's say 
 
 Since the sample value of the white lever is higher, it keeps on choosing the white lever again and again and keeps getting shocked again and again. Since the sample value of black lever is -1, the sample value of the white lever will never go below it, and hence, the greedy mouse will never be able to select the "optimal" black lever.
 
-So what went wrong here? We knew that the sample value of white lever is greater than that of the black lever, but since that value came from one sample of each action, we weren'e very confident if the sample value matches the actual action value...
+So what went wrong here? We knew that the sample value of white lever is greater than that of the black lever, but since that value came from one sample of each action, we weren't very confident if the sample value matches the actual action value...
 
 In order to gain **confidence** in some action, exploration is required along with exploitation.
+
+### Trading off exploration and exploitation
+
+for trading off between exploration and exploitation based on our confidence of an action, we define a few terms:
+
+**Optimal Value** is defined as the maximum true action value among all the actions. Formally,
+
+\\[v_* = \underset{a \in \mathcal{A}}{\operatorname{max}} q(a) = \underset{a \in \mathcal{A}}{\operatorname{max}} \mathbb{E}(R_t \mid A_t = a)\\]
+
+**Regret** for a step is defined as the opportuinity loss in that step, i.e. the difference between the optimal value and value of the action performed. Therefore, total regret till time \\(t\\) becomes the sum of all step regrets,
+
+\\[L_t = \sum_{i=1}^{t}(v_* - q(a_i))\\]
+
+*Note that an agent doesn't know the true value of any action and therefore the optimal value. Hence, it can never know the total regret.*
