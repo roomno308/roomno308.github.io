@@ -10,7 +10,7 @@ Problem: shufle a deck of cards such that the final permutation is uniformly dis
 
 Method:
 
-Explaination:
+Explanation:
 
 Relation to MCMC (MC, MC)
 
