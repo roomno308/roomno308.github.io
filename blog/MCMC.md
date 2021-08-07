@@ -19,8 +19,6 @@ MCMC (Properties, Mixing time etc.)
 Deadline : 15th Aug 2021
  -->
 
-# Markov Chain Monte Carlo (An Introduction)
-
 <!-- Make this paragraph better -->
 Suppose you are playing Blackjack with your friends, and you are asked to shuffle the deck of cards. You are socially awkward, and as such, do not want there to be allegations of misconduct on your behalf. You start overthinking and waste a lot of time thinking about ensuring a "fair" shuffle, and everyone thinks you are weird.
 
@@ -59,6 +57,8 @@ Given a Markov chain, we can create a matrix known as the transition matrix \\(\
 
 \\[ 
 \mathbf{v}^1_i = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. moving to i from j})\\
+\\]
+\\[
 = \sum_{j \in \Omega}\mathbf{v}^0_{j}\mathbf{P}_{ij} 
 \\]
 
