@@ -6,6 +6,6 @@ excerpt: "About Me..."
 # Hello
 
 \\[\begin{bmatrix} 
-1 & 2 \\\\ 
-3 & 4
+\frac{1}{3} & \frac{1}{3} & 0 & 0 & \frac{1}{3} & 0 \\\\ 
+\frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 & \frac{1}{3}
 \end{bmatrix}\\]
