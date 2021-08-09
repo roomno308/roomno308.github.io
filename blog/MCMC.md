@@ -111,6 +111,8 @@ It is easy to verify that this is true for the shuffling chain. Each vertex has 
 Let's label the topmost state "1", the next state going clockwise as "2" and so on...
 
 <img src="https://render.githubusercontent.com/render/math?math=%5Cmathbf%7BP%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%0A%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%5C%5C%0A%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%5C%5C%0A0%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A0%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A0%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%0A%5Cend%7Bbmatrix%7D">
+
+
 \\[ \left(\begin{matrix}
   1 & 0 \\
   0 & 1
