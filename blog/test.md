@@ -5,4 +5,4 @@ excerpt: "About Me..."
 
 # Hello
 
-\\[\begin{bmatrix} 1 \end{bmatrix}\\]
+\\[\begin{bmatrix} 1 & 2 \end{bmatrix}\\]
