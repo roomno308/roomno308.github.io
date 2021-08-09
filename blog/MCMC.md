@@ -112,10 +112,10 @@ Let's label the topmost state "1", the next state going clockwise as "2" and so 
 
 <img src="https://render.githubusercontent.com/render/math?math=%5Cmathbf%7BP%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%0A%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%5C%5C%0A%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%5C%5C%0A0%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A0%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A0%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%0A%5Cend%7Bbmatrix%7D">
 \\[ \mathbf{P} = \begin{bmatrix}
-\frac{1}{3} & \frac{1}{3} & 0 & 0 & \frac{1}{3} & 0 \\
-\frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 & \frac{1}{3} \\
-\frac{1}{3} & 0 & \frac{1}{3} & 0 & 0 & \frac{1}{3} \\
-0 & \frac{1}{3} & 0 & \frac{1}{3} & \frac{1}{3} & 0 \\
-0 & 0 & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\
+\frac{1}{3} & \frac{1}{3} & 0 & 0 & \frac{1}{3} & 0 \
+\frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 & \frac{1}{3} \
+\frac{1}{3} & 0 & \frac{1}{3} & 0 & 0 & \frac{1}{3} \
+0 & \frac{1}{3} & 0 & \frac{1}{3} & \frac{1}{3} & 0 \
+0 & 0 & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \
 0 & 0 & \frac{1}{3} & \frac{1}{3} & 0 & \frac{1}{3}
 \end{bmatrix}\\]
