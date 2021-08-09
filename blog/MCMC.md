@@ -114,5 +114,5 @@ Let's label the topmost state "1", the next state going clockwise as "2" and so 
 
 
 \\[\begin{array}
-  1 & 0
+  1
 \end{array}\\]
