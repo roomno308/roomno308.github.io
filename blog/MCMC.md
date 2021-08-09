@@ -56,7 +56,9 @@ In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each ed
 Given a Markov chain, we can create a matrix known as the transition matrix \\(\mathbf{P}\\) (it will look something like [this](#1) for the above graph), where \\( {\mathbf{P}_{ij}} \\) represents the probability of moving from state \\(j\\) to state \\(i\\). Let the intital probability distribution over the states be \\(\mathbf{v}^0\\) i.e \\(\mathbf{v}_i^0\\) represents the initial probability of being at state  \\(i\\). We want to find the probability of being at state \\(i\\) after one time step.
 
 \\[ 
-\mathbf{v}^1_i = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving to i from j})\\
+\mathbf{v}^1_{i} = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving to i from j})
+\\]
+\\[
 = \sum_{j \in \Omega}\mathbf{v}^0_{j}\mathbf{P}_{ij} 
 \\]
 
@@ -84,7 +86,7 @@ We will not go into detail to show when a steady state exists for a general Mark
 For the shuffling Markov chain, the uniform distribution has \\(\mathbf{v}_i = \frac{1}{n!}\\) for all states \\(i\\). If the uniform distribution is the steady state, then from the eigenvalue equation, we have, from the eigenvalue equation,
 
 \\[
-\mathbf{v}_i = \sum_{j \in \Omega} \mathbf{P}_{ij} \mathbf{v}_j 
+\mathbf{v}_{i} = \sum_{j \in \Omega} \mathbf{P}_{ij} \mathbf{v}_j 
 \\]
 
 \\[
@@ -108,11 +110,11 @@ It is easy to verify that this is true for the shuffling chain. Each vertex has 
 -  **<a id="1">Transition matrix for n=3 case</a>**:
 Let's label the topmost state "1", the next state going clockwise as "2" and so on...
 
-\\[ \mathbf{P} = \begin{bmatrix}
+<img src="https://render.githubusercontent.com/render/math?math=\mathbf{P} = \begin{bmatrix}
 \frac{1}{3} & \frac{1}{3} & 0 & 0 & \frac{1}{3} & 0 \\
 \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 & \frac{1}{3} \\
 \frac{1}{3} & 0 & \frac{1}{3} & 0 & 0 & \frac{1}{3} \\
 0 & \frac{1}{3} & 0 & \frac{1}{3} & \frac{1}{3} & 0 \\
 0 & 0 & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\
 0 & 0 & \frac{1}{3} & \frac{1}{3} & 0 & \frac{1}{3}
-\end{bmatrix}\\]
+\end{bmatrix}">
