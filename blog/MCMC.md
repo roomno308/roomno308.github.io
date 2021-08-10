@@ -45,7 +45,7 @@ Now, we consider the question of convergence and mixing - how can we be sure tha
 
 ## MCMC = MC + MC
 
-Intuitively, a Markov chain is just a random walk on a graph (here, we only consider discrete time, finite state Markov chains). It has 2 components - the state space \\(\Omega\\), and the transition probabilities. The transition probabilities only depend on the current state, not on the past states i.e it is memory-less ([*Markov property*](https://en.wikipedia.org/wiki/Markov_property)). We can imagine \\(\Omega\\) as the vertices of a graph, and the transition probabilities as weights of the edges.
+Intuitively, Markov chain is just a random walk on a graph (here, we only consider discrete time, finite state Markov chains). It has 2 components - the state space \\(\Omega\\), and the transition probabilities. The transition probabilities only depend on the current state, not on the past states i.e it is memory-less ([*Markov property*](https://en.wikipedia.org/wiki/Markov_property)). We can imagine \\(\Omega\\) as the vertices of a graph, and the transition probabilities as weights of the edges.
 
 In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each edge has weight \\(\frac{1}{n}\\). The full graph for \\(n = 3\\) is shown below. At each node, we can pick the topmost card and place it at three different places (this includes the possibility of placing the card again at the top, and thus justifies the need of self loop).
 
@@ -53,7 +53,7 @@ In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each ed
 *<center>Graph for case n=3</center>*
 
 
-Given a Markov chain, we can create a matrix known as the transition matrix \\(\mathbf{P}\\) (it will look something like [this](#1) for the above graph), where \\( {\mathbf{P}_{ij}} \\) represents the probability of moving from state \\(j\\) to state \\(i\\). Let the intital probability distribution over the states be \\(\mathbf{v}^0\\) i.e \\(\mathbf{v}_i^0\\) represents the initial probability of being at state  \\(i\\). We want to find the probability of being at state \\(i\\) after one time step.
+Given a Markov chain, we can create a matrix known as the transition matrix \\(\mathbf{P}\\) (it looks something like [this](#1) for the above graph), where \\( {\mathbf{P}_{ij}} \\) represents the probability of moving from state \\(j\\) to state \\(i\\). Let the intital probability distribution over the states be \\(\mathbf{v}^0\\) i.e \\(\mathbf{v}_i^0\\) represents the initial probability of being at state  \\(i\\). We want to find the probability of being at state \\(i\\) after one time step.
 
 \\[ 
 \mathbf{v}^1_{i} = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving to i from j})
@@ -85,9 +85,7 @@ We will not go into detail to show when a steady state exists for a general Mark
 
 For the shuffling Markov chain, the uniform distribution has \\(\mathbf{v}_i = \frac{1}{n!}\\) for all states \\(i\\). If the uniform distribution is the steady state, then from the eigenvalue equation, we have, from the eigenvalue equation,
 
-\\[
-\mathbf{v}_{i} = \sum_{j \in \Omega} \mathbf{P}_{ij} \mathbf{v}_j 
-\\]
+\\[ \mathbf{v}_{i} = \sum_{j \in \Omega} \mathbf{P}_{ij} \mathbf{v}_{j} \\]
 
 \\[
 \iff \frac{1}{n!} = \sum_{j \in \Omega} \mathbf{P}_{ij} \frac{1}{n!} 
@@ -104,6 +102,48 @@ It is easy to verify that this is true for the shuffling chain. Each vertex has 
 
 ### Mixing Time
 
+
+We have shown that our algorithm converges to a uniform distribution; now, we want to  guarantee fast convergence. The *mixing time* is the time \\(t\\) when the probability distribution \\(\mathbf{v}^t\\) reaches "close" to the steady state distribution \\(\pi\\). Since our process is probabilistic, we want to get a bound on the *expected mixing time*.
+
+To do this, we need to get some upper limit on the number of steps it takes to get to the uniform distribution, and then calculate the expected value of the number of steps. To do this, we first look at a seemingly distrinct problem.
+
+#### (P) Bound on Mixing Time
+
+Assume that, initially, the bottom-most card was \\(b\\), and after some \\(t\\) shuffles, it became the \\(3\\)rd card from the bottom. If the cards below \\(b\\) are \\(a_1\\) and \\(a_2\\), then the two permutations of \\(a_1\\) and \\(a_2\\) are equally likely (\\(\text{Pr}[(a_1,a_2)] = \text{Pr}[(a_2,a_1)] = 1 \cdot \frac{1}{2}\\) since the first card must be placed at the only available position below \\(b\\) and the next card can be placed in 1 of two positions below \\(b\\)). Similarly, if \\(b\\) is the \\(k\\)th card from the bottom after \\(t\\) shuffles, then each of the \\((k-1)!\\) permutations of the cards below \\(b\\) are equally likely. 
+
+Now, assume that after \\(T\\) shuffles, the bottom-most card \\(b\\) became the topmost card. Then, all permutations of (\\(n-1\\)) cards below it are equally likely. So, in the next step, when \\(b\\) is put back into the deck, the probability ditribution over all permutations of the cards becomes uniform. Thus, we reach the steady state \\(\pi\\). Therefore, if we have an estimate of the expected value of \\(T\\), we have a bound on the mixing time.
+
+#### (P) Estimating Mixing Time
+
+Let \\(T_k\\) be the number of steps needed to move the card at \\(k\\)th position from bottom to the \\((k+1)\\)th position from bottom. Then, if \\(\mathbb{E}[X]\\) represents the expected value of the random variable \\(X\\), 
+
+\\[
+T = \sum_{k=1}^n T_k \implies \mathbb{E}[T] = \sum_{k=1}^n \mathbb{E}[T_k]
+\\]
+
+To estimate \\(T_k\\), we can find the probability distribution for \\(T_k\\):
+
+\\[\text{Pr}[T_k = 1] = \frac{k}{n} \;\;\;\; (k \text{ positions below } b \text{ each with probability} \frac{1}{n})\\]
+
+
+\\[\text{Pr}[T_k = 2] = \frac{n-k}{n} \cdot \frac{k}{n} \;\;\;\; ( \text{first card above } b, \text{ second card below } b)\\]
+
+\\[\vdots\\]
+
+
+\\[\text{Pr}[T_k = t] = \left(\frac{n-k}{n}\right)^{t-1} \cdot \frac{k}{n} \;\;\;\; ( \text{first } t-1 \text{ cards above } b,\; t^{th}\text{ card below } b)\\]
+
+This is a commonly encountered probability distribution known as the geometric random variable, and the expected value for such a random variable turns out to be
+
+\\[
+\mathbb{E}[T_k] = \frac{n}{k}
+\\]
+
+Finally, we get an expression for expected value of \\(T\\):
+
+\\[
+\mathbb{E}[T] = n\sum_{k=1}^n \frac{1}{k} \approx n\log(n) 
+\\]
 
 
 ### Appendix
