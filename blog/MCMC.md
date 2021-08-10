@@ -47,7 +47,7 @@ Now, we consider the question of convergence and mixing - how can we be sure tha
 
 Intuitively, Markov chain is just a random walk on a graph (here, we only consider discrete time, finite state Markov chains). It has 2 components - the state space \\(\Omega\\), and the transition probabilities. The transition probabilities only depend on the current state, not on the past states i.e it is memory-less ([*Markov property*](https://en.wikipedia.org/wiki/Markov_property)). We can imagine \\(\Omega\\) as the vertices of a graph, and the transition probabilities as weights of the edges.
 
-In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each edge has weight \\(\frac{1}{n}\\). The full graph for \\(n = 3\\) is shown below. At each node, we can pick the topmost card and place it at three different places (this includes the possibility of placing the card again at the top, and thus justifies the need of self loop).
+In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each edge has weight \\(\frac{1}{n}\\). The full graph for \\(n = 3\\) is shown below. At each node, we can pick the topmost card and place it at one of the three available positions (this includes the possibility of placing the card again at the top, and thus justifies the need of self loop).
 
 ![](https://i.imgur.com/UADXVav.png)
 *<center>Graph for case n=3</center>*
@@ -81,7 +81,7 @@ At steady state, the probabilities of being at any state do not change with time
 
 The above equation is an *eigenvalue equation*, with eigenvalue 1. Thus, if the steady state exists, then it must necessarily be an eigenvector of the matrix \\(\mathbf{P}\\), with eigenvalue 1.  
 
-We will not go into detail to show when a steady state exists for a general Markov chain, or when it is unique, or when and why the distribution converges to it, since that would be a bit of a long detour. We will however look at our specific example of the shuffling Markov chain, and show that the uniform distribution is a steady state, and that the Markov chain eventually converges to it.
+We will not go into detail to show when a steady state exists for a general Markov chain, or when it is unique, or when and why the distribution converges to it, since that would be a bit of a long detour (to [ergodicity](#2)). We will however look at our specific example of the shuffling Markov chain, and show that the uniform distribution is a steady state, and that the Markov chain eventually converges to it.
 
 For the shuffling Markov chain, the uniform distribution has \\(\mathbf{v}_i = \frac{1}{n!}\\) for all states \\(i\\). If the uniform distribution is the steady state, then from the eigenvalue equation, we have, from the eigenvalue equation,
 
@@ -150,6 +150,7 @@ Finally, we get an expression for expected value of \\(T\\):
 -  **<a id="1">Transition matrix for n=3 case</a>**:
 Let's label the topmost state "1", the next state going clockwise as "2" and so on...
 
+
 <!-- <img src="https://render.githubusercontent.com/render/math?math=%5Cmathbf%7BP%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%0A%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%5C%5C%0A%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%5C%5C%0A0%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A0%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A0%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%0A%5Cend%7Bbmatrix%7D"> -->
 
 
@@ -162,3 +163,9 @@ Let's label the topmost state "1", the next state going clockwise as "2" and so 
 0 & 0 & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\\\ 
 0 & 0 & \frac{1}{3} & \frac{1}{3} & 0 & \frac{1}{3}
 \end{bmatrix}\\]
+
+-  **<a id="2">Ergodicity</a>**: It can be proven that a markov chain converges to a unique stationary distribution if it is ergodic.For a chain to be called ergodic, it should satisfy the following conditions.
+    -  **Aperiodic:** We would say that a markov chain is aperiodic when its not... periodic! Let \\(p_{ii}^t\\) be the probability of returning to the state \\(i\\) at the \\(t^{th}\\) step after starting from \\(i\\). A state is said to be **periodic** with period \\(T \in \{2,3,4,...\} \\) iff:
+        -  \\(P_{ii}^t \neq 0 \;\; \forall \; t \in \{0,T,2T,...\}\\) and,
+        -  \\(P_{ii}^t = 0 \;\; \forall \; t \not\in \{0,T,2T,...\}\\) 
+    -  **Strongly connected:** A chain is strongly connected iff a path \\((x,y) \; \exists \; \forall x,y \in \Omega\\).
