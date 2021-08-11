@@ -81,7 +81,7 @@ At steady state, the probabilities of being at any state do not change with time
 
 The above equation is an *eigenvalue equation*, with eigenvalue 1. Thus, if the steady state exists, then it must necessarily be an eigenvector of the matrix \\(\mathbf{P}\\), with eigenvalue 1.  
 
-We will not go into detail to show when a steady state exists for a general Markov chain, or when it is unique, or when and why the distribution converges to it, since that would be a bit of a long detour (to [ergodicity](#2)). We will however look at our specific example of the shuffling Markov chain, and show that the uniform distribution is a steady state, and that the Markov chain eventually converges to it.
+We will not go into detail to show when a steady state exists for a general Markov chain, or when it is unique, or when and why the distribution converges to it, since that would be a bit of a long detour [\[2\]](#2). We will however look at our specific example of the shuffling Markov chain, and show that the uniform distribution is a steady state, and that the Markov chain eventually converges to it.
 
 For the shuffling Markov chain, the uniform distribution has \\(\mathbf{v}_i = \frac{1}{n!}\\) for all states \\(i\\). If the uniform distribution is the steady state, then from the eigenvalue equation, we have, from the eigenvalue equation,
 
@@ -107,13 +107,13 @@ We have shown that our algorithm converges to a uniform distribution; now, we wa
 
 To do this, we need to get some upper limit on the number of steps it takes to get to the uniform distribution, and then calculate the expected value of the number of steps. To do this, we first look at a seemingly distrinct problem.
 
-#### (P) Bound on Mixing Time
+####  Bound on Mixing Time
 
 Assume that, initially, the bottom-most card was \\(b\\), and after some \\(t\\) shuffles, it became the \\(3\\)rd card from the bottom. If the cards below \\(b\\) are \\(a_1\\) and \\(a_2\\), then the two permutations of \\(a_1\\) and \\(a_2\\) are equally likely (\\(\text{Pr}[(a_1,a_2)] = \text{Pr}[(a_2,a_1)] = 1 \cdot \frac{1}{2}\\) since the first card must be placed at the only available position below \\(b\\) and the next card can be placed in 1 of two positions below \\(b\\)). Similarly, if \\(b\\) is the \\(k\\)th card from the bottom after \\(t\\) shuffles, then each of the \\((k-1)!\\) permutations of the cards below \\(b\\) are equally likely. 
 
 Now, assume that after \\(T\\) shuffles, the bottom-most card \\(b\\) became the topmost card. Then, all permutations of (\\(n-1\\)) cards below it are equally likely. So, in the next step, when \\(b\\) is put back into the deck, the probability ditribution over all permutations of the cards becomes uniform. Thus, we reach the steady state \\(\pi\\). Therefore, if we have an estimate of the expected value of \\(T\\), we have a bound on the mixing time.
 
-#### (P) Estimating Mixing Time
+#### Estimating Mixing Time
 
 Let \\(T_k\\) be the number of steps needed to move the card at \\(k\\)th position from bottom to the \\((k+1)\\)th position from bottom. Then, if \\(\mathbb{E}[X]\\) represents the expected value of the random variable \\(X\\), 
 
@@ -133,7 +133,7 @@ To estimate \\(T_k\\), we can find the probability distribution for \\(T_k\\):
 
 \\[\text{Pr}[T_k = t] = \left(\frac{n-k}{n}\right)^{t-1} \cdot \frac{k}{n} \;\;\;\; ( \text{first } t-1 \text{ cards above } b,\; t^{th}\text{ card below } b)\\]
 
-This is a commonly encountered probability distribution known as the geometric random variable, and the expected value for such a random variable turns out to be
+This is a commonly encountered probability distribution known as the *geometric random variable*, and the expected value for such a random variable turns out to be
 
 \\[
 \mathbb{E}[T_k] = \frac{n}{k}
@@ -145,14 +145,29 @@ Finally, we get an expression for expected value of \\(T\\):
 \mathbb{E}[T] = n\sum_{k=1}^n \frac{1}{k} \approx n\log(n) 
 \\]
 
+The expected mixing time might be smaller than \\(T\\), since we might achieve uniform distribution before \\(b\\) comes to the top. So the above expression is only an upper bound.
 
-### Appendix
--  **<a id="1">Transition matrix for n=3 case</a>**:
+#### Lower Bound on Mixing Time
+The upper bound given above can also be shown to be a "tight" bound (*i.e.* we can show that for the given graph, it is mixing as fast as it can). We do this by showing a lower bound for the expected mixing time. 
+
+To do this, we use a simple idea. For any given graph, define the *diameter* to be the length of the longest path between any two vertices. It is obvious that the mixing time will always be at least as large as the diameter - it won't be able to reach all the nodes if we allow a lesser number of steps. 
+
+For the shuffling Markov chain, the diameter can be shown to be \\( \sim\frac{n\log(n)}{2}\\). The proof is left to the reader [\[3\]](#3).
+
+## Conclusion
+For a deck of 52 cards, this gives a mixing time of \\(\sim 300\\). Obviously, this would take a bit of time, and as such would probably not save you from the embarrassment. There are better methods which have faster mixing time, but are more difficult to analyze [\[4\]](#4). 
+
+The main idea of this post was to introduce MCMC, and how we can analyze Markov chains. MCMC is much larger than shuffling, and actually has a variety of uses. We did not focus heavily on the Monte Carlo part, but the actual applications heavily rely on it. It can be used in [image generation using Energy Based Models](https://sites.google.com/view/igebm), [computer graphics](http://www.cs.cornell.edu/projects/manifolds-sg12/manifolds-sg12.pdf), [Google's PageRank](https://www.math.wustl.edu/~feres/Math350Fall2012/Projects/mathproj16.pdf), [statistical physics](https://people.eecs.berkeley.edu/~sinclair/mcmc.pdf), and much more.
+
+
+The methods we have seen now only allow us to sample from the stationary distributions of given Markov chains. An important idea is to construct Markov chains with the stationary distribution of our choosing. An algorithm which allows us to do this is the Metropolis-Hastings Algorithm. Stay tuned for future posts related to MCMC.
+
+For any issues, suggestions, or questions, reach out to us at roomnumber308@gmail.com.
+
+
+## Appendix
+1.  **<a id="1">Transition matrix for n=3 case</a>**:
 Let's label the topmost state "1", the next state going clockwise as "2" and so on...
-
-
-<!-- <img src="https://render.githubusercontent.com/render/math?math=%5Cmathbf%7BP%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%0A%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%5C%5C%0A%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%5C%5C%0A0%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A0%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%5C%5C%0A0%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%20%5Cfrac%7B1%7D%7B3%7D%20%26%200%20%26%20%5Cfrac%7B1%7D%7B3%7D%0A%5Cend%7Bbmatrix%7D"> -->
-
 
 \\[ \mathbf{P} = 
 \begin{bmatrix}
@@ -164,8 +179,11 @@ Let's label the topmost state "1", the next state going clockwise as "2" and so 
 0 & 0 & \frac{1}{3} & \frac{1}{3} & 0 & \frac{1}{3}
 \end{bmatrix}\\]
 
--  **<a id="2">Ergodicity</a>**: It can be proven that a markov chain converges to a unique stationary distribution if it is ergodic.For a chain to be called ergodic, it should satisfy the following conditions.
+2.  **<a id="2">Ergodicity</a>**: It can be proven that a markov chain converges to a unique stationary distribution if it is ergodic. For a chain to be called ergodic, it should satisfy the following conditions.
     -  **Aperiodic:** We would say that a markov chain is aperiodic when its not... periodic! Let \\(p_{ii}^t\\) be the probability of returning to the state \\(i\\) at the \\(t^{th}\\) step after starting from \\(i\\). A state is said to be **periodic** with period \\(T \in \{2,3,4,...\} \\) iff:
         -  \\(P_{ii}^t \neq 0 \;\; \forall \; t \in \{0,T,2T,...\}\\) and,
         -  \\(P_{ii}^t = 0 \;\; \forall \; t \not\in \{0,T,2T,...\}\\) 
-    -  **Strongly connected:** A chain is strongly connected iff a path \\((x,y) \; \exists \; \forall x,y \in \Omega\\).
+    -  **Strongly connected:** A chain is strongly connected iff a path \\((x,y)\\) exists for all \\(x,y\\) in \\(\Omega\\).
+
+3.  **<a id="3">On lower bound of the mixing time</a>**: Intuitively, if we imagine the probabilities "spreading" from the starting node, then after \\(t\\) steps, it would have visited \\(\sim n^t\\) vertices since there are \\(n\\) outgoing edges from each vertex. At \\(t=\\) diameter, we would have \\(n^{2t} \approx n!\\).
+4.  [The Best (and Worst) Ways to Shuffle Cards - Numberphile](https://www.youtube.com/watch?v=AxJubaijQbI&t=1s)
