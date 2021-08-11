@@ -186,4 +186,4 @@ Let's label the topmost state "1", the next state going clockwise as "2" and so 
     -  **Strongly connected:** A chain is strongly connected iff a path \\((x,y)\\) exists for all \\(x,y\\) in \\(\Omega\\).
 
 3.  **<a id="3">On lower bound of the mixing time</a>**: Intuitively, if we imagine the probabilities "spreading" from the starting node, then after \\(t\\) steps, it would have visited \\(\sim n^t\\) vertices since there are \\(n\\) outgoing edges from each vertex. At \\(t=\\) diameter, we would have \\(n^{2t} \approx n!\\).
-4.  [**The Best (and Worst) Ways to Shuffle Cards - Numberphile**](https://www.youtube.com/watch?v=AxJubaijQbI&t=1s)
+4.  **[The Best (and Worst) Ways to Shuffle Cards - Numberphile](https://www.youtube.com/watch?v=AxJubaijQbI&t=1s)**
