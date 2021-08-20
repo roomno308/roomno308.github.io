@@ -55,9 +55,7 @@ In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each ed
 
 Given a Markov chain, we can create a matrix known as the transition matrix \\(\mathbf{P}\\) (it looks something like [this](#1) for the above graph), where \\( {\mathbf{P}_{ij}} \\) represents the probability of moving from state \\(j\\) to state \\(i\\). Let the intital probability distribution over the states be \\(\mathbf{v}^0\\) i.e \\(\mathbf{v}_i^0\\) represents the initial probability of being at state  \\(i\\). We want to find the probability of being at state \\(i\\) after one time step.
 
-\\[
-\mathbf{v}^1_{i} = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving from j to i})
-\\]
+\\[\mathbf{v_{i}}^1 = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving from j to i})\\]
 
 \\[= \sum_{j \in \Omega} \mathbf{v_{j}}^0 \mathbf{P_{ij}}\\]
 
