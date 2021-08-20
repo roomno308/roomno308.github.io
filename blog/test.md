@@ -8,5 +8,5 @@ excerpt: "About Me..."
 \\[v_{i}=\sum_{j \in \Omega} \mathbf{P_{ij}} v_{j}\\]
 
 
-\\[= \sum_{j \in \Omega}\textbf{v}^0_{j}\textbf{P}_{ij}\\]
+\\[= \sum_{j \in \Omega} \textbf{v}_{j}^0 \textbf{P}_{ij}\\]
  
