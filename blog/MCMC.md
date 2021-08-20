@@ -20,9 +20,9 @@ Deadline : 15th Aug 2021
  -->
 
 <!-- Make this paragraph better -->
-Suppose you are playing Blackjack with your friends, and you are asked to shuffle the deck of cards. You are socially awkward, and as such, do not want there to be allegations of misconduct on your behalf. You start overthinking and waste a lot of time thinking about ensuring a "fair" shuffle, and everyone thinks you are weird.
+Suppose you are playing a card game with your friends, and are asked to shuffle the deck of cards. After the game, one of your "friends" alleges that the shuffle you did was unfair, and provided an undue advantage to you.
 
-To avoid this potentially stressful situation, we present a procedure that you can follow. We also show how we can guarantee that it is a "ideal" way to shuffle, and in doing so, we shall introduce a powerful mathematical method for analyzing problems like this - the **Markov Chain Monte Carlo** (MCMC) method.
+To avoid such a situation in the future, we present a procedure that you can follow while shuffling. We also show how we can guarantee that it is an "ideal" way to shuffle, and in doing so, we shall introduce a powerful mathematical method for analyzing many such problems - the **Markov Chain Monte Carlo** (MCMC) method.
 
 ## The Problem
 
@@ -30,7 +30,7 @@ To formalize the problem, let us say that the deck consists of \\(n\\) cards num
 
 So what does it mean for a shuffle to be "ideal"? Preferably, we would want our shuffle to have the following properties:
 
-- **Uniform Convergence:** No one has any extra "knowledge" about the shuffle i.e. each of the \\(n!\\) permutations of the cards are equally likely. More formally, we want that the probability distribution of the shuffle is uniform over the set of all permutations. 
+- **Uniform Convergence:** No one has any extra "knowledge" about the shuffle i.e. each of the \\(n!\\) permutations of the cards are equally likely. It can also be viewed as this - given the topmost card, the next card is one of the remaining cards, all with equal probability (and so on). More formally, we want that the probability distribution of the shuffle is uniform over the set of all permutations. 
 <!-- - We would want the final permutation that the shuffle results in to be uniformly randomly selected from all the (\\(n!\\)) possible permutations of the cards. -->
 - **Fast:** We would want our shuffle to converge "fast". Note that "fast" here doesn't mean the speed at which your tiny fingers can shuffle the cards; instead, it means fast algorithmically, i.e. in the lowest possible number of moves.
 
@@ -39,25 +39,26 @@ So what does it mean for a shuffle to be "ideal"? Preferably, we would want our 
 There are a few well known methods of shuffling that satisfy the above properties. For the purpose of introducing MCMC, we choose one which is relatively simple, but is not optimal. The shuffling procedure is as follows:
 
 1. Pick the top-most card and randomly place it anywhere in the deck (with equal probability).
-2. Repeat step 1 "\\(k\\)" times (until your soul gives up).
+2. Repeat step 1 \\(T\\) times (until your soul gives up).
 
 Now, we consider the question of convergence and mixing - how can we be sure that the above procedure gives a good shuffle? How large should \\(k\\) be? This is where MCMC comes in.
 
 ## MCMC = MC + MC
 
-Intuitively, Markov chain is just a random walk on a graph (here, we only consider discrete time, finite state Markov chains). It has 2 components - the state space \\(\Omega\\), and the transition probabilities. The transition probabilities only depend on the current state, not on the past states i.e it is memory-less ([*Markov property*](https://en.wikipedia.org/wiki/Markov_property)). We can imagine \\(\Omega\\) as the vertices of a graph, and the transition probabilities as weights of the edges.
+Intuitively, Markov chain Monte Carlo is just a random walk on a graph (here, we only consider discrete time, finite state Markov chains), which helps us sample from a complex distribution (known as the stationary distribution). It has 2 components - the state space \\(\Omega\\), and the transition probabilities. The transition probabilities only depend on the current state, not on the past states i.e it is memory-less ([*Markov property*](https://en.wikipedia.org/wiki/Markov_property)). We can imagine \\(\Omega\\) as the vertices of a graph, and the transition probabilities as weights of the edges.
 
 In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each edge has weight \\(\frac{1}{n}\\). The full graph for \\(n = 3\\) is shown below. At each node, we can pick the topmost card and place it at one of the three available positions (this includes the possibility of placing the card again at the top, and thus justifies the need of self loop).
 
 ![](https://i.imgur.com/UADXVav.png)
-*<center>Graph for case n=3</center>*
+*<center>Graph for case n=3. Each edge has weight 1/3</center>*
 
 
 Given a Markov chain, we can create a matrix known as the transition matrix \\(\mathbf{P}\\) (it looks something like [this](#1) for the above graph), where \\( {\mathbf{P}_{ij}} \\) represents the probability of moving from state \\(j\\) to state \\(i\\). Let the intital probability distribution over the states be \\(\mathbf{v}^0\\) i.e \\(\mathbf{v}_i^0\\) represents the initial probability of being at state  \\(i\\). We want to find the probability of being at state \\(i\\) after one time step.
 
-\\[ 
-\mathbf{v}^1_{i} = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving to i from j})
+\\[
+\mathbf{v}^1_{i} = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving from j to i})
 \\]
+
 \\[
 = \sum_{j \in \Omega}\mathbf{v}^0_{j}\mathbf{P}_{ij} 
 \\]
@@ -83,7 +84,7 @@ The above equation is an *eigenvalue equation*, with eigenvalue 1. Thus, if the 
 
 We will not go into detail to show when a steady state exists for a general Markov chain, or when it is unique, or when and why the distribution converges to it, since that would be a bit of a long detour [\[2\]](#2). We will however look at our specific example of the shuffling Markov chain, and show that the uniform distribution is a steady state, and that the Markov chain eventually converges to it.
 
-For the shuffling Markov chain, the uniform distribution has \\(\mathbf{v}_i = \frac{1}{n!}\\) for all states \\(i\\). If the uniform distribution is the steady state, then from the eigenvalue equation, we have, from the eigenvalue equation,
+For the shuffling Markov chain, the uniform distribution has \\(\mathbf{v}_i = \frac{1}{n!}\\) for all states \\(i\\). If the uniform distribution is the steady state distribution, then from the eigenvalue equation, we have, from the eigenvalue equation,
 
 \\[ \mathbf{v}_{i} = \sum_{j \in \Omega} \mathbf{P}_{ij} \mathbf{v}_{j} \\]
 
@@ -96,7 +97,7 @@ For the shuffling Markov chain, the uniform distribution has \\(\mathbf{v}_i = \
 \iff \sum_{j \in \Omega} \mathbf{P}_{ij} = 1 
 \\]
 
-Thus, the uniform distribution is the steady state distribution if and only if \\(\sum_{j \in \Omega} \mathbf{P}_{ij} = 1\\) i.e the row sum of each of the rows is 1. Another way to think about it is that the sum of weights of edges going *into* each vertex is 1.
+Thus, the uniform distribution is the steady state distribution if and only if \\(\sum_{j \in \Omega} \mathbf{P}_{ij} = 1\\) i.e each of the rows in the transition matrix sum to 1. Another way to think about it is that the sum of weights of edges going *into* each vertex is 1.
 
 It is easy to verify that this is true for the shuffling chain. Each vertex has \\(n\\) edges going into it, with weight of each edge being \\(\frac{1}{n}\\)(for an example see the above graph for \\(n=3\\)).
 
@@ -105,13 +106,13 @@ It is easy to verify that this is true for the shuffling chain. Each vertex has 
 
 We have shown that our algorithm converges to a uniform distribution; now, we want to  guarantee fast convergence. The *mixing time* is the time \\(t\\) when the probability distribution \\(\mathbf{v}^t\\) reaches "close" to the steady state distribution \\(\pi\\). Since our process is probabilistic, we want to get a bound on the *expected mixing time*.
 
-To do this, we need to get some upper limit on the number of steps it takes to get to the uniform distribution, and then calculate the expected value of the number of steps. To do this, we first look at a seemingly distrinct problem.
+To do this, we need to get some upper limit on the number of steps it takes to get to the uniform distribution, and then calculate the expected value of the number of steps. To do this, we first look at a seemingly different problem.
 
-####  Bound on Mixing Time
+#### Bound on Mixing Time
 
 Assume that, initially, the bottom-most card was \\(b\\), and after some \\(t\\) shuffles, it became the \\(3\\)rd card from the bottom. If the cards below \\(b\\) are \\(a_1\\) and \\(a_2\\), then the two permutations of \\(a_1\\) and \\(a_2\\) are equally likely (\\(\text{Pr}[(a_1,a_2)] = \text{Pr}[(a_2,a_1)] = 1 \cdot \frac{1}{2}\\) since the first card must be placed at the only available position below \\(b\\) and the next card can be placed in 1 of two positions below \\(b\\)). Similarly, if \\(b\\) is the \\(k\\)th card from the bottom after \\(t\\) shuffles, then each of the \\((k-1)!\\) permutations of the cards below \\(b\\) are equally likely. 
 
-Now, assume that after \\(T\\) shuffles, the bottom-most card \\(b\\) became the topmost card. Then, all permutations of (\\(n-1\\)) cards below it are equally likely. So, in the next step, when \\(b\\) is put back into the deck, the probability ditribution over all permutations of the cards becomes uniform. Thus, we reach the steady state \\(\pi\\). Therefore, if we have an estimate of the expected value of \\(T\\), we have a bound on the mixing time.
+Now, assume that after \\(T\\) shuffles, the bottom-most card \\(b\\) becomes the topmost card. Then, all permutations of (\\(n-1\\)) cards below it are equally likely. So, in the next step, when \\(b\\) is put back into the deck, the probability ditribution over all permutations of the cards becomes uniform. Thus, we reach the steady state \\(\pi\\). Therefore, if we have an estimate of the expected value of \\(T\\), we have a bound on the mixing time.
 
 #### Estimating Mixing Time
 
@@ -155,10 +156,9 @@ To do this, we use a simple idea. For any given graph, define the *diameter* to 
 For the shuffling Markov chain, the diameter can be shown to be \\( \sim\frac{n\log(n)}{2}\\). The proof is left to the reader [\[3\]](#3).
 
 ## Conclusion
-For a deck of 52 cards, this gives a mixing time of \\(\sim 300\\). Obviously, this would take a bit of time, and as such would probably not save you from the embarrassment. There are better methods which have faster mixing time, but are more difficult to analyze [\[4\]](#4). 
+For a deck of 52 cards, this gives a mixing time of \\(\sim 300\\) shuffles. Obviously, this would take a bit of time, and as such isn't a practical way to shuffle. There are better methods which have faster mixing time, but are more difficult to analyze [\[4\]](#4).
 
-The main idea of this post was to introduce MCMC, and how we can analyze Markov chains. MCMC is much larger than shuffling, and actually has a variety of uses. We did not focus heavily on the Monte Carlo part, but the actual applications heavily rely on it. It can be used in [image generation using Energy Based Models](https://sites.google.com/view/igebm), [computer graphics](http://www.cs.cornell.edu/projects/manifolds-sg12/manifolds-sg12.pdf), [Google's PageRank](https://www.math.wustl.edu/~feres/Math350Fall2012/Projects/mathproj16.pdf), [statistical physics](https://people.eecs.berkeley.edu/~sinclair/mcmc.pdf), and much more.
-
+The main idea of this post was to introduce MCMC, and how we can analyze Markov chains. MCMC is much larger than shuffling, and actually has a variety of uses. It can be used in [image generation using Energy Based Models](https://sites.google.com/view/igebm), [computer graphics](http://www.cs.cornell.edu/projects/manifolds-sg12/manifolds-sg12.pdf), [Google's PageRank](https://www.math.wustl.edu/~feres/Math350Fall2012/Projects/mathproj16.pdf), [statistical physics](https://people.eecs.berkeley.edu/~sinclair/mcmc.pdf), and much more.
 
 The methods we have seen now only allow us to sample from the stationary distributions of given Markov chains. An important idea is to construct Markov chains with the stationary distribution of our choosing. An algorithm which allows us to do this is the Metropolis-Hastings Algorithm. Stay tuned for future posts related to MCMC.
 
@@ -179,11 +179,11 @@ Let's label the topmost state "1", the next state going clockwise as "2" and so 
 0 & 0 & \frac{1}{3} & \frac{1}{3} & 0 & \frac{1}{3}
 \end{bmatrix}\\]
 
-2.  **<a id="2">Ergodicity</a>**: It can be proven that a markov chain converges to a unique stationary distribution if it is ergodic. For a chain to be called ergodic, it should satisfy the following conditions.
-    -  **Aperiodic:** We would say that a markov chain is aperiodic when its not... periodic! Let \\(p_{ii}^t\\) be the probability of returning to the state \\(i\\) at the \\(t^{th}\\) step after starting from \\(i\\). A state is said to be **periodic** with period \\(T \in \{2,3,4,...\} \\) iff:
+2.  **<a id="2">Ergodicity</a>**: It can be proven that a Markov chain converges to a unique stationary distribution if it is *ergodic*. For a chain to be called ergodic, it should satisfy the following conditions.
+    -  **Aperiodic:** We would say that a Markov chain is aperiodic when its not... periodic! Let \\(p_{ii}^t\\) be the probability of returning to the state \\(i\\) at the \\(t^{th}\\) step after starting from \\(i\\). A state is said to be **periodic** with period \\(T \\) if:
         -  \\(P_{ii}^t \neq 0 \;\; \forall \; t \in \{0,T,2T,...\}\\) and,
-        -  \\(P_{ii}^t = 0 \;\; \forall \; t \not\in \{0,T,2T,...\}\\) 
-    -  **Strongly connected:** A chain is strongly connected iff a path \\((x,y)\\) exists for all \\(x,y\\) in \\(\Omega\\).
+        -  \\(P_{ii}^t = 0 \;\; \forall \; t \not\in \{0,T,2T,...\}\\)
+    -  **Strongly connected:** A chain is strongly connected if a path exists between any two nodes \\(x\\) and \\(y\\).
 
 3.  **<a id="3">On lower bound of the mixing time</a>**: Intuitively, if we imagine the probabilities "spreading" from the starting node, then after \\(t\\) steps, it would have visited \\(\sim n^t\\) vertices since there are \\(n\\) outgoing edges from each vertex. At \\(t=\\) diameter, we would have \\(n^{2t} \approx n!\\).
-4.  **[The Best (and Worst) Ways to Shuffle Cards - Numberphile](https://www.youtube.com/watch?v=AxJubaijQbI&t=1s)**
+4.  [The Best (and Worst) Ways to Shuffle Cards - Numberphile](https://www.youtube.com/watch?v=AxJubaijQbI&t=1s)
