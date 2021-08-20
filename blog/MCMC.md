@@ -59,9 +59,7 @@ Given a Markov chain, we can create a matrix known as the transition matrix \\(\
 \mathbf{v}^1_{i} = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving from j to i})
 \\]
 
-\\[
-= \sum_{j \in \Omega}\mathbf{v}^0_{j}\mathbf{P}_{ij} 
-\\]
+\\[= \sum_{j \in \Omega} \mathbf{v_{j}}^0 \mathbf{P_{ij}}\\]
 
 where \\(\mathbf{v}^1\\) is probability distribution at the next step. This can be concisely written in matrix notation as 
 
@@ -86,9 +84,7 @@ We will not go into detail to show when a steady state exists for a general Mark
 
 For the shuffling Markov chain, the uniform distribution has \\(\mathbf{v}_i = \frac{1}{n!}\\) for all states \\(i\\). If the uniform distribution is the steady state distribution, then from the eigenvalue equation, we have, from the eigenvalue equation,
 
-\\[
-\mathbf{v}_{i} = \sum_{j \in \Omega} \mathbf{P}_{ij} \mathbf{v}_{j} 
-\\]
+\\[\mathbf{v_{i}}=\sum_{j \in \Omega} \mathbf{P_{ij}} \mathbf{v_{j}}\\]
 
 \\[
 \iff \frac{1}{n!} = \sum_{j \in \Omega} \mathbf{P}_{ij} \frac{1}{n!} 

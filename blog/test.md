@@ -5,8 +5,8 @@ excerpt: "About Me..."
 
 # Hello
 
-\\[\mathbf{v_{i}}=\sum_{j \in \Omega} \mathbf{P_{ij}} \mathbf{v_{j}}\\]
 
 
-\\[= \sum_{j \in \Omega} \mathbf{v_{j}}^0 \mathbf{P_{ij}}\\]
+
+\\[\mathbf{v_{i}}^1 = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving from j to i})\\]
  
