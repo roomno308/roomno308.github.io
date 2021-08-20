@@ -5,9 +5,8 @@ excerpt: "About Me..."
 
 # Hello
 
-\\[\mathbf{v}_{i} =\\]
+\\[v_{i}=\sum_{j \in \Omega}\\]
 
-\\[\sum_{j \in \Omega}\\]
 
 \mathbf{P}_{ij} \mathbf{v}_{j}
  
