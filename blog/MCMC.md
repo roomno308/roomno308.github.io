@@ -47,7 +47,7 @@ Now, we consider the question of convergence and mixing - how can we be sure tha
 
 Intuitively, Markov chain Monte Carlo is just a random walk on a graph (here, we only consider discrete time, finite state Markov chains), which helps us sample from a complex distribution (known as the stationary distribution). It has 2 components - the state space \\(\Omega\\), and the transition probabilities. The transition probabilities only depend on the current state, not on the past states i.e it is memory-less ([*Markov property*](https://en.wikipedia.org/wiki/Markov_property)). We can imagine \\(\Omega\\) as the vertices of a graph, and the transition probabilities as weights of the edges.
 
-In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each edge has weight \\(\frac{1}{n}\\). The full graph for \\(n = 3\\) is shown below. At each node, we can pick the topmost card and place it at one of the three available positions (this includes the possibility of placing the card again at the top, and thus justifies the need of self loop).
+In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations of the cards, and each edge has weight \\(\frac{1}{n}\\). The full graph for \\(n = 3\\) is shown below. At each node, we can pick the topmost card and place it at one of the three available positions (this includes the possibility of placing the card again at the top, and thus justifies the need of self loop).
 
 ![](https://i.imgur.com/UADXVav.png)
 *<center>Graph for case n=3. Each edge has weight 1/3</center>*
