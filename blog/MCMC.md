@@ -121,7 +121,7 @@ Now, assume that after \\(T\\) shuffles, the bottom-most card \\(b\\) becomes th
 Let \\(T_k\\) be the number of steps needed to move the card at \\(k\\)th position from bottom to the \\((k+1)\\)th position from bottom. Then, if \\(\mathbb{E}[X]\\) represents the expected value of the random variable \\(X\\), 
 
 \\[
-T = \sum_{k=1}^n T_k \implies \mathbb{E}[T] = \sum_{k=1}^n \mathbb{E}[T_k]
+T = \sum_{k=1}^{n-1} T_k \implies \mathbb{E}[T] = \sum_{k=1}^{n-1} \mathbb{E}[T_k]
 \\]
 
 To estimate \\(T_k\\), we can find the probability distribution for \\(T_k\\):
@@ -145,7 +145,7 @@ This is a commonly encountered probability distribution known as the *geometric 
 Finally, we get an expression for expected value of \\(T\\):
 
 \\[
-\mathbb{E}[T] = n\sum_{k=1}^n \frac{1}{k} \approx n\log(n) 
+\mathbb{E}[T] = n\sum_{k=1}^{n-1} \frac{1}{k} \approx n\log(n) 
 \\]
 
 The expected mixing time might be smaller than \\(T\\), since we might achieve uniform distribution before \\(b\\) comes to the top. So the above expression is only an upper bound.
@@ -180,7 +180,6 @@ Let's label the topmost state "1", the next state going clockwise as "2" and so 
 0 & 0 & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\\\ 
 0 & 0 & \frac{1}{3} & \frac{1}{3} & 0 & \frac{1}{3}
 \end{bmatrix}\\]
-
 2.  **<a id="2">Ergodicity</a>**: It can be proven that a Markov chain converges to a unique stationary distribution if it is *ergodic*. For a chain to be called ergodic, it should satisfy the following conditions.
     -  **Aperiodic:** We would say that a Markov chain is aperiodic when its not... periodic! Let \\(p_{ii}^t\\) be the probability of returning to the state \\(i\\) at the \\(t^{th}\\) step after starting from \\(i\\). A state is said to be **periodic** with period \\(T \\) if:
         -  \\(P_{ii}^t \neq 0 \;\; \forall \; t \in \{0,T,2T,...\}\\) and,
