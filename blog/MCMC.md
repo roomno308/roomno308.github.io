@@ -164,7 +164,6 @@ For any issues, suggestions, or questions, reach out to us at roomnumber308@gmai
 ## Appendix
 1.  **<a id="1">Transition matrix for n=3 case</a>**:
 Let's label the topmost state "1", the next state going clockwise as "2" and so on...
-
 \\[ \mathbf{P} = 
 \begin{bmatrix}
 \frac{1}{3} & \frac{1}{3} & 0 & 0 & \frac{1}{3} & 0 \\\\ 
