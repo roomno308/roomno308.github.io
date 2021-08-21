@@ -152,7 +152,7 @@ To do this, we use a simple idea. For any given graph, define the *diameter* to 
 For the shuffling Markov chain, the diameter can be shown to be \\( \sim\frac{n\log(n)}{2}\\). The proof is left to the reader [\[3\]](#3).
 
 ## Conclusion
-For a deck of 52 cards, this gives a mixing time of \\(\sim 300\\) shuffles. Obviously, this would take a bit of time, and as such isn't a practical way to shuffle. There are better methods which have faster mixing time, but are more difficult to analyze [\[4\]](#4).
+For a deck of 52 cards, this gives a mixing time of \\(\sim 300\\) shuffles. Obviously, this would take a bit of time, and as such isn't a practical way to shuffle. There are better methods which have faster mixing time, but are more difficult to analyze [\[4\]](https://www.youtube.com/watch?v=AxJubaijQbI&t=1s).
 
 The main idea of this post was to introduce MCMC, and how we can analyze Markov chains. MCMC is much larger than shuffling, and actually has a variety of uses. It can be used in [image generation using Energy Based Models](https://sites.google.com/view/igebm), [computer graphics](http://www.cs.cornell.edu/projects/manifolds-sg12/manifolds-sg12.pdf), [Google's PageRank](https://www.math.wustl.edu/~feres/Math350Fall2012/Projects/mathproj16.pdf), [statistical physics](https://people.eecs.berkeley.edu/~sinclair/mcmc.pdf), and much more.
 
@@ -181,4 +181,3 @@ Let's label the topmost state "1", the next state going clockwise as "2" and so 
     -  **Strongly connected:** A chain is strongly connected if a path exists between any two nodes \\(x\\) and \\(y\\).
 
 3.  **<a id="3">On lower bound of the mixing time</a>**: Intuitively, if we imagine the probabilities "spreading" from the starting node, then after \\(t\\) steps, it would have visited \\(\sim n^t\\) vertices since there are \\(n\\) outgoing edges from each vertex. At \\(t=\\) diameter, we would have \\(n^{2t} \approx n!\\).
-4.  [The Best (and Worst) Ways to Shuffle Cards - Numberphile](https://www.youtube.com/watch?v=AxJubaijQbI&t=1s)
