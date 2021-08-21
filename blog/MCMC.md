@@ -41,13 +41,13 @@ There are a few well known methods of shuffling that satisfy the above propertie
 1. Pick the top-most card and randomly place it anywhere in the deck (with equal probability).
 2. Repeat step 1 \\(T\\) times (until your soul gives up).
 
-Now, we consider the question of convergence and mixing - how can we be sure that the above procedure gives a good shuffle? How large should \\(k\\) be? This is where MCMC comes in.
+Now, we consider the question of convergence and mixing - how can we be sure that the above procedure gives a good shuffle? How large should \\(T\\) be? This is where MCMC comes in.
 
 ## MCMC = MC + MC
 
 Intuitively, Markov chain Monte Carlo is just a random walk on a graph (here, we only consider discrete time, finite state Markov chains), which helps us sample from a complex distribution (known as the stationary distribution). It has 2 components - the state space \\(\Omega\\), and the transition probabilities. The transition probabilities only depend on the current state, not on the past states i.e it is memory-less ([*Markov property*](https://en.wikipedia.org/wiki/Markov_property)). We can imagine \\(\Omega\\) as the vertices of a graph, and the transition probabilities as weights of the edges.
 
-In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each edge has weight \\(\frac{1}{n}\\). The full graph for \\(n = 3\\) is shown below. At each node, we can pick the topmost card and place it at one of the three available positions (this includes the possibility of placing the card again at the top, and thus justifies the need of self loop).
+In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations of the cards, and each edge has weight \\(\frac{1}{n}\\). The full graph for \\(n = 3\\) is shown below. At each node, we can pick the topmost card and place it at one of the three available positions (this includes the possibility of placing the card again at the top, and thus justifies the need of self loop).
 
 ![](https://i.imgur.com/UADXVav.png)
 *<center>Graph for case n=3. Each edge has weight 1/3</center>*
@@ -55,13 +55,9 @@ In our case, \\(\Omega\\) consists of all the \\(n!\\) permutations, and each ed
 
 Given a Markov chain, we can create a matrix known as the transition matrix \\(\mathbf{P}\\) (it looks something like [this](#1) for the above graph), where \\( {\mathbf{P}_{ij}} \\) represents the probability of moving from state \\(j\\) to state \\(i\\). Let the intital probability distribution over the states be \\(\mathbf{v}^0\\) i.e \\(\mathbf{v}_i^0\\) represents the initial probability of being at state  \\(i\\). We want to find the probability of being at state \\(i\\) after one time step.
 
-\\[
-\mathbf{v}^1_{i} = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving from j to i})
-\\]
+\\[\mathbf{v_{i}}^1 = \sum_{j \in \Omega}(\text{Prob. of being in j at step 0)} \times (\text{Prob. of moving from j to i})\\]
 
-\\[
-= \sum_{j \in \Omega}\mathbf{v}^0_{j}\mathbf{P}_{ij} 
-\\]
+\\[= \sum_{j \in \Omega} \mathbf{v_{j}}^0 \mathbf{P_{ij}}\\]
 
 where \\(\mathbf{v}^1\\) is probability distribution at the next step. This can be concisely written in matrix notation as 
 
@@ -86,9 +82,7 @@ We will not go into detail to show when a steady state exists for a general Mark
 
 For the shuffling Markov chain, the uniform distribution has \\(\mathbf{v}_i = \frac{1}{n!}\\) for all states \\(i\\). If the uniform distribution is the steady state distribution, then from the eigenvalue equation, we have, from the eigenvalue equation,
 
-\\[
-\mathbf{v}_{i} = \sum_{j \in \Omega} \mathbf{P}_{ij} \mathbf{v}_{j} 
-\\]
+\\[\mathbf{v_{i}}=\sum_{j \in \Omega} \mathbf{P_{ij}} \mathbf{v_{j}}\\]
 
 \\[
 \iff \frac{1}{n!} = \sum_{j \in \Omega} \mathbf{P}_{ij} \frac{1}{n!} 
