@@ -41,7 +41,7 @@ There are a few well known methods of shuffling that satisfy the above propertie
 1. Pick the top-most card and randomly place it anywhere in the deck (with equal probability).
 2. Repeat step 1 \\(T\\) times (until your soul gives up).
 
-Now, we consider the question of convergence and mixing - how can we be sure that the above procedure gives a good shuffle? How large should \\(k\\) be? This is where MCMC comes in.
+Now, we consider the question of convergence and mixing - how can we be sure that the above procedure gives a good shuffle? How large should \\(T\\) be? This is where MCMC comes in.
 
 ## MCMC = MC + MC
 
