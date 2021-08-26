@@ -97,6 +97,9 @@ Thus, the uniform distribution is the steady state distribution if and only if \
 
 It is easy to verify that this is true for the shuffling chain. Each vertex has \\(n\\) edges going into it, with weight of each edge being \\(\frac{1}{n}\\)(for an example see the above graph for \\(n=3\\)).
 
+![](graphics/MCMC/MCMC5.gif)
+*<center>Simulation of how probability spreads for n=5. Colour represents normalized probability</center>*
+
 ### Mixing Time
 
 
