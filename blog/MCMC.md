@@ -154,6 +154,8 @@ To do this, we use a simple idea. For any given graph, define the *diameter* to 
 
 For the shuffling Markov chain, the diameter can be shown to be \\( \sim\frac{n\log(n)}{2}\\). The proof is left to the reader [\[3\]](#3).
 
+If you observe carefully in the simulation for \\(n=5\\), the probability first spreads to all the nodes at the 5th(\\( \sim\frac{5\log(5)}{2}\\)) step. 
+
 ## Conclusion
 For a deck of 52 cards, this gives a mixing time of \\(\sim 300\\) shuffles. Obviously, this would take a bit of time, and as such isn't a practical way to shuffle. There are better methods which have faster mixing time, but are more difficult to analyze [\[4\]](https://www.youtube.com/watch?v=AxJubaijQbI&t=1s).
 
