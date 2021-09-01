@@ -5,3 +5,7 @@ markdown: kramdown
 kramdown:
     math_engine: katex
 google_analytics: UA-192680612-1
+
+url: "https://roomno308.github.io/" # the base hostname & protocol for your site
+plugins:
+  - jekyll-sitemap
