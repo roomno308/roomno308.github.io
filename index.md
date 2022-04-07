@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Kon'nichiwa!
+title: Namaste!
 ---
 
 308 is the room of our random experiments and thoughts.
