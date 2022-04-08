@@ -15,7 +15,7 @@ Let's say that you want to sample uniformly from a complex set \\(\mathbf{A}\\) 
 #### Lemma (uniform, discrete case)
 If \\(\mathbf{A} \subset \mathbf{B}\\), \\(\{ X_1, X_2, \cdots, X_k\} \sim Uni(\mathbf{B}) \\), then \\(X_k \sim Uni(\mathbf{A})\\) where \\(k = \text{min}\{i : X_i \in \mathbf{A}\}\\)
 
-##### Proof (uniform, discrete case):
+#### Proof (uniform, discrete case):
 Let \\(\mathbf{B} = \{Y_1, Y_2, \cdots, Y_n\} \\) and \\(\mathbf{A} = \{Z_1, Z_2, \cdots, Z_m\}\\).
 
 Now, sampling \\(\{ X_1, X_2, \cdots, X_k\} \sim Uni(\mathbf{B}) \\) is a random process, we want to find the probability of \\(X_k\\) being one of the elements from \\(\mathbf{B}\\). Without the loss of generality, let's find the probability that \\(X_k = Z_1\\)
