@@ -20,12 +20,12 @@ Let's say that you want to sample uniformly from a complex set \\(\mathbf{A}\\) 
 3.  Otherwise, **reject** and go to step 1. 
 
 #### Lemma (uniform, discrete case)
-If \\(\mathbf{A} \subset \mathbf{B}\\), \\(\{ X_1, X_2, \cdots, X_k\} \sim Uni(\mathbf{B}) \\), then \\(X_k \sim Uni(\mathbf{A})\\) where \\(k = \text{min}\{i : X_i \in \mathbf{A}\}\\)
+If \\(\mathbf{A} \subset \mathbf{B}\\), \\(\\{ X_1, X_2, \cdots, X_k\\} \sim Uni(\mathbf{B}) \\), then \\(X_k \sim Uni(\mathbf{A})\\) where \\(k = \text{min}\\{i : X_i \in \mathbf{A}\\}\\)
 
 #### Proof (uniform, discrete case):
-Let \\(\mathbf{B} = \{Y_1, Y_2, \cdots, Y_n\} \\) and \\(\mathbf{A} = \{Z_1, Z_2, \cdots, Z_m\}\\).
+Let \\(\mathbf{B} = \\{Y_1, Y_2, \cdots, Y_n\\} \\) and \\(\mathbf{A} = \\{Z_1, Z_2, \cdots, Z_m\\}\\).
 
-Now, sampling \\(\{ X_1, X_2, \cdots, X_k\} \sim Uni(\mathbf{B}) \\) is a random process, we want to find the probability of \\(X_k\\) being one of the elements from \\(\mathbf{B}\\). Without the loss of generality, let's find the probability that \\(X_k = Z_1\\)
+Now, sampling \\(\\{ X_1, X_2, \cdots, X_k\\} \sim Uni(\mathbf{B}) \\) is a random process, we want to find the probability of \\(X_k\\) being one of the elements from \\(\mathbf{B}\\). Without the loss of generality, let's find the probability that \\(X_k = Z_1\\)
 
 \\[
     P(X_k = Z_1) = \frac{1}{m} + \frac{n-m}{n} \cdot \frac{1}{m} + \left(\frac{n-m}{n} \right)^2  \cdot \frac{1}{m} + \cdots 
@@ -59,7 +59,7 @@ If we follow the [algorithm](#algorithm-non-uniform-case), we will end up sampli
 
 #### Proof
 
-**Lemma (i)**: If \\(X \sim q\\) and \\(Y \mid X \sim Uni(0, cq(X)) \\), then \\((X,Y) \sim Uni(\mathbf{B}) \\) where \\(\mathbf{B} = \{(x,y): x \in \mathbb{R}^d, 0 \le y \le cq(x)\} \\).
+**Lemma (i)**: If \\(X \sim q\\) and \\(Y \mid X \sim Uni(0, cq(X)) \\), then \\((X,Y) \sim Uni(\mathbf{B}) \\) where \\(\mathbf{B} = \\{(x,y): x \in \mathbb{R}^d, 0 \le y \le cq(x)\\} \\).
 
 **Proof (i)**:
 1. If \\(y \notin [0, cq(x)]\\), \\(p(x,y) = p(y \mid x)\cdotp(x) = 0\\)
@@ -68,13 +68,13 @@ If we follow the [algorithm](#algorithm-non-uniform-case), we will end up sampli
 Hence, uniform in \\(\mathbf{B}\\).
 
 \
-**Lemma (ii)**: If \\(\mathbf{A} \subset \mathbf{B}\\) and \\(\{ (x_1, y_1), (x_2, y_2), \cdots, (x_k, y_k) \} \sim Uni(\mathbf{B}) \\), then \\((x_k, y_k) \sim Uni(\mathbf{A})\\) where \\(k = \text{min}\{i: (x_i, y_i) \in \mathbf{A}\}\\).
+**Lemma (ii)**: If \\(\mathbf{A} \subset \mathbf{B}\\) and \\(\\{ (x_1, y_1), (x_2, y_2), \cdots, (x_k, y_k) \\} \sim Uni(\mathbf{B}) \\), then \\((x_k, y_k) \sim Uni(\mathbf{A})\\) where \\(k = \text{min}\\{i: (x_i, y_i) \in \mathbf{A}\\}\\).
 
 **Proof**: 
 Already covered in the [Proof](#proof-uniform-discrete-case) of Uniform, discrete case.
 
 \
-**Lemma (iii)**: If \\((X,Y) \sim Uni(\mathbf{A}) \\), where \\(\mathbf{A} = \{(x,y): x \in \mathbb{R}^d, 0 \le y \le f(x)\}\\), then \\(X \sim f \\).
+**Lemma (iii)**: If \\((X,Y) \sim Uni(\mathbf{A}) \\), where \\(\mathbf{A} = \\{(x,y): x \in \mathbb{R}^d, 0 \le y \le f(x)\\}\\), then \\(X \sim f \\).
 
 **Proof**:
 \\[
