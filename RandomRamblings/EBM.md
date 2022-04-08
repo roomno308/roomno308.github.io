@@ -52,11 +52,11 @@ If we follow the [algorithm](#algorithm-non-uniform-case), we will end up sampli
 
 #### Proof
 
-**Lemma (i)**: If \\(X \sim q\\) and \\(Y|X \sim Uni(0, cq(X)) \\), then \\((X,Y) \sim Uni(\mathbf{B}) \\) where \\(\mathbf{B} = \{(x,y): x \in \mathbb{R}^d, 0 \le y \le cq(x)\} \\).
+**Lemma (i)**: If \\(X \sim q\\) and \\(Y \mid X \sim Uni(0, cq(X)) \\), then \\((X,Y) \sim Uni(\mathbf{B}) \\) where \\(\mathbf{B} = \{(x,y): x \in \mathbb{R}^d, 0 \le y \le cq(x)\} \\).
 
 **Proof (i)**:
-1. If \\(y \notin [0, cq(x)]\\), \\(p(x,y) = p(y|x)\cdotp(x) = 0\\)
-2. Otherwise, \\(p(x,y) = p(y|x)\cdotp(x) = \frac{1}{cq(x)}\cdot q(x) = \frac{1}{c}\\)
+1. If \\(y \notin [0, cq(x)]\\), \\(p(x,y) = p(y \mid x)\cdotp(x) = 0\\)
+2. Otherwise, \\(p(x,y) = p(y \mid x)\cdotp(x) = \frac{1}{cq(x)}\cdot q(x) = \frac{1}{c}\\)
 
 Hence, uniform in \\(\mathbf{B}\\).
 
