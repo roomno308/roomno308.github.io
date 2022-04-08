@@ -1,4 +1,11 @@
+---
+layout: post
+title: Energy Based Methods notes
+author: 308
+---
+
 # EBM notes
+Basics of EBMs are covered in [this](EBMs.pdf). 
 
 ### Rejection Sampling
 Rejection sampling is a method to sample from complex distributions given that you know how to sample from some other distribution. 
