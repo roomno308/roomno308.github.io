@@ -109,6 +109,28 @@ It can be verified that,
 \\]
 Gives an EBM:
 \\[
-    p_d^*(x) = \frac{p_g(x)e^{d(x)}}{Z_0}
+    p_d^* (x) = \frac{p_g(x)e^{d(x)}}{Z_0}
 \\]
-Where, \\(Z_0\\) is the normalization constant.
+Where, \\(Z_0\\) is the normalization constant. Now, the paper claims that sampling \\(x\\) from \\(p_d^* \\) is better than sampling directly from \\(p_g\\) because:
+
+1. It corrects generator's bias.
+2. At discriminator's optimality, \\(p_d^* = p_d\\). (Can be easily verified at \\(D(x) = \frac{p_d(x)}{p_d(x) + p_g(x)}\\))
+
+#### Proposition: 
+**Given \\(p_g\\), we can sample from \\(p_d^* \\) using rejection sampling**
+#### Explanation:
+Given the proposal distribution \\(p_g\\), we sample \\(x \sim p_g\\) and accept the samples with the acceptance probability \\( \frac{p_d^* }{Mp_g} \\), where \\(Mp_g \ge p_d^*\\) or \\(M \ge \frac{p_d^* }{p_g}\\). This ensures that the accepted sample \\(y \sim p_d^* \\). (See [Rejection Sampling](#rejection-sampling) for proof)
+
+
+But, sampling efficiently from \\(p_d^* \\) can be difficult because:
+1. MCMC directly on pixel space \\(\mathcal{X}\\) will be inefficient, with long mixing time.
+2. \\(p_g\\) is defined implicitly and can't be computed directly.
+
+To overcome these problems, the paper proposes to sample directly from the latent space \\(\mathcal{Z}\\). We have 
+\\[
+\frac{e^{d(x)}}{Z_0} = \frac{p_d^* }{p_g}
+\\]
+\\[
+    \implies \frac{e^{d(G(z))}}{Z_0} = \frac{p_d^* }{p_g}
+\\]
+Now, If we sample \\(z\\) from the latent space using prior distribution \\(p_0\\), and accept the sample with probabilty \\(\frac{e^{d(G(z))}}{MZ_0}\\), we are  doing the same thing as we proposed earlier. Therefore, the accepted sample \\(y \sim p_d^* \\).  (Note that \\(p_g = G \circ p_0\\), and thus the induced probability distribution on \\(\mathcal{Z}\\) becomes \\(p_t = e^{-E(x)}/Z'\\), where \\(E(x) = -\log p_0(x) -d(G(x))\\))
