@@ -119,7 +119,7 @@ Where, \\(Z_0\\) is the normalization constant. Now, the paper claims that sampl
 #### Proposition: 
 **Given \\(p_g\\), we can sample from \\(p_d^* \\) using rejection sampling**
 #### Explanation:
-Given the proposal distribution \\(p_g\\), we sample \\(x \sim p_g\\) and accept the samples with the acceptance probability \\( \frac{p_d^* }{Mp_g} \\), where \\(Mp_g \ge p_d^*\\) or \\(M \ge \frac{p_d^* }{p_g}\\). This ensures that the accepted sample \\(y \sim p_d^* \\). (See [Rejection Sampling](#rejection-sampling) for proof)
+Given the proposal distribution \\(p_g\\), we sample \\(x \sim p_g\\) and accept the samples with the acceptance probability \\( \frac{p_d^* }{Mp_g} \\), where \\(Mp_g \ge p_d^* \\) or \\(M \ge \frac{p_d^* }{p_g}\\). This ensures that the accepted sample \\(y \sim p_d^* \\). (See [Rejection Sampling](#rejection-sampling) for proof)
 
 
 But, sampling efficiently from \\(p_d^* \\) can be difficult because:
