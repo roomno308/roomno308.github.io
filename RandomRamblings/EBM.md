@@ -114,7 +114,7 @@ Gives an EBM:
 Where, \\(Z_0\\) is the normalization constant. Now, the paper claims that sampling \\(x\\) from \\(p_d^* \\) is better than sampling directly from \\(p_g\\) because:
 
 1. It corrects generator's bias.
-2. At discriminator's optimality, \\(p_d^* = p_d\\). (Can be easily verified at \\(D(x) = \frac{p_d(x)}{p_d(x) + p_g(x)}\\))
+2. At discriminator's optimality, \\(p_d^* = p_d\\), even if the generator isn't optimal. (Can be easily verified at \\(D(x) = \frac{p_d(x)}{p_d(x) + p_g(x)}\\))
 
 #### Proposition: 
 **Given \\(p_g\\), we can sample from \\(p_d^* \\) using rejection sampling**
