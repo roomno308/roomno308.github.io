@@ -30,13 +30,13 @@ Let \\(\mathbf{B} = \\{Y_1, Y_2, \cdots, Y_n\\} \\) and \\(\mathbf{A} = \\{Z_1, 
 Now, sampling \\(\\{ X_1, X_2, \cdots, X_k\\} \sim Uni(\mathbf{B}) \\) is a random process, we want to find the probability of \\(X_k\\) being one of the elements from \\(\mathbf{B}\\). Without the loss of generality, let's find the probability that \\(X_k = Z_1\\)
 
 \\[
-    P(X_k = Z_1) = \frac{1}{m} + \frac{n-m}{n} \cdot \frac{1}{m} + \left(\frac{n-m}{n} \right)^2  \cdot \frac{1}{m} + \cdots 
+    P(X_k = Z_1) = \frac{1}{n} + \frac{n-m}{n} \cdot \frac{1}{n} + \left(\frac{n-m}{n} \right)^2  \cdot \frac{1}{n} + \cdots 
 \\]
 
 :: *First sample = \\(Z_1\\), second sample = \\(Z_1\\) and so on. Note that \\(\frac{n-m}{n}\\) denotes the probability of sampling anything from \\(\mathbf{B} - \mathbf{A}\\) because as soon as we sample something from \\(\mathbf{A}\\), the random experiment ends.*
 
 \\[
-    \implies P(X_k = Z_1) = \sum_{i = 0}^{\infty} \left(\frac{n-m}{n} \right)^i  \cdot \frac{1}{m}
+    \implies P(X_k = Z_1) = \sum_{i = 0}^{\infty} \left(\frac{n-m}{n} \right)^i  \cdot \frac{1}{n}
 \\]
 \\[
     \implies P(X_k = Z_1) = \frac{1}{n}\cdot\frac{1}{\frac{m}{n}} = \frac{1}{m}
