@@ -4,7 +4,7 @@ title: Probability notes
 author: 308
 ---
 
-These notes are based on Probability Theory: The Logic of Science by E. T. Jaynes.
+These notes are based on **Probability Theory: The Logic of Science** by **E. T. Jaynes**.
 
 <ol>
 
