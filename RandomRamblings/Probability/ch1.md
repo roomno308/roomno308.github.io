@@ -108,3 +108,58 @@ I won't go much deep into this section of the book as it just talks about basics
 | 1         | 1         | 1          | 1           | 1                    |
 
 An interesting thing to notice here would be that the mathematical implication is not same as the implication used in English language. Unlike English, the mathematical implication doesn't denote causation: Every True statement implies every other True statement (Earth has one natural moon \\(\implies\\) these notes are written by Chaitanya). Moreover, every False statement implies every other statement regardless of the truth value (I am not writing this at 4:30 in the morning \\(\implies\\) God exists!).
+
+One more important point to note here is the total number of prepositions that can be created from propositions \\(A\\) and \\(B\\) using the operators "or", "and" and "not". The prepositions are defined by the truth value they take for different combinations of values of \\(A\\) and \\(B\\) (TT, TF, FT, FF). For each of these pair of values, our proposition \\(C=f(A,B)\\) can be either True or False. Therefore there are a total of \\(2 \times 2 \times 2 \times 2\\) or \\(2^4\\) such prepositions. In general, given \\(n\\) propositions, \\(2^{2^n}\\) propositions can be constructed from them.
+
+| \\(A\\) | \\( B \\) | \\(C\\) |
+|---------|-----------|---------|
+| T       | T         | T or F  |
+| T       | F         | T or F  |
+| F       | T         | T or F  |
+| F       | F         | T or F  |
+
+Moreover, these propositions can be written as composition of some standard propositions, thereby reducing the number of required propositions even further. (Book pg. 15 for further reading).
+
+## Basic Desiderata
+
+Now that we have sense of basic Boolean logic, we can now enumerate the goals we desire from our robot. If in future, the robot fails to adhere to these basic desiderata, we would know that there is something wrong with the way that we have developed our robot.
+
+1. *Degrees of plausibility are represented by real numbers.*
+    
+    For our robot to work, the plausibility (for some state of knowledge in robot's "mind") must be represented by a physical quantity (eg. current/voltage).
+    
+2. *Degrees of plausibility must have a qualitative correspondence with common sense.*
+
+    **Notation:** \\(A \mid C\\) denotes the plausibility of proposition \\(A\\) given that the proposition \\(C\\) is True. Now, \\(A \mid C > B \mid C\\) says that \\(A\\) is more plausible than \\(B\\), given \\(C\\). 
+
+    "We do not want this robot to think in a way that is directly opposed to the way you and I think. So we shall design it to reason in a way that is at least qualitatively like the way humans try to reason, as described by the above weak syllogisms and a number of other similar ones."
+    
+    If some information \\(C\\) gets updated to \\(C'\\), such that,
+    \\[
+        A \mid C' > A \mid C
+    \\]
+    and,
+    \\[
+        (B \mid AC') = (B \mid AC)
+    \\]
+    This should only produce an increase, and never a decrease in the plausibility of both \\(A\\) and \\(B\\) being True. Formally,
+    \\[
+        (AB \mid C') \ge (AB \mid C)
+    \\]
+
+    Moreover,
+    \\[
+        (\bar{A} \mid C') < (\bar{A} \mid C)
+    \\]
+    
+    Furthermore, "an infinitesimally greater plausibility ought to correspond only to an infinitesimally greater number." (continuity)
+
+3. Consistency:
+    a) Different ways of reasoning for a conclusion must result in same result.
+    b) The robot always takes into account all of the evidence it has relevant to a question. It is not biased and nonideological.
+    c) The robot always represents equivalent states of knowledge by equivalent plausibility assignments.
+    
+    a) and b) are quite easy to understand, while c) might require some more explanation. Let's say that we have provided a list of names as prior information to our robot, without providing any information about the person bearing that name / distinction between the names. Now we ask our robot a series of questions: 'How plausible is it that "Kobe" can dunk a basketball' or 'How plausible is it that "Chaitanya" can dunk a basketball'. As it turns out, Chaitanya can't. But the robot, since it doesn't know the distinction between the names "Kobe" and "Chaitanya", should assign equal plausibility as they represent equivalent (equivalently bad) states of knowledge.
+    
+
+This list of basic desiderata concludes the chapter 1 of the book (and our search for rules that the robot must obey). Chapter 2 takes on a challenge to derive a mathematical operator for plausibility consistent with these desiderata. 
