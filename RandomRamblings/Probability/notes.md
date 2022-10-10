@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Probability notes
+title: Probability
 author: 308
 ---
 
