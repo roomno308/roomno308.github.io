@@ -88,7 +88,7 @@ B := Beethoven is better than Berlioz
 
 (For now) We only want to consider the statements of type A.
 
-## Boolean Algebra
+## A Digression to Boolean Algebra 
 
 I won't go much deep into this section of the book as it just talks about basics of symbolic logic:
 
