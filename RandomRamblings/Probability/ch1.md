@@ -122,7 +122,7 @@ Moreover, these propositions can be written as composition of some standard prop
 
 ## Basic Desiderata
 
-Now that we have sense of basic Boolean logic, we can now enumerate the goals we desire from our robot. If in future, the robot fails to adhere to these basic desiderata, we would know that there is something wrong with the way that we have developed our robot.
+Now that we have sense of basic Boolean logic, we can now enumerate the goals we desire from our robot. If, in future, the robot fails to adhere to these basic desiderata, we would know that something is wrong with the way that we have developed our robot.
 
 1. *Degrees of plausibility are represented by real numbers.*
     
