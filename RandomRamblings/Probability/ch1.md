@@ -156,7 +156,7 @@ Now that we have sense of basic Boolean logic, we can now enumerate the goals we
 
 3. Consistency:
     
-    a) Different ways of reasoning for a conclusion must result in same result.
+    a) Different ways of reasoning for a conclusion must result in same the output.
 
     b) The robot always takes into account all of the evidence it has relevant to a question. It is not biased and nonideological.
     
