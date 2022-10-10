@@ -158,11 +158,11 @@ Now that we have sense of basic Boolean logic, we can now enumerate the goals we
     
     a) Different ways of reasoning for a conclusion must result in same the output.
 
-    b) The robot always takes into account all of the evidence it has relevant to a question. It is not biased and nonideological.
+    b) The robot always takes into account all of the evidence it has relevant to a question. It is not biased and is nonideological.
     
     c) The robot always represents equivalent states of knowledge by equivalent plausibility assignments.
     
-    a) and b) are quite easy to understand, while c) might require some more explanation. Let's say that we have provided a list of names as prior information to our robot, without providing any information about the person bearing that name / distinction between the names. Now we ask our robot a series of questions: 'How plausible is it that "Kobe" can dunk a basketball' or 'How plausible is it that "Chaitanya" can dunk a basketball'. As it turns out, Chaitanya can't. But the robot, since it doesn't know the distinction between the names "Kobe" and "Chaitanya", should assign equal plausibility as they represent equivalent (equivalently bad) states of knowledge.
+    a) and b) are quite easy to understand, while c) might require some more explanation. Let's say that we have provided a list of names as prior information to our robot, without providing any information about the person bearing that name / distinction between the names. Now we ask our robot a series of questions like: 'How plausible is it that "Kobe" can dunk a basketball' v/s 'How plausible is it that "Chaitanya" can dunk a basketball'. As it turns out, Chaitanya can't. But the robot, since it doesn't know the distinction between the names "Kobe" and "Chaitanya", should assign equal plausibility as they represent equivalent (equivalently bad) states of knowledge.
     
 
 This list of basic desiderata concludes the chapter 1 of the book (and our search for rules that the robot must obey). Chapter 2 takes on a challenge to derive a mathematical operator for plausibility consistent with these desiderata. 
