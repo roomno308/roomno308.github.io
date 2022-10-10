@@ -14,7 +14,7 @@ These notes are based on **Probability Theory: The Logic of Science** by **E. T.
 
 ---
 
-These are some of the reviews taken from the comment section of google goodreads. Now, I must admit that I am not that well trained in mathematics to represent the book to it full potential. However, I will try my best not to misrepresent it, and convey its most important parts to the best of my ability.
+These are some of the reviews taken from the comment section of google goodreads. Now, I must admit that I am not that well trained in mathematics to represent this book to its full potential. However, I will try my best not to misrepresent it, and convey its most important parts to the best of my ability.
 
 <ol>
 
