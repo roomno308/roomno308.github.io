@@ -155,8 +155,11 @@ Now that we have sense of basic Boolean logic, we can now enumerate the goals we
     Furthermore, "an infinitesimally greater plausibility ought to correspond only to an infinitesimally greater number." (continuity)
 
 3. Consistency:
+    
     a) Different ways of reasoning for a conclusion must result in same result.
+
     b) The robot always takes into account all of the evidence it has relevant to a question. It is not biased and nonideological.
+    
     c) The robot always represents equivalent states of knowledge by equivalent plausibility assignments.
     
     a) and b) are quite easy to understand, while c) might require some more explanation. Let's say that we have provided a list of names as prior information to our robot, without providing any information about the person bearing that name / distinction between the names. Now we ask our robot a series of questions: 'How plausible is it that "Kobe" can dunk a basketball' or 'How plausible is it that "Chaitanya" can dunk a basketball'. As it turns out, Chaitanya can't. But the robot, since it doesn't know the distinction between the names "Kobe" and "Chaitanya", should assign equal plausibility as they represent equivalent (equivalently bad) states of knowledge.
