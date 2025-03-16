@@ -52,4 +52,52 @@ $$
 \label{eq:valuereturn}
 $$
 
-in equation $\eqref{eq:valuereturn}$
+The first term in the RHS of Equation $\eqref{eq:valuereturn}$ is the expected reward from state \\(s\\) under policy \\(\pi\\), and can be expressed as:
+
+$$
+    \begin{equation}
+        \begin{split}
+            \mathbb{E}[R_{t+1} | S_t = s] & = \sum_{a \in \mathcal{A}} \pi(a|s) \mathbb{E}[R_{t+1} | S_t = s, A_t = a] \\
+
+            & = \sum_{a \in \mathcal{A}} \pi(a|s) \sum_{r \in \mathcal{R}} p(r|s, a) r
+        \end{split}
+    \end{equation}
+$$
+
+The second term in the RHS of Equation $\eqref{eq:valuereturn}$ is the expected future return. This can be expressed as:
+
+$$
+    \begin{equation}
+        \begin{split}
+            \mathbb{E}_{\pi}[G_{t+1} | S_t = s] & = \sum_{s' \in \mathcal{S}} \mathbb{E}_{\pi}[G_{t+1} | S_{t+1} = s'] p(s' | s) \\
+            & = \sum_{s' \in \mathcal{S}} v_{\pi}(s') p(s' | s) \\
+            & = \sum_{s' \in \mathcal{S}} v_{\pi}(s') \sum_{a \in \mathcal{A}} \pi(a|s) p(s' | s, a) \\
+            & = \sum_{a \in \mathcal{A}} \pi(a|s) \sum_{s' \in \mathcal{S}} v_{\pi}(s') p(s' | s, a)
+        \end{split}
+    \end{equation}
+$$
+
+Substituting the above two equations back into Equation $\eqref{eq:valuereturn}$, we get the Bellman equation for the state value function:
+
+$$
+    \begin{equation}
+        \begin{split}
+            v_{\pi}(s) & = \sum_{a \in \mathcal{A}} \pi(a|s) \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{a \in \mathcal{A}} \pi(a|s) \sum_{s' \in \mathcal{S}} v_{\pi}(s') p(s' | s, a) \\
+
+            & = \sum_{a \in \mathcal{A}} \pi(a|s) \left( \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{s' \in \mathcal{S}} v_{\pi}(s') p(s' | s, a) \right) \\
+
+            & = \sum_{a \in \mathcal{A}} \pi(a|s) \sum_{s', r} p(s', r | s, a) \left( r + \gamma v_{\pi}(s') \right)
+        \end{split}
+    \end{equation}
+    \label{eq:bellmanvalue}
+$$
+
+Equation $\eqref{eq:bellmanvalue}$ is the Bellman equation for the state value function. Note that:
+
+1. Bellman equation is a set of linear equations that express the relationship between the values of states rather than a single equation.
+
+2. Solving the Bellman equation for a given policy \\(\pi\\) gives the state value function \\(v_{\pi}(s)\\) and is a *policy evaluation process*.
+
+3. $p(r|s, a)$ and $p(s' | s, a)$ represent the system model. 
+
+## Matrix-Vector Form of Bellman Equation
