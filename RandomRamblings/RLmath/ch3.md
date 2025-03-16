@@ -4,10 +4,14 @@ title: Chapter 3 - Optimal Sate Values and Bellman Optimality Equation
 author: Chaitanya
 ---
 
-<div style="padding: 0.75em; border: 1px solid black;">
-**Theorem 1 (Pythagoras)** Let $a$, $b$, and $c$ denote the length of the sides
-of a right triangle, i.e. of a triangle with one angle equal to 90°. Without loss of 
-generality, assume that $a ≤ b ≤ c$. Then
+## Optimal State Values and Optimal Policies
 
-$$a^2 + b^2 = c^2$$
-</div>
+Since in RL, our goal is to find an optimal policy, we need to define what an optimal policy is. Given two policies \\(\pi_1\\) and \\(\pi_2\\), we say that \\(\pi_1\\) is better than \\(\pi_2\\) if the state value of \\(\pi_1\\) is greater than or equal to that of \\(\pi_2\\) for all states. Formally, \\(\pi_1 \geq \pi_2\\) if:
+
+$$
+v_{\pi_1}(s) \geq v_{\pi_2}(s) \quad \forall s \in \mathcal{S}
+$$
+
+If a policy is better than all other policies, it is called an *optimal policy*. Formally:
+
+> A policy \\(\pi^*\\) is optimal if \\(\pi^*(s) \geq \pi(s) \quad \forall s \in \mathcal{S}\\) and for any policy other policy \\(\pi\\). The state values of an optimal policy are called *optimal state values* and are denoted by \\(v_*(s)\\).
