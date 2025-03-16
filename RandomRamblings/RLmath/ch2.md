@@ -43,7 +43,11 @@ Then, the state value function can be expressed as: $trial$
 
 $$
 \begin{equation}
-    v_{\pi}(s) = \mathbb{E}_{\pi}[G_t | S_t = s] = \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} | S_t
+    \begin{split}
+        v_{\pi}(s) & = \mathbb{E}_{\pi}[G_t | S_t = s] \\
+        & = \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} | S_t = s] \\
+        & = \mathbb{E}_{\pi}[R_{t+1} | S_t = s] + \gamma \mathbb{E}_{\pi}[G_{t+1} | S_t = s]
+    \end{split}
 \end{equation}
 $$
 
