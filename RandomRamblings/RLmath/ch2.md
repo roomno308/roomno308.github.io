@@ -98,7 +98,7 @@ Equation $\eqref{eq:bellmanvalue}$ is the Bellman equation for the state value f
 
 2. Solving the Bellman equation for a given policy \\(\pi\\) gives the state value function \\(v_{\pi}(s)\\) and is a *policy evaluation process*.
 
-3. $p(r|s, a)$ and $p(s' | s, a)$ represent the system model. 
+3. \\(p(r|s, a)\\) and \\(p(s' | s, a)\\) represent the system model. 
 
 ## Matrix-Vector Form of Bellman Equation
 
@@ -106,14 +106,64 @@ The Bellman equation can be expressed in matrix-vector form as:
 
 $$
     \begin{equation}
-        v_{\pi} = r^{\pi} + \gamma \mathcal{P}^{\pi} v_{\pi}
+        v_{\pi} = r^{\pi} + \gamma P^{\pi} v_{\pi}
     \end{equation}
 $$
 
-or
+or simply:
 
 $$
     \begin{equation}
-        v = r + \gamma \mathcal{P} v
+        v = r + \gamma P v
     \end{equation}
 $$
+
+where:
+
+- \\(v_{\pi}\\) is the state value function vector under policy \\(\pi\\).
+- \\(r^{\pi}\\) is the reward vector under policy \\(\pi\\).
+- \\(P^{\pi}\\) is the transition probability matrix under policy \\(\pi\\).
+
+### Solving Bellman Equation
+#### Closed Form Solution
+
+Since the Bellman equation is a linear equation, a closed form solution can be easily obtained as:
+
+$$
+    v = (I - \gamma P)^{-1} r
+$$
+
+Some properties of the matrix \\(I - \gamma P\\) are:
+
+1. $(I - \gamma P)$ is invertible. Proof with Gershgorin circle theorem??
+
+2. \\((I - \gamma P)^{-1} \ge I\\): Every element of \\((I - \gamma P)^{-1}\\) is greater than or equal to 0. This is because $P$ has non-negative entries and by using the Neumann series expansion of the inverse matrix, we get: \\((I - \gamma P)^{-1} = I + \gamma P + \gamma^2 P^2 + \ldots \ge 0 \\).
+
+3. For any vector $r \ge 0$,  \\((I - \gamma P)^{-1} r \ge r \ge 0\\).
+
+#### Iterative Solution
+
+Consider the iterative solution to the Bellman equation:
+
+$$
+    v_{k+1} = r + \gamma P v_k
+$$
+
+This algorithm produces a series of values \\(v_0, v_1, v_2, \ldots\\) starting from some initial guess. The algorithm converges to the true value function \\(v_{\pi}\\) as \\(k \rightarrow \infty\\). Proof:
+
+We define \\( \delta_k = v_{k} - v_{\pi}\\) and show that \\( \delta_k \rightarrow 0\\) as \\(k \rightarrow \infty\\).
+
+(\\(\delta_{k+1} = v_{k+1} - v_{\pi} \\))
+
+$$
+    \begin{equation}
+        \begin{split}
+            \delta_{k+1} + v_{\pi} & = r + \gamma P(\delta_k + v_{\pi}) \\
+            \delta_{k+1} & = \gamma P \delta_k
+        \end{split}
+    \end{equation}
+$$
+
+Hence, \\( \delta_{k+1} = \gamma P \delta_k = \gamma^2 P^2 \delta_{k-1} = \ldots = \gamma^{k+1} P^{k+1} \delta_0\\). Since \\(P\\) is a transition probability matrix and \\(\gamma \in (0, 1)\\), \\(\gamma^k P^k \rightarrow 0\\) as \\(k \rightarrow \infty\\). Hence, \\( \delta_k \rightarrow 0\\) as \\(k \rightarrow \infty\\).
+
+## State-Action Values
