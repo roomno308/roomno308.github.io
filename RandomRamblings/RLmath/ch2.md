@@ -41,5 +41,9 @@ $$
 
 Then, the state value function can be expressed as: $trial$
 
+\\begin{equation}
+    v_{\pi}(s) = \mathbb{E}_{\pi}[G_t | S_t = s] = \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} | S_t = s] = \sum_{a} \pi(a|s) \sum_{s', r} p(s', r | s, a) [r + \gamma v_{\pi}(s')]
+\\end{equation}
+
 
 
