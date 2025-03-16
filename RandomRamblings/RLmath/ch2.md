@@ -101,3 +101,19 @@ Equation $\eqref{eq:bellmanvalue}$ is the Bellman equation for the state value f
 3. $p(r|s, a)$ and $p(s' | s, a)$ represent the system model. 
 
 ## Matrix-Vector Form of Bellman Equation
+
+The Bellman equation can be expressed in matrix-vector form as:
+
+$$
+    \begin{equation}
+        v_{\pi} = r^{\pi} + \gamma \mathcal{P}^{\pi} v_{\pi}
+    \end{equation}
+$$
+
+or
+
+$$
+    \begin{equation}
+        v = r + \gamma \mathcal{P} v
+    \end{equation}
+$$
