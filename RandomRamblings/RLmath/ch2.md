@@ -222,6 +222,6 @@ Here:
 
 - \\(q_{\pi}\\) is the state-action value function vector under policy \\(\pi\\).
 
-- \\(\widetilde{r}\\) is the immediate reward vector and does not depend on the policy (because we know that we are taking the action $a$ immediately).
+- \\(\widetilde{r}\\) is the immediate reward vector and **does not** depend on the policy (because we know that we are taking the action $a$ immediately).
 
-- \\(P\\) is the transition probability matrix which, unlike the state value Bellman equation, does not depend on the policy.
+- \\(P\\) is the transition probability matrix which, unlike the state value Bellman equation, **does not** depend on the policy.
