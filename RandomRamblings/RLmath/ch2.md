@@ -49,5 +49,7 @@ $$
         & = \mathbb{E}_{\pi}[R_{t+1} | S_t = s] + \gamma \mathbb{E}_{\pi}[G_{t+1} | S_t = s]
     \end{split}
 \end{equation}
+\label{eq:valuereturn}
 $$
 
+in equation $\eqref{eq:valuereturn}$

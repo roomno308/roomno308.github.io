@@ -25,7 +25,14 @@
                 {left: "\\[", right: "\\]", display: true}
               ],
               // • rendering keys, e.g.:
-              throwOnError : false
+              throwOnError : false,
+              // eqref
+              trust: (context) => ['\\htmlId', '\\href'].includes(context.command),
+              macros: {
+                  "\\eqref": "\\href{###1}{(\\text{#1})}",
+                  "\\ref": "\\href{###1}{\\text{#1}}",
+                  "\\label": "\\htmlId{#1}{}"
+              }
             });
         });
     </script>
