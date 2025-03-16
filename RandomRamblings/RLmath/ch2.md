@@ -35,9 +35,15 @@ $$
 
 In a nutshell, the Bellman equation is a set of linear equaitons that express the relationship between the values of states. First, we can see that:
 
-\begin{equation}
-    v_{\pi}(s) = \mathbb{E}_{\pi}[G_t | S_t = s] = \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} | S_t = s]
-\end{equation}
+$$
+    G_t = R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} \ldots = R_{t+1} + \gamma G_{t+1}
+$$
+
+Then, the state value function can be expressed as:
+
+$$
+    v_{\pi}(s) = \mathbb{E}_{\pi}[G_t | S_t = s] <\br> = \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} | S_t = s] = \sum_a \pi(a|s) \sum_{s', r} p(s', r | s, a) [r + \gamma v_{\pi}(s')]
+$$
 
 
 
