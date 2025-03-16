@@ -167,3 +167,61 @@ $$
 Hence, \\( \delta_{k+1} = \gamma P \delta_k = \gamma^2 P^2 \delta_{k-1} = \ldots = \gamma^{k+1} P^{k+1} \delta_0\\). Since \\(P\\) is a transition probability matrix and \\(\gamma \in (0, 1)\\), \\(\gamma^k P^k \rightarrow 0\\) as \\(k \rightarrow \infty\\). Hence, \\( \delta_k \rightarrow 0\\) as \\(k \rightarrow \infty\\).
 
 ## State-Action Values
+
+The state-action value function \\(q_{\pi}(s, a)\\) is the expected return from state \\(s\\) and action \\(a\\) under policy \\(\pi\\). Note that the policy is followed after taking the action \\(a\\). The state-action value function can be expressed as:
+
+$$
+    q_{\pi}(s, a) = \mathbb{E}_{\pi}[G_t | S_t = s, A_t = a]
+$$
+
+### Relationship between State and State-Action Values
+
+<ul>
+<li> From conditional expectation, we have:
+
+$$
+    v_{\pi}(s) = \sum_{a \in \mathcal{A}} \pi(a|s) q_{\pi}(s, a)
+$$
+</li>
+
+<li> Furthermore, since the state value can be written as:
+
+$$
+    v_{\pi}(s) = \sum_{a \in \mathcal{A}} \pi(a|s) \left( \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{s' \in \mathcal{S}} v_{\pi}(s') p(s' | s, a) \right)
+$$
+
+we can write the state-action value function as:
+
+$$
+    q_{\pi}(s, a) = \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{s' \in \mathcal{S}} v_{\pi}(s') p(s' | s, a)
+$$
+</li>
+</ul>
+
+### Bellman Equation for State-Action Values
+
+From the equation above:
+
+$$
+    \begin{equation}
+        \begin{split}
+            q_{\pi}(s, a) &= \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{s' \in \mathcal{S}} v_{\pi}(s') p(s' | s, a) \\
+
+            &= \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{s' \in \mathcal{S}} p(s' | s, a) \sum_{a' \in \mathcal{A}} \pi(a'|s') q_{\pi}(s', a')
+        \end{split}
+    \end{equation}
+$$
+
+This is the Bellman equation for the state-action value function. The Bellman equation for the state-action value function can be expressed in matrix-vector form as:
+
+$$
+    q_{\pi} = \widetilde{r} + \gamma P \Pi q_{\pi}
+$$
+
+Here:
+
+- \\(q_{\pi}\\) is the state-action value function vector under policy \\(\pi\\).
+
+- \\(\widetilde{r}\\) is the immediate reward vector and does not depend on the policy (because we know that we are taking the action $a$ immediately).
+
+- \\(P\\) is the transition probability matrix which, unlike the state value Bellman equation, does not depend on the policy.
