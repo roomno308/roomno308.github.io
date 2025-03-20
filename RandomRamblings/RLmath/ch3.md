@@ -25,4 +25,48 @@ In this chapter, we will answer the following questions about the optimal policy
 
 ## Bellman Optimality Equation
 
+The bellman Optimality Equation is given by:
 
+$$
+\begin{equation}
+    \begin{split}
+        v(s) &= max_{\pi(s) \in \Pi(s)} \sum_{a \in \mathcal{A}} \pi(a|s) \left( \sum_{r \in \mathcal{R}} p(r|s, a) r + \gamma \sum_{s' \in \mathcal{S}} v(s') p(s' | s, a) \right) \\
+
+        &= max_{\pi(s) \in \Pi(s)} \sum_{a \in \mathcal{A}} \pi(a|s) q(s, a)
+    \end{split}
+\end{equation}
+$$
+
+The optimality equation has two unknown variables, the state value function \\(v(s)\\) and the policy \\(\pi(s)\\). It might be non trivial to understand how to solve two unknowns with one equation. To understand this better, take an example where we have to maximize the weighted sum of some numbers:
+
+$$
+max_{w} \sum_{i} w_i x_i
+$$
+
+Subject to the constraint that the weights sum to 1. \\(w_i \geq 0\\) for all \\(i\\) and \\(\sum_{i} w_i = 1\\). To maximize the sum, we need to assign the weights to the numbers such that the sum is maximized. The solution to such an equation would be to \\(w_i = 1\\) for the number with the maximum value and \\(w_i = 0\\) for all other numbers. This is the same as the Bellman Optimality Equation. The policy \\(\pi(a|s)\\) is 1 for the action that maximizes the state value and 0 for all other actions. Therefore:
+
+$$
+\begin{equation}
+    \begin{split}
+        v(s) &= max_{\pi(s) \in \Pi(s)} \sum_{a \in \mathcal{A}} \pi(a|s) q(s, a) \\
+        &\le max_{a \in \mathcal{A}} q(s, a)
+    \end{split}
+\end{equation}
+$$
+
+The equality is achieved when:
+
+$$
+\pi(a|s) = \begin{cases}
+    1 & \text{if } a = \arg\max_{a \in \mathcal{A}} q(s, a) \\
+    0 & \text{otherwise}
+\end{cases}
+$$
+
+### Matrix Vector Form
+
+As before, the Bellman Optimality Equation can be expressed in matrix-vector form as:
+
+$$
+v = \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v \right)
+$$
