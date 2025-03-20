@@ -79,3 +79,8 @@ $$
 \| f(x_1) - f(x_2) \| \leq \gamma \| x_1 - x_2 \|
 $$
 
+#### Contraction Mapping Theorem
+
+> For any any equation of the form \\(x = f(x)\\), if \\(x\\) and \\(f(x)\\) are real vectors, and \\(f\\) is a contraction mapping then the following properties hold:
+
+> - _Existence_: There exists a fixed point \\(x^\*\\) satisfying \\(f(x^\*) = x^\*\\).
