@@ -43,7 +43,7 @@ $$
 max_{w} \sum_{i} w_i x_i
 $$
 
-Subject to the constraint that the weights sum to 1. \\(w_i \geq 0\\) for all \\(i\\) and \\(\sum_{i} w_i = 1\\). To maximize the sum, we need to assign the weights to the numbers such that the sum is maximized. The solution to such an equation would be to \\(w_i = 1\\) for the number with the maximum value and \\(w_i = 0\\) for all other numbers. This is the same as the Bellman Optimality Equation. The policy \\(\pi(a|s)\\) is 1 for the action that maximizes the state value and 0 for all other actions. Therefore:
+Subject to the constraint that the weights sum to 1. \\(w_i \geq 0\\) for all \\(i\\) and \\(\sum_{i} w_i = 1\\). To maximize the sum, we need to assign the weights to the numbers such that the sum is maximized. The solution to such an equation would be to \\(w_i = 1\\) for the number with the maximum value and \\(w_i = 0\\) for all other numbers. This is the same as the Bellman Optimality Equation. The policy \\(\pi(a\|s)\\) is 1 for the action that maximizes the state value and 0 for all other actions. Therefore:
 
 $$
 \begin{equation}
@@ -70,3 +70,12 @@ As before, the Bellman Optimality Equation can be expressed in matrix-vector for
 $$
 v = \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v \right)
 $$
+
+## Contraction Mapping Theorem
+
+A function $f$ is a contraction mapping if:
+
+$$
+\| f(x_1) - f(x_2) \| \leq \gamma \| x_1 - x_2 \|
+$$
+
