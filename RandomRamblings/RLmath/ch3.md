@@ -14,7 +14,7 @@ $$
 
 If a policy is better than all other policies, it is called an *optimal policy*. Formally:
 
-A policy \\(\pi^*\\) is optimal if \\(\pi^*(s) \geq \pi(s) \quad \forall s \in \mathcal{S}\\) and for any policy other policy \\(\pi\\). The state values of an optimal policy are called *optimal state values* and are denoted by \\(v_*(s)\\).
+> A policy \\(\pi^\*\\) is optimal if \\(\pi^\*(s) \geq \pi(s) \quad \forall s \in \mathcal{S}\\) and for any policy other policy \\(\pi\\). The state values of an optimal policy are called *optimal state values* and are denoted by \\(v_*(s)\\).
 
 In this chapter, we will answer the following questions about the optimal policy:
 
