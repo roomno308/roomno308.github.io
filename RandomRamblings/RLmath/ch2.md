@@ -98,7 +98,7 @@ Equation $\eqref{eq:bellmanvalue}$ is the Bellman equation for the state value f
 
 2. Solving the Bellman equation for a given policy \\(\pi\\) gives the state value function \\(v_{\pi}(s)\\) and is a *policy evaluation process*.
 
-3. \\(p(r|s, a)\\) and \\(p(s' | s, a)\\) represent the system model. 
+3. \\(p(r\|s, a)\\) and \\(p(s' \| s, a)\\) represent the system model. 
 
 ## Matrix-Vector Form of Bellman Equation
 
