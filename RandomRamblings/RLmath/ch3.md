@@ -78,8 +78,8 @@ $$
     \begin{split}
         v = f(v)
     \end{split}
-    \end{equation}
     \label{eq:MatrixBOE}
+    \end{equation}
 $$
 
 ## Contraction Mapping
