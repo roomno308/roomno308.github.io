@@ -115,4 +115,72 @@ We want to show that the function $f(v)$ in equaiton \eqref{eq:MatrixBOE} is a c
 
 > **Proof**:
 >
-> 
+> let $v_1$ and $v_2$ be any two vectors and $\pi_1 = \arg\max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v_1 \right)$ and $\pi_2 = \arg\max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v_2 \right)$. Then:
+>
+>$$
+\begin{equation}
+\begin{split}
+    f(v_1) & = \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v_1 \right) \\
+    & = r_{\pi_1} + \gamma P_{\pi_1} v_1 \\
+    & \geq r_{\pi_2} + \gamma P_{\pi_2} v_1 \\
+    f(v_2) & = \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v_2 \right) \\
+    & = r_{\pi_2} + \gamma P_{\pi_2} v_2 \\
+    & \geq r_{\pi_1} + \gamma P_{\pi_1} v_2
+\end{split}
+\end{equation}
+>$$
+>
+> Therefore:
+>
+>$$
+\begin{equation}
+\begin{split}
+    f(v_1) - f(v_2)  & = r_{\pi_1} + \gamma P_{\pi_1} v_1 - r_{\pi_2} - \gamma P_{\pi_2} v_2 \\
+    & \leq \gamma P_{\pi_1} (v_1 - v_2)
+\end{split}
+\end{equation}
+>$$
+>
+> Similarly, $f(v_2) - f(v_1) \leq \gamma P_{\pi_2} (v_2 - v_1)$.
+>
+> Let us define $z \doteq \max\{\| \gamma P_{\pi_1} (v_1 - v_2) \|, \| \gamma P_{\pi_2} (v_2 - v_1) \|\}$. Then:
+>
+>$$
+\begin{equation}
+\begin{split}
+    \| f(v_1) - f(v_2) \| \leq z
+\end{split}
+\end{equation}
+>$$
+>
+> Hence, It follows that:
+>
+>$$
+\begin{equation}
+\begin{split}
+    \| f(v_1) - f(v_2) \|_{\infty} \leq \| z \|_{\infty} 
+\end{split}
+\end{equation}
+>$$
+>
+> Now, since $P$  is a stochastic matrix with each row summing to 1, we have (for any row $p_i$):
+>
+>$$
+\begin{equation}
+\begin{split}
+    \| p_i^T (v_1 - v_2) \| \leq p_i^T \| v_1 - v_2 \| \leq \| v_1 - v_2 \|_{\infty}
+\end{split}
+\end{equation}
+>$$
+>
+> Therefore, $\| z \|_{\infty} \leq \gamma \| v_1 - v_2 \|_{\infty}$. Hence:
+>
+>$$
+\begin{equation}
+\begin{split}
+    \| f(v_1) - f(v_2) \| \leq \gamma \| v_1 - v_2 \|
+\end{split}
+\end{equation}
+>$$
+>
+> This completes the proof.
