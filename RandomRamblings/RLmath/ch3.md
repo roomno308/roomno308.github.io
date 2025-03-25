@@ -68,7 +68,15 @@ $$
 As before, the Bellman Optimality Equation can be expressed in matrix-vector form as:
 
 $$
-v = \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v \right)
+f(v) = \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v \right)
+$$
+
+Then, BOE can be written as:
+$$
+    \begin{equation}
+        v = f(v)
+    \end{equation}
+    \label{eq:MatrixBOE}
 $$
 
 ## Contraction Mapping
@@ -90,3 +98,14 @@ $$
 **Proof of Contractive Mapping Theorem**
 
 > This proof is left as an exercise to the reader. (available in the book)
+
+
+#### BOE as a Contraction Mapping
+
+We want to show that the function $f(v)$ in equaiton \eqref{eq:MatrixBOE} is a contraction mapping. 
+
+> **Theorem** _(Contraction property of $f(v)$)_: The function $f(v)$ on the right hand side of the equation \eqref{eq:MatrixBOE} is a contraction mapping. Formally, for any two vectors $v_1$ and $v_2$:
+>
+>$$
+\| f(v_1) - f(v_2) \| \leq \gamma \| v_1 - v_2 \|
+>$$
