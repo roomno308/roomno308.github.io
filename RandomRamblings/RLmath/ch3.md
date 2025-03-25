@@ -75,7 +75,9 @@ Then, BOE can be written as:
 
 $$
     \begin{equation}
+    \begin{split}
         v = f(v)
+    \end{split}
     \end{equation}
     \label{eq:MatrixBOE}
 $$
