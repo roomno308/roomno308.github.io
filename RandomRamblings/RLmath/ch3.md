@@ -71,7 +71,7 @@ $$
 v = \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v \right)
 $$
 
-## Contraction Mapping Theorem
+## Contraction Mapping
 
 A function $f$ is a contraction mapping if:
 
@@ -84,3 +84,9 @@ $$
 > For any any equation of the form \\(x = f(x)\\), if \\(x\\) and \\(f(x)\\) are real vectors, and \\(f\\) is a contraction mapping then the following properties hold:
 
 > - _Existence_: There exists a fixed point \\(x^\*\\) satisfying \\(f(x^\*) = x^\*\\).
+> - _Uniqueness_: The fixed point is unique.
+> - _Algorithm_: The fixed point can be found by iterating the equation \\(x_{k+1} = f(x_k)\\) starting from any initial vector \\(x_0\\). \\(x_k \to x^\*\\) as \\(k \to \infty\\). Moreover, the rate of convergence is exponential.
+
+**Proof of Contractive Mapping Theorem**
+
+> This proof is left as an exercise to the reader. (available in the book)
