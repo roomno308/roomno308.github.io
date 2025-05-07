@@ -184,3 +184,49 @@ We want to show that the function $f(v)$ in equaiton $\eqref{eq:MatrixBOE}$ is a
 >$$
 >
 > This completes the proof.
+
+Now, since we have shown that the Bellman Optimality Equation is a contraction mapping, we can use the Contraction Mapping Theorem to show that there exists a unique fixed point \\(v^\*\\) such that \\(f(v^\*) = v^\*\\). This means that there exists a unique optimal policy \\(\pi^\*\\) such that \\(v^\* = f(v^\*)\\). This fixed point can be found by an interative algorithm called *Value Iteration*.
+
+Now, we need to show that the fixed point is actually the optimal value corresponding to the optimal policy.
+
+> **Theorem** _(Optimality of the fixed point)_: The fixed point \\(v^\*\\) is the optimal value function and the corresponding policy \\(\pi^\*\\) is the optimal policy. Formally:
+>
+>$$
+\begin{equation*}
+\begin{split}
+    v^\* &= v_{\pi^\*} \geq v_{\pi} \quad \forall \pi \in \Pi \\
+\end{split}
+\end{equation*}
+>$$
+> where \\(v_{\pi}\\) is the value function of the policy \\(\pi\\) and $\geq$ is the elementwise comparison operator.
+
+> **Proof**:
+> For any policy \\(\pi\\), we have:
+>$$
+\begin{equation*}
+\begin{split}
+    v_{\pi} &= r_{\pi} + \gamma P_{\pi} v_{\pi} \\
+\end{split}
+\end{equation*}
+>$$
+> Now, since \\(v^\*\\) is the fixed point of the Bellman Optimality Equation, we have:
+>$$
+\begin{equation*}
+\begin{split}
+    v^\* &= \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v^\* \right) \\
+    &\geq r_{\pi} + \gamma P_{\pi} v^\* \\
+\end{split}
+\end{equation*}
+>$$
+> Therefore,
+>$$
+\begin{equation*}
+\begin{split}
+    v^\* - v_{\pi} &\geq \left( r_{\pi} + \gamma P_{\pi} v^\* \right) - \left( r_{\pi} + \gamma P_{\pi} v_{\pi} \right) \\
+    &= \gamma P_{\pi} (v^\* - v_{\pi}) \\
+    &\geq \gamma^{t} P_{\pi}^{t} (v^\* - v_{\pi}) \\
+\end{split}
+\end{equation*}
+>$$
+> this tends to 0 as \\(t \to \infty\\) since \\(P_{\pi}^t\\) is a stochastic matrix.
+
