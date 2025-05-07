@@ -217,8 +217,8 @@ Now, we need to show that the fixed point is actually the optimal value correspo
 >$$
 \begin{equation*}
 \begin{split}
-    v^\* &= \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v^\* \right) \\
-    &\geq r_{\pi} + \gamma P_{\pi} v^\* \\
+    v^* &= \max_{\pi \in \Pi} \left( r_{\pi} + \gamma P_{\pi} v^* \right) \\
+    &\geq r_{\pi} + \gamma P_{\pi} v^* \\
 \end{split}
 \end{equation*}
 >$$
@@ -228,9 +228,9 @@ Now, we need to show that the fixed point is actually the optimal value correspo
 >$$
 \begin{equation*}
 \begin{split}
-    v^\* - v_{\pi} &\geq \left( r_{\pi} + \gamma P_{\pi} v^\* \right) - \left( r_{\pi} + \gamma P_{\pi} v_{\pi} \right) \\
-    &= \gamma P_{\pi} (v^\* - v_{\pi}) \\
-    &\geq \gamma^{t} P_{\pi}^{t} (v^\* - v_{\pi}) \\
+    v^* - v_{\pi} &\geq \left( r_{\pi} + \gamma P_{\pi} v^* \right) - \left( r_{\pi} + \gamma P_{\pi} v_{\pi} \right) \\
+    &= \gamma P_{\pi} (v^* - v_{\pi}) \\
+    &\geq \gamma^{t} P_{\pi}^{t} (v^* - v_{\pi}) \\
 \end{split}
 \end{equation*}
 >$$
