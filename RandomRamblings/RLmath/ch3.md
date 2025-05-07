@@ -194,7 +194,7 @@ Now, we need to show that the fixed point is actually the optimal value correspo
 >$$
 \begin{equation*}
 \begin{split}
-    v^\* &= v_{\pi^\*} \geq v_{\pi} \quad \forall \pi \in \Pi \\
+    v^* &= v_{\pi^*} \geq v_{\pi} \quad \forall \pi \in \Pi \\
 \end{split}
 \end{equation*}
 >$$
