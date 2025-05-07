@@ -198,10 +198,12 @@ Now, we need to show that the fixed point is actually the optimal value correspo
 \end{split}
 \end{equation*}
 >$$
+>
 > where \\(v_{\pi}\\) is the value function of the policy \\(\pi\\) and $\geq$ is the elementwise comparison operator.
 
 > **Proof**:
 > For any policy \\(\pi\\), we have:
+>
 >$$
 \begin{equation*}
 \begin{split}
@@ -209,7 +211,9 @@ Now, we need to show that the fixed point is actually the optimal value correspo
 \end{split}
 \end{equation*}
 >$$
+>
 > Now, since \\(v^\*\\) is the fixed point of the Bellman Optimality Equation, we have:
+>
 >$$
 \begin{equation*}
 \begin{split}
@@ -218,7 +222,9 @@ Now, we need to show that the fixed point is actually the optimal value correspo
 \end{split}
 \end{equation*}
 >$$
+>
 > Therefore,
+>
 >$$
 \begin{equation*}
 \begin{split}
@@ -228,5 +234,6 @@ Now, we need to show that the fixed point is actually the optimal value correspo
 \end{split}
 \end{equation*}
 >$$
+>
 > this tends to 0 as \\(t \to \infty\\) since \\(P_{\pi}^t\\) is a stochastic matrix.
 
