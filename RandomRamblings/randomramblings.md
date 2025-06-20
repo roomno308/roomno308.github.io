@@ -10,7 +10,7 @@ This contains notes for our random readings, which we will probably never finish
 
 <li> <a href = "EBM.html"> Energy Based Methods </a> </li>
 <li> <a href = "Homography.html"> Homography </a> </li>
-<li> <a href = "RLnotes.html"> Reinforcement Learning Notes </a> </li>
+<li> <a href = "RLmath/notes.html"> Reinforcement Learning Notes </a> </li>
 <li> <a href = "VPandR.html"> Rotation Matrix and Image of Vanishing Point </a> </li>
 <li> <a href = "HilbertSpace.html"> Hilbert Spaces </a> </li>
 
