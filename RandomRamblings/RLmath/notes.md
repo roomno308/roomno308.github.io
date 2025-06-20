@@ -15,4 +15,6 @@ These notes are based on **Mathematical Foundations of Reinforcement Learning** 
 
 <li> <a href = "ch3.html"> Chapter 3: Optimal State Values and Bellman Optimality Equation </a> </li>
 
+<li> <a href = "ch4.html"> Chapter 4: Value Iteration and Policy Iteration </a> </li>
+
 </ol>

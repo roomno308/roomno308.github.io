@@ -115,3 +115,5 @@ Also, we know that all these value functions are bounded by the maximum possible
 > **Theorem** (Convergence of Policy Iteration): The state value sequence \\( \{v_k\}_{k=0}^{\infty} \\) converges to the optimal state value function \\(v^*\\). As a result, the corresponding policy sequence converges to the optimal policy.
 
 > **Proof**: The proof is left as an exercise (refer the book)
+
+### Truncated Policy Iteration
