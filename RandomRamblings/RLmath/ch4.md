@@ -98,3 +98,20 @@ $$
 Since \\(P_{\pi_{k+1}}\\) is a stochastic matrix, we know that \\( (v_{\pi_{k}} - v_{\pi_{k+1}}) \leq \gamma P_{\pi_{k+1}} (v_{\pi_k} - v_{\pi_{k+1}}) \leq \gamma^2 P_{\pi_{k+1}}^2 (v_{\pi_k} - v_{\pi_{k+1}}) \leq \ldots \leq \lim_{n \to \infty} \gamma^n P_{\pi_{k+1}}^n (v_{\pi_k} - v_{\pi_{k+1}}) = 0\\).
 
 Thus, we have \\(v_{\pi_{k+1}} \geq v_{\pi_k}\\) for all states \\(s\\).
+
+### Convergence of Policy Iteration
+The policy iteration algorithm generates a sequence of policies \\(\pi_0, \pi_1, \ldots\\) and value functions \\(v_{\pi_0}, v_{\pi_1}, \ldots\\). We already know from previous Lemma that:
+
+$$
+\begin{equation*}
+\begin{split}
+    v_{\pi_{0}} &\leq v_{\pi_{1}} \leq v_{\pi_{2}} \leq \ldots
+\end{split}
+\end{equation*}
+$$
+
+Also, we know that all these value functions are bounded by the maximum possible return \\(v^{\*}\\), which is finite. Since the sequence of value functions, \\(v_k\\), is monotonically increasing and bounded by a finite value, it follows from the [Monotone Convergence Theorem](https://en.wikipedia.org/wiki/Monotone_convergence_theorem) that the sequence will converge to a constant value denoted by \\(v_\infty\\), when \\( k \to \infty \\). We need to show that this value is the optimal value function, i.e., \\(v_\infty = v^*\\).
+
+> **Theorem** (Convergence of Policy Iteration): The state value sequence \\( \{v_k\}_{k=0}^{\infty} \\) converges to the optimal state value function \\(v^*\\). As a result, the corresponding policy sequence converges to the optimal policy.
+
+> **Proof**: The proof is left as an exercise (refer the book)
