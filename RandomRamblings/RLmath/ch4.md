@@ -46,6 +46,7 @@ Let us answer these questions one by one.
 ### In the policy evaluation step, how do we compute the value function for a given policy?
 
 To compute the value function, we need to solve the Bellman evaluation equation:
+
 $$
 \begin{equation*}
 \begin{split}
@@ -55,6 +56,7 @@ $$
 $$
 
 As discussed in [Chapter 2](ch2.html#bellman-equation-for-state-values), this equation can either be solved in closed form or iteratively. The closed form solution is not usually practical, so we solve this equation iteratively using the following update rule:
+
 $$
 \begin{equation*}
 \begin{split}
