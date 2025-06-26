@@ -17,4 +17,6 @@ These notes are based on **Mathematical Foundations of Reinforcement Learning** 
 
 <li> <a href = "ch4.html"> Chapter 4: Value Iteration and Policy Iteration </a> </li>
 
+<li> <a href = "ch5.html"> Chapter 5: Monte Carlo Methods </a> </li>
+
 </ol>
