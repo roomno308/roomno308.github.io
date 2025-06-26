@@ -117,3 +117,13 @@ Also, we know that all these value functions are bounded by the maximum possible
 > **Proof**: The proof is left as an exercise (refer the book)
 
 ### Truncated Policy Iteration
+
+Truncated policy iteration is a generalization of the value iteration and policy iteration algorithms. It is a hybrid algorithm that combines the two algorithms to achieve faster convergence. The idea is to truncate the policy evaluation step after a finite number of iterations, instead of waiting for it to converge to the true value function.
+
+| Algorithm         | Policy Evaluation Steps | Policy Improvement Steps |
+|-------------------|-----------------------|-------------------------|
+| Value Iteration   | 1 (truncated)         | 1                       |
+| Policy Iteration  | Until convergence     | 1                       |
+| Truncated Policy Iteration | Fixed number         | 1                       |
+
+Since it can be shown that the value iteration algorithm converges to the optimal value function, we can use a similar argument to show that the truncated policy iteration algorithm also converges to the optimal value function despite not calculating the true value function in any of the policy evaluation steps. 
