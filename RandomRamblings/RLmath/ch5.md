@@ -17,3 +17,15 @@ Refer to the book chapter to read more about mean estimation.
 Monte Carlo methods are a class of algorithms that rely on repeated random sampling to obtain numerical results. In the context of reinforcement learning, Monte Carlo methods can be used to estimate the value function of a policy by averaging the returns from multiple episodes.
 
 ### A Simple Monte Carlo Algorithm
+
+To construct a simple Monte Carlo algorithm, we can modify the policy iteration algorithm to use Monte Carlo methods for policy evaluation. Here, we use the state-action value function instead of the state value function because:
+1. It is easier to estimate the state-action value function from sampled trajectories.
+2. Calculating the policy in the policy improvement step is easier with the state-action value function, because we don't have the model for transition probabilities.
+
+Therefore, the simple MC algorithm can be described as follows:
+
+1. *Policy evaluation*: In this step we estimate the state-action value \\( q_{\pi_k}(s,a) \\) for all state-action pairs \\( (s,a) \\). Specifically, for every \\((s,a)\\), we sample "sufficiently many" episodes and approximate the true state-action value \\( q_{\pi_k}(s,a) \\) using the average of the returns \\( q_k(s,a) \\) from these episodes.
+
+2. *Policy improvement*: In this step, we improve the policy by choosing the action that maximizes the state-action value function: \\( \pi_{k+1}(s) = \arg\max_a q_k(s,a) \\).
+
+This algorithm, although good for understanding the concept of Monte Carlo methods, is not practical for large state spaces. This is because it requires sampling a large number of episodes to estimate the state-action value function accurately and has a very low sample efficiency.
