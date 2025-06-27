@@ -30,7 +30,7 @@ Therefore, the simple MC algorithm can be described as follows:
 
 This algorithm, although good for understanding the concept of Monte Carlo methods, is not practical for large state spaces. This is because it requires sampling a large number of episodes to estimate the state-action value function accurately and has a very low sample efficiency.
 
-### First set of Improvements
+### Set of Improvements
 
 ## Sample Efficiency
 
@@ -55,3 +55,9 @@ In the above example, we can see that the original episode can be split into mul
 ### Policy Update
 
 Our basic algorithm collected a bunch of trajectories and then used the average to update the state-action value function. This can be quite slow and impractical, therefore, instead of collecting a bunch of episodes, we can update the state-action value function after every episode using running average. Even though the return of a single episode is not an accurate estimate of the corresponding action value, this is still a good strategy and falls into the scope of **generalized policy iteration** methods (Last chapter of the book).
+
+### $\epsilon$-Greedy Policies
+
+Since we are still using greedy (deterministic) policies, we need to ensure that we start from every state-action pair because our deterministic policy might not visit all the state-action pairs. This might not be practical as usually the agent does not have a control over where it starts from.
+
+To overcome this issue, we can use **$\epsilon$-greedy policies**. (Read more about epsilon-greedy policies in the book). One thing to note that if greedy policies are replaced with $\epsilon$-greedy policies, the final solution is not guaranteed to be optimal. However, for small enough \\(\epsilon\\), the solution is still a good approximation of the optimal solution.
