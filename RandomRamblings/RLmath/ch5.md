@@ -29,3 +29,29 @@ Therefore, the simple MC algorithm can be described as follows:
 2. *Policy improvement*: In this step, we improve the policy by choosing the action that maximizes the state-action value function: \\( \pi_{k+1}(s) = \arg\max_a q_k(s,a) \\).
 
 This algorithm, although good for understanding the concept of Monte Carlo methods, is not practical for large state spaces. This is because it requires sampling a large number of episodes to estimate the state-action value function accurately and has a very low sample efficiency.
+
+### First set of Improvements
+
+## Sample Efficiency
+
+In the basic Monte Carlo algorithm, we sample episodes starting from each state-action pair to estimate the state-action value function. But, during every episode, the agent may visit different states and perform different actions in them. This implies that we can use the information from the episodes to update the state-action value function for all the states and actions visited in that episode instead of just the state-action pair we started from. For example for a sample episode starting from state \\(s_1\\) and action \\(a_2\\) (the state and action subscripts denote the state and action indices and not the time step):
+
+$$
+\begin{equation*}
+\begin{split}
+    s_1 \xrightarrow{a_2} s_2 \xrightarrow{a_4} s_1 \xrightarrow{a_2} s_2 \xrightarrow{a_3} s_5 \xrightarrow{a_1} & \cdots \;  \text{[original episode]} \\
+    s_2 \xrightarrow{a_4} s_1 \xrightarrow{a_2} s_2 \xrightarrow{a_3} s_5 \xrightarrow{a_1} & \cdots \;  \text{[subepisode starting from } (s_2,a_4) \text{]} \\
+    s_1 \xrightarrow{a_2} s_2 \xrightarrow{a_3} s_5 \xrightarrow{a_1} & \cdots \;  \text{[subepisode starting from } (s_1,a_2) \text{]} \\
+    s_2 \xrightarrow{a_3} s_5 \xrightarrow{a_1} & \cdots \;  \text{[subepisode starting from }(s_2,a_3) \text{]} \\
+    s_5 \xrightarrow{a_1} & \cdots \;  \text{[subepisode starting from }(s_5,a_1) \text{]}
+\end{split}
+\end{equation*}
+$$
+
+In the above example, we can see that the original episode can be split into multiple subepisodes starting from different state-action pairs. We can use these subepisodes to update the state-action value function for all the state-action pairs visited in that episode. If we use only the first visit of a state-action pair in an episode, it is called **first-visit MC**. If we use all the visits of a state-action pair in an episode, it is called **every-visit MC**.
+
+> Note that even though the every visit MC is more sample efficient than the first visit MC, the samples it uses are not independent because the second visit is just a subset of the first visit and the visits are not independent. Nevertheless, this correlation might not be strong in practice if each visit is far apart in time.
+
+### Policy Update
+
+Our basic algorithm collected a bunch of trajectories and then used the average to update the state-action value function. This can be quite slow and impractical, therefore, instead of collecting a bunch of episodes, we can update the state-action value function after every episode using running average. Even though the return of a single episode is not an accurate estimate of the corresponding action value, this is still a good strategy and falls into the scope of **generalized policy iteration** methods (Last chapter of the book).
