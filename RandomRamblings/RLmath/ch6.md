@@ -56,3 +56,30 @@ w_{k+1} = w_k + \alpha_k (x_k - w_k)
 $$
 
 Here, the term \\( \frac{1}{k} \\) is replaced by a step size \\( \alpha_k > 0 \\). We will learn in this chapter that if \\( \alpha_k \\) satisfies some (very mild) conditions, then the algorithm will still converge to the true mean.
+
+## Robbins-Monro Algorithm
+
+Robbins-Monro (RM) algorithm is a stochastic roots finding algorithm and will later see that famous algorithms like Stochastic Gradient Descent (SGD) is a special case of this algorithm. Suppose that we need to find the root of the equation \\( g(w) = 0 \\), where \\( w \in \mathbb{R} \\) and \\( g: \mathbb{R} \to \mathbb{R} \\) is an unknown function. This means that we can't find a closed form solution for \\( w \\), neither can we calculate the derivative of \\( g(w) \\) to use other iterative methods. Furthermore, we can only obtain a noisy sample (with an observation error $\eta_k$) of the function value at a point \\( w \\) as follows:
+
+$$
+\begin{equation*}
+\tilde{g}(w,\eta_k) = g(w_k) +  \eta_k
+\end{equation*}
+$$
+
+![alt text](../graphics/RLmath/ch6RM1.png)
+
+The RM algorithm that solves this problem is:
+
+$$
+\begin{equation*}
+w_{k+1} = w_k - \alpha_k \tilde{g}(w_k, \eta_k) \hspace{1em} k = 1,2,\ldots
+\end{equation*}
+$$
+
+Here, \\(w_k\\) is the estimate of the root at iteration \\(k\\) and \\(\alpha_k > 0\\) is a positive coefficient. It is obvious that this alorithm converges only when certain conditions are satisfied (one obvious condition is convexity of \\(g(w)\\)). But, before we discuss the conditions, let us first understand the intuition behind this algorithm by the following examples:
+
+Suppose \\(w^\*\\) is the root of the equation \\(g(w) = 0\\):
+
+1. When \\(w_k > w^\*\\), we have \\(g(w_k) > 0\\). Then, \\( w_{k+1} = w_k - \alpha_k g(w_k) < w_k\\). This means that we are moving towards the root if \\( \| \alpha_k g(w_k) \| \\) is sufficiently small.s
+2. When \\(w_k < w^\*\\), we have \\(g(w_k) < 0\\). Then, \\( w_{k+1} = w_k - \alpha_k g(w_k) > w_k\\). This means that we are moving towards the root if \\( \| \alpha_k g(w_k) \| \\) is sufficiently small.
