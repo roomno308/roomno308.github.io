@@ -19,4 +19,6 @@ These notes are based on **Mathematical Foundations of Reinforcement Learning** 
 
 <li> <a href = "ch5.html"> Chapter 5: Monte Carlo Methods </a> </li>
 
+<li> <a href = "ch6.html"> Chapter 6: Stochastic Approximation </a> </li>
+
 </ol>
