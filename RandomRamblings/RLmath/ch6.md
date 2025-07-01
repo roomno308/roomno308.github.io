@@ -89,7 +89,7 @@ In either case, we are moving towards the root.
 
 Now, we can formally discuss the conditions under which the RM algorithm converges:
 
-> **Theorem (Robbins-Monro Theorem)**: The Robbins-Monro algorithm stated in Equation \eqref{RMalgorithm} converges almost surely to the root \\(w^\*\) of the equation \(g(w) = 0\) if:
+> **Theorem (Robbins-Monro Theorem)**: The Robbins-Monro algorithm stated in Equation $\eqref{RMalgorithm}$ converges almost surely to the root \\(w^\*\\) of the equation \\(g(w) = 0\\) if:
 > 1. \\( 0< c_1 \leq \nabla_w g(w) \leq c_2 < \infty \\) for all \\(w\\).
 > 2. \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\) and \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\).
 > 3. \\( \mathbb{E}[\eta_k | \mathcal{H}_k] = 0 \\) and \\( \mathbb{E}[\eta_k^2 | \mathcal{H}_k] < \infty \\) 
