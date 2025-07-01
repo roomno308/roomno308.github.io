@@ -72,14 +72,25 @@ $$
 The RM algorithm that solves this problem is:
 
 $$
-\begin{equation*}
+\begin{equation}
 w_{k+1} = w_k - \alpha_k \tilde{g}(w_k, \eta_k) \hspace{1em} k = 1,2,\ldots
-\end{equation*}
+\label{RMalgorithm}
+\end{equation}
 $$
 
 Here, \\(w_k\\) is the estimate of the root at iteration \\(k\\) and \\(\alpha_k > 0\\) is a positive coefficient. It is obvious that this alorithm converges only when certain conditions are satisfied (one obvious condition is convexity of \\(g(w)\\)). But, before we discuss the conditions, let us first understand the intuition behind this algorithm by the following examples:
 
 Suppose \\(w^\*\\) is the root of the equation \\(g(w) = 0\\):
 
-1. When \\(w_k > w^\*\\), we have \\(g(w_k) > 0\\). Then, \\( w_{k+1} = w_k - \alpha_k g(w_k) < w_k\\). This means that we are moving towards the root if \\( \| \alpha_k g(w_k) \| \\) is sufficiently small.s
+1. When \\(w_k > w^\*\\), we have \\(g(w_k) > 0\\). Then, \\( w_{k+1} = w_k - \alpha_k g(w_k) < w_k\\). This means that we are moving towards the root if \\( \| \alpha_k g(w_k) \| \\) is sufficiently small.
 2. When \\(w_k < w^\*\\), we have \\(g(w_k) < 0\\). Then, \\( w_{k+1} = w_k - \alpha_k g(w_k) > w_k\\). This means that we are moving towards the root if \\( \| \alpha_k g(w_k) \| \\) is sufficiently small.
+
+In either case, we are moving towards the root.
+
+Now, we can formally discuss the conditions under which the RM algorithm converges:
+
+> **Theorem (Robbins-Monro Theorem)**: The Robbins-Monro algorithm stated in Equation \eqref{RMalgorithm} converges almost surely to the root \\(w^\*\) of the equation \(g(w) = 0\) if:
+> 1. \\( 0< c_1 \leq \nabla_w g(w) \leq c_2 < \infty \\) for all \\(w\\).
+> 2. \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\) and \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\).
+> 3. \\( \mathbb{E}[\eta_k | \mathcal{H}_k] = 0 \\) and \\( \mathbb{E}[\eta_k^2 | \mathcal{H}_k] < \infty \\) 
+> where \\(\mathcal{H}_k = \{w_1, \ldots, w_k\}\\) is the history of the algorithm up to iteration \\(k\\). 
