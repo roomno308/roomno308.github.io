@@ -78,7 +78,7 @@ w_{k+1} = w_k - \alpha_k \tilde{g}(w_k, \eta_k) \hspace{1em} k = 1,2,\ldots
 \end{equation}
 $$
 
-Here, \\(w_k\\) is the estimate of the root at iteration \\(k\\) and \\(\alpha_k > 0\\) is a positive coefficient. It is obvious that this alorithm converges only when certain conditions are satisfied (one obvious condition is convexity of \\(g(w)\\)). But, before we discuss the conditions, let us first understand the intuition behind this algorithm by the following examples:
+Here, \\(w_k\\) is the estimate of the root at iteration \\(k\\) and \\(\alpha_k > 0\\) is a positive coefficient. It is obvious that this alorithm converges only when certain conditions are satisfied (one obvious condition is that \\(g(w)\\) is monotonically increasing). But, before we discuss the conditions, let us first understand the intuition behind this algorithm by the following examples:
 
 Suppose \\(w^\*\\) is the root of the equation \\(g(w) = 0\\):
 
@@ -94,3 +94,11 @@ Now, we can formally discuss the conditions under which the RM algorithm converg
 > 2. \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\) and \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\).
 > 3. \\( \mathbb{E}[\eta_k | \mathcal{H}_k] = 0 \\) and \\( \mathbb{E}[\eta_k^2 | \mathcal{H}_k] < \infty \\) 
 > where \\(\mathcal{H}_k = \{w_1, \ldots, w_k\}\\) is the history of the algorithm up to iteration \\(k\\). 
+
+> **Proof**: Refer to the book chapter for the proof.
+
+The conditions are explained as follows:
+
+1. \\( 0< c_1 \leq \nabla_w g(w) \\) indicates that the function \\(g(w)\\) is monotonically increasing. This ensures that the root exists and is unique. \\
+Furthermore, as an application where \\( g(w) = \nabla_w J(w) \\) for some cost function \\(J(w)\\), this condition ensures that the cost function is convex, which is a commonly adopted assumption in optimization problems. \\
+The condition \\( \nabla_w g(w) \leq c_2 < \infty \\) ensures that the function is not too steep, or the gradient is bounded from above.
