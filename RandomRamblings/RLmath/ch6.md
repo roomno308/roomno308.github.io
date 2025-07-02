@@ -108,7 +108,7 @@ The condition \\( \nabla_w g(w) \leq c_2 < \infty \\) ensures that the function 
 First, \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\) suggests that \\(\alpha_k \to 0\\) as \\(k \to \infty\\). This is necessary because \\(w_{k+1} - w_k = -\alpha_k g(w_k)\\) should go to zero as \\(k \to \infty\\) for the algorithm to converge.\\
 Second, \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\) ensures that the steps don't converge too fast and we reach the root from arbitrarily far away.
 
-3. The third condition is a mild technical condition: \\( \mathbb{E}[\eta_k | \mathcal{H}_k] = 0 \\) ensures that the noise is unbiased, i.e., the expected value of the noise is zero. This is necessary for the algorithm to converge to the true root. The low variance condition \\( \mathbb{E}[\eta_k^2 | \mathcal{H}_k] < \infty \\) ensures that the noise is not too large, which could otherwise prevent the algorithm from converging.
+3. The third condition is a mild technical condition: \\( \mathbb{E}[\eta_k \| \mathcal{H}_k] = 0 \\) ensures that the noise is unbiased, i.e., the expected value of the noise is zero. This is necessary for the algorithm to converge to the true root. The low variance condition \\( \mathbb{E}[\eta_k^2 \| \mathcal{H}_k] < \infty \\) ensures that the noise is not too large, which could otherwise prevent the algorithm from converging.
 
 Now it can be clearly seen that our $\eqref{Incremental Mean Estimation}$ algorithm is a special case of the RM algorithm where \\(g(w) = w - \mathbb{E}[X]\\) and therefore it converges if the conditions of the RM theorem are satisfied.
 
