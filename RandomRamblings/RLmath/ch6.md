@@ -4,7 +4,10 @@ title: Chapter 6 - Stochastic Approximation
 author: Chaitanya
 ---
 
-[Previous Chapter](ch5.html) | [Next Chapter](ch7.html)
+<div style="display: flex; justify-content: space-between;">
+  <span>[Previous Chapter](ch5.html)</span>
+  <span style="margin-left:auto;">[Next Chapter](ch7.html)</span>
+</div>
 
 ## Motivating Example: Mean Estimation
 
