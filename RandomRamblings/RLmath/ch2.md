@@ -7,7 +7,7 @@ author: Chaitanya
 <!-- [Notes](notes.html) | [Next Chapter](ch3.html) -->
 
 <div style="display: flex; justify-content: space-between;">
-  <a href="ch1.html">&larr; Previous Chapter</a>
+  <a href="notes.html">&larr; Notes</a>
   <span style="margin-left:auto;"></span>
   <a href="ch3.html" style="margin-left:auto;">Next Chapter &rarr;</a>
 </div>
