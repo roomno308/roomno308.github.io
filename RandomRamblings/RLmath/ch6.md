@@ -134,3 +134,18 @@ This section is a detour from the main topic, but this, along with some other re
 > where $\lbrace \alpha_k\rbrace_{k=1}^{\infty},\; \lbrace \beta_k\rbrace_{k=1}^{\infty},\; \lbrace \eta_k\rbrace_{k=1}^{\infty}$ are stochastic sequences with \\( \alpha_k, \beta_k \ge 0 \\) for all \\(k\\). Then, \\(\delta_k \to 0\\) almost surely if the following conditions are satisfied:
 > 1. \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\), \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\), and \\( \sum_{k=1}^{\infty} \beta_k^2 < \infty \\).
 > 2. \\( \mathbb{E}[\eta_k \| \mathcal{H}_k] = 0 \\) and \\( \mathbb{E}[\eta_k^2 \| \mathcal{H}_k] \le C < \infty \\) for some constant \\(C\\) almost surely, and \\( \mathcal{H}_k\\) is the history of the process up to iteration \\(k\\).
+
+These conditions have similar interpretations as the conditions in the Robbins-Monro theorem. Note that in Dvoretzky's theorem, \\(\alpha_k, \beta_k, \eta_k\\) are stochastic sequences, which means that they can vary randomly at each iteration. This is in contrast to the Robbins-Monro theorem, where \\(\alpha_k\\) is a deterministic sequence. Now, we can discuss a more general form of Dvoretzky's convergence theorem which incorporates multiple variables and is useful in proving the convergence of Q-learning algorithms.
+
+> **Theorem (Generalized Dvoretzky's Convergence Theorem)**: Consider a stochastic process
+>
+>$$
+\begin{equation*}
+    \delta_{k+1}(s) = (1-\alpha_k(s)) \delta_k(s) + \beta_k(s) \eta_k(s)
+\end{equation*}
+>$$
+>
+> it holds that \\(\delta_k(s) \to 0\\) almost surely for all \\(s \in \mathcal{S}\\) if the following conditions are satisfied for all \\(s \in \mathcal{S}\\):
+> 1. \\( \sum_{k=1}^{\infty} \alpha_k(s) = \infty \\), \\( \sum_{k=1}^{\infty} \alpha_k(s)^2 < \infty \\), \\( \sum_{k=1}^{\infty} \beta_k(s)^2 < \infty \\), and \\( \mathbb{E}[\beta_k(s) \| \mathcal{H}_k] \le \mathbb{E}[\alpha_k(s) \| \mathcal{H}_k] \\) uniformly almost surely.
+> 2. \\( \norm{\mathbb{E}[\eta_k(s) \| \mathcal{H}_k]}_\infty \le \gamma \norm{\delta_k}_\infty \\), for \\( \gamma \in (0, 1) \\)
+> 3. \\( \text{Var}[\eta_k(s) \| \mathcal{H}_k] \le C(1+\norm{\delta_k(s)}_\infty)^2 \\) for some constant \\(C\\).
