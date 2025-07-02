@@ -5,8 +5,8 @@ author: Chaitanya
 ---
 
 <div style="display: flex; justify-content: space-between;">
-  <span>[Previous Chapter](ch5.html)</span>
-  <span style="margin-left:auto;">[Next Chapter](ch7.html)</span>
+  <a href="ch5.html">&larr; Previous Chapter</a>
+  <a href="ch7.html">Next Chapter &rarr;</a>
 </div>
 
 ## Motivating Example: Mean Estimation
