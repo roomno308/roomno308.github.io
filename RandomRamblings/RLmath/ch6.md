@@ -146,6 +146,6 @@ These conditions have similar interpretations as the conditions in the Robbins-M
 >$$
 >
 > it holds that \\(\delta_k(s) \to 0\\) almost surely for all \\(s \in \mathcal{S}\\) if the following conditions are satisfied for all \\(s \in \mathcal{S}\\):
-> 1. \\( \sum_{k=1}^{\infty} \alpha_k(s) = \infty \\), \\( \sum_{k=1}^{\infty} \alpha_k(s)^2 < \infty \\), \\( \sum_{k=1}^{\infty} \beta_k(s)^2 < \infty \\), and \\( \mathbb{E}[\beta_k(s) \| \mathcal{H}_k] \le \mathbb{E}[\alpha_k(s) \| \mathcal{H}_k] \\) uniformly almost surely.
+> 1. \\( \sum_{k=1}^{\infty} \alpha_k(s) = \infty \\), \\( \sum_{k=1}^{\infty} \alpha_k(s)^2 < \infty \\), \\( \sum_{k=1}^{\infty} \beta_k(s)^2 < \infty \\), and \\( \norm{\mathbb{E}[\beta_k(s) \| \mathcal{H}_k]} \le \mathbb{E}[\alpha_k(s) \| \mathcal{H}_k] \\) uniformly almost surely.
 > 2. \\( \mathbb{E}[\eta_k(s) \| \mathcal{H}_k] \le \\), for \\( \gamma \in (0, 1) \\)
 > 3. \\( \text{Var}[\eta_k(s) \| \mathcal{H}_k] \le C(1+\norm{\delta_k(s)}_\infty)^2 \\) for some constant \\(C\\).
