@@ -130,6 +130,6 @@ This section is a detour from the main topic, but this, along with some other re
 \end{equation*}
 >$$
 >
-> where $\\{ \alpha_k\\}_{k=1}^{\infty}$ are stochastic sequences with \\( \alpha_k, \beta_k \ge 0 \\) for all \\(k\\). Then, \\(\delta_k \to 0\\) almost surely if the following conditions are satisfied:
+> where $\\{ \alpha_k\\}_{k=1}^{\infty}, \\{ \beta_k\\}_{k=1}^{\infty}, \\{ \eta_k\\}_{k=1}^{\infty}$ are stochastic sequences with \\( \alpha_k, \beta_k \ge 0 \\) for all \\(k\\). Then, \\(\delta_k \to 0\\) almost surely if the following conditions are satisfied:
 > 1. \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\), \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\), and \\( \sum_{k=1}^{\infty} \beta_k^2 < \infty \\).
 > 2. \\( \mathbb{E}[\eta_k \| \mathcal{H}_k] = 0 \\) and \\( \mathbb{E}[\eta_k^2 \| \mathcal{H}_k] \le C < \infty \\) for some constant \\(C\\) almost surely, and \\( \mathcal{H}_k\\) is the history of the process up to iteration \\(k\\).
