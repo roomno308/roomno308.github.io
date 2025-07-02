@@ -4,6 +4,8 @@ title: Chapter 5 - Monte Carlo Methods
 author: Chaitanya
 ---
 
+[Previous Chapter](ch4.html) | [Next Chapter](ch6.html)
+
 Till now, we have only discussed methods that require a model of the environment. These methods are often referred to as **model-based methods**. However, in many real-world scenarios, we may not have access to the model of the environment. In such cases, we can use **model-free methods** that do not require a model of the environment.
 
 In this chapter, we will discuss once such method to convert the model-based methods to model-free methods. This method is called **Monte Carlo Methods**.

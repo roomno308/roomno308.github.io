@@ -4,6 +4,8 @@ title: Chapter 4 - Value Iteration and Policy Iteration
 author: Chaitanya
 ---
 
+[Previous Chapter](ch3.html) | [Next Chapter](ch5.html)
+
 ## Value Iteration
 
 Value iteration is exactly the algorithm suggested by the Bellman Optimality Equation:

@@ -4,6 +4,8 @@ title: Chapter 6 - Stochastic Approximation
 author: Chaitanya
 ---
 
+[Previous Chapter](ch5.html) | [Next Chapter](ch7.html)
+
 ## Motivating Example: Mean Estimation
 
 SUppose we have a random variable \\(X\\) which takes values from a finite set \\( \mathcal{X} \\). We want to estimate the mean \\( \mathbb{E}[X] \\) of this random variable. Suppose we also get i.i.d samples \\( \{x_i\}_{i=1}^n \\). In the [last chapter](ch5.html), we saw that we can estimate the mean using monte carlo estimation as follows:

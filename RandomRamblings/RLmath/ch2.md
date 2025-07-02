@@ -4,6 +4,8 @@ title: Chapter 2 - State Values and Bellman Equation
 author: Chaitanya
 ---
 
+[Notes](notes.html) | [Next Chapter](ch3.html)
+
 ## State Values
 
 Consider a sequence of timesteps \\(t = 0, 1, 2, 3, \ldots\\). At each timestep \\(t\\), the agent is in a state \\(S_t\\) and takes an action \\(A_t\\) following a policy \\(\pi\\). The agent receives a reward \\(R_{t+1}\\) and transitions to a new state \\(S_{t+1}\\). Rhis can be represented as:
