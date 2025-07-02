@@ -4,7 +4,14 @@ title: Chapter 2 - State Values and Bellman Equation
 author: Chaitanya
 ---
 
-[Notes](notes.html) | [Next Chapter](ch3.html)
+<!-- [Notes](notes.html) | [Next Chapter](ch3.html) -->
+
+<div style="display: flex; justify-content: space-between;">
+  <a href="ch1.html">&larr; Previous Chapter</a>
+  <span style="margin-left:auto;"></span>
+  <a href="ch3.html" style="margin-left:auto;">Next Chapter &rarr;</a>
+</div>
+
 
 ## State Values
 

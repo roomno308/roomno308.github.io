@@ -4,7 +4,12 @@ title: Chapter 3 - Optimal Sate Values and Bellman Optimality Equation
 author: Chaitanya
 ---
 
-[Previous Chapter](ch2.html) | [Next Chapter](ch4.html)
+<div style="display: flex; justify-content: space-between;">
+  <a href="ch2.html">&larr; Previous Chapter</a>
+  <span style="margin-left:auto;"></span>
+  <a href="ch4.html" style="margin-left:auto;">Next Chapter &rarr;</a>
+</div>
+
 
 ## Optimal State Values and Optimal Policies
 

@@ -4,7 +4,12 @@ title: Chapter 5 - Monte Carlo Methods
 author: Chaitanya
 ---
 
-[Previous Chapter](ch4.html) | [Next Chapter](ch6.html)
+<div style="display: flex; justify-content: space-between;">
+  <a href="ch4.html">&larr; Previous Chapter</a>
+  <span style="margin-left:auto;"></span>
+  <a href="ch6.html" style="margin-left:auto;">Next Chapter &rarr;</a>
+</div>
+
 
 Till now, we have only discussed methods that require a model of the environment. These methods are often referred to as **model-based methods**. However, in many real-world scenarios, we may not have access to the model of the environment. In such cases, we can use **model-free methods** that do not require a model of the environment.
 

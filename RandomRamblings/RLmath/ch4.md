@@ -4,7 +4,12 @@ title: Chapter 4 - Value Iteration and Policy Iteration
 author: Chaitanya
 ---
 
-[Previous Chapter](ch3.html) | [Next Chapter](ch5.html)
+<div style="display: flex; justify-content: space-between;">
+  <a href="ch3.html">&larr; Previous Chapter</a>
+  <span style="margin-left:auto;"></span>
+  <a href="ch5.html" style="margin-left:auto;">Next Chapter &rarr;</a>
+</div>
+
 
 ## Value Iteration
 
