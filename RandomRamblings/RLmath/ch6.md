@@ -50,9 +50,10 @@ Even though, it is obvious that the initial estimates of the mean will be inaccu
 A more general form of this algorithm is:
 
 $$
-\begin{equation*}
+\begin{equation}
 w_{k+1} = w_k + \alpha_k (x_k - w_k)
-\end{equation*}
+\label{Incremental Mean Estimation}
+\end{equation}
 $$
 
 Here, the term \\( \frac{1}{k} \\) is replaced by a step size \\( \alpha_k > 0 \\). We will learn in this chapter that if \\( \alpha_k \\) satisfies some (very mild) conditions, then the algorithm will still converge to the true mean.
@@ -108,3 +109,22 @@ First, \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\) suggests that \\(\alpha_k
 Second, \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\) ensures that the steps don't converge too fast and we reach the root from arbitrarily far away.
 
 3. The third condition is a mild technical condition: \\( \mathbb{E}[\eta_k | \mathcal{H}_k] = 0 \\) ensures that the noise is unbiased, i.e., the expected value of the noise is zero. This is necessary for the algorithm to converge to the true root. The low variance condition \\( \mathbb{E}[\eta_k^2 | \mathcal{H}_k] < \infty \\) ensures that the noise is not too large, which could otherwise prevent the algorithm from converging.
+
+Now it can be clearly seen that our $\eqref{Incremental Mean Estimation}$ algorithm is a special case of the RM algorithm where \\(g(w) = w - \mathbb{E}[X]\\) and therefore it converges if the conditions of the RM theorem are satisfied.
+
+
+## Dvoretzky's convergence theorem
+
+This section is a detour from the main topic, but this, along with some other results, is important for understanding the convergence of RL algorithms like Q-learning. Dvoretzky's convergence theorem can also be used to prove the convergence of the Robbins-Monro algorithm.
+
+> **Theorem (Dvoretzky's Convergence Theorem)**: consider a stochastic process
+>
+>$$
+\begin{equation*}
+    \delta_{k+1} = (1-\alpha_k) \delta_k + \beta_k \eta_k
+\end{equation*}
+>$$
+>
+> where \\(\{ \alpha_k \}_{k=1}^{\infty}, \{ \beta_k \}_{k=1}^{\infty}, \{ \eta_k \}_{k=1}^{\infty}\\) are stochastic sequences with \\( \alpha_k, \beta_k \ge 0 \\) for all \\(k\\). Then, \\(\delta_k \to 0\\) almost surely if the following conditions are satisfied:
+> 1. \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\), \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\), and \\( \sum_{k=1}^{\infty} \beta_k^2 < \infty \\).
+> 2. \\( \mathbb{E}[\eta_k | \mathcal{H}_k] = 0 \\) and \\( \mathbb{E}[\eta_k^2 | \mathcal{H}_k] \le C < \infty \\) for some constant \\(C\\) almost surely, and \\( \mathcal{H}_k\\) is the history of the process up to iteration \\(k\\).
