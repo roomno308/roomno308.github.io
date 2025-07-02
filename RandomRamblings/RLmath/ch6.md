@@ -102,3 +102,9 @@ The conditions are explained as follows:
 1. \\( 0< c_1 \leq \nabla_w g(w) \\) indicates that the function \\(g(w)\\) is monotonically increasing. This ensures that the root exists and is unique. \\
 Furthermore, as an application where \\( g(w) = \nabla_w J(w) \\) for some cost function \\(J(w)\\), this condition ensures that the cost function is convex, which is a commonly adopted assumption in optimization problems. \\
 The condition \\( \nabla_w g(w) \leq c_2 < \infty \\) ensures that the function is not too steep, or the gradient is bounded from above.
+
+2. The second condition \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\) and \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\) ensures that the series converges, but not too fast.\\
+First, \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\) suggests that \\(\alpha_k \to 0\\) as \\(k \to \infty\\). This is necessary because \\(w_{k+1} - w_k = -\alpha_k g(w_k)\\) should go to zero as \\(k \to \infty\\) for the algorithm to converge.\\
+Second, \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\) ensures that the steps don't converge too fast and we reach the root from arbitrarily far away.
+
+3. The third condition is a mild technical condition: \\( \mathbb{E}[\eta_k | \mathcal{H}_k] = 0 \\) ensures that the noise is unbiased, i.e., the expected value of the noise is zero. This is necessary for the algorithm to converge to the true root. The low variance condition \\( \mathbb{E}[\eta_k^2 | \mathcal{H}_k] < \infty \\) ensures that the noise is not too large, which could otherwise prevent the algorithm from converging.
