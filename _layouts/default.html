@@ -44,6 +44,13 @@
     <![endif]-->
   </head>
   <body style="zoom:125%;">
+    <p id="IdentificatorForElement"></p>
+
+        <script>
+            katex.render("\Vert\mathbb{E}[\eta_k(s)\mid\mathcal{H}_k]\Vert_{\infty} \le", document.getElementById('IdentificatorForElement'), {
+                throwOnError: false
+            });
+        </script>
     <div class="wrapper">
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
