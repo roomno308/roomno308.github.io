@@ -153,6 +153,7 @@ These conditions have similar interpretations as the conditions in the Robbins-M
 ## Stochastic Gradient Descent
 
 Consider the following optimization problem:
+
 $$
 \begin{equation*}
 \min_{w} J(w) = \mathbb{E}[f(w, X)]
@@ -162,9 +163,10 @@ $$
 where \\(w\\) is the model parameter to be optimized, \\(X\\) is a random variable, and \\(f(w, X)\\) is a scalar function and the expectation is with respect to \\(X\\). A straightforward way to solve this problem is to use the gradient descent algorithm:
 
 $$
-\begin{equation*}
+\begin{equation}
 w_{k+1} = w_k - \alpha_k \nabla_w J(w_k) = w_k - \alpha_k \mathbb{E}[\nabla_w f(w_k, X)]
-\end{equation*}
+\label{Gradient Descent}
+\end{equation}
 $$
 
 This is the gradient descent algorithm, which can find the optimal parameter \\(w^\*\\) under some mild conditions such as convexity of \\(f\\). One problem, though, is that calculating the expectation \\(\mathbb{E}[\nabla_w f(w_k, X)]\\) without the explicit knowledge of the distribution of \\(X\\) is not possible. Another way to calculate this expectation is to collect a large number of i.i.d samples \\(\lbrace x_i \rbrace_{i=1}^n\\) of X and approximate the expectation using monte carlo estimation:
@@ -184,4 +186,31 @@ w_{k+1} = w_k - \alpha_k \nabla_w f(w_k, x_k)
 \end{equation}
 $$
 
-It is "stochastic" because it relies on a single stochastic sample \\(x_k\\) at each iteration to estimate the gradient.
+It is "stochastic" because it relies on a single stochastic sample \\(x_k\\) at each iteration to estimate the gradient. Now that we have replaced the expectation \\(\mathbb{E}[\nabla_w f(w_k, X)]\\) in the $\eqref{Gradient Descent}$ algorithm with a single sample gradient \\(\nabla_w f(w_k, x_k)\\) in the \\(\eqref{SGD}\\) algorithm, we might want to know if it still ensures convergence to the optimal parameter \\(w^\*\\) as \\(k \to \infty)\\. The answer is yes, and here is the intuition behind it:
+
+$$
+\begin{equation*}
+\begin{split}
+\nabla_w f(w_k, x_k) &= \mathbb{E}[\nabla_w f(w_k, X)] + \left( \nabla_w f(w_k, x_k) - \mathbb{E}[\nabla_w f(w_k, X)] \right) \\
+&= \mathbb{E}[\nabla_w f(w_k, X)] + \eta_k
+\end{split}
+\end{equation*}
+$$
+
+where \\(\eta_k = \nabla_w f(w_k, x_k) - \mathbb{E}[\nabla_w f(w_k, X)]\\) is the noise in the gradient estimate. Then, we can rewrite the SGD algorithm as:
+
+$$
+\begin{equation}
+w_{k+1} = w_k - \alpha_k \nabla_w f(w_k, x_k) = w_k - \alpha_k \mathbb{E}[\nabla_w f(w_k, X)] + \alpha_k \eta_k
+\end{equation}
+$$
+
+Hence, SGD alorithm is exactly the gradient descent algorithm apart from a perturbation term \\(\alpha_k \eta_k\\). Also, since the samples \\(x_k\\) are i.i.d, the noise \\(\eta_k\\) is zero mean:
+
+$$
+\begin{equation*}
+\mathbb{E}[\eta_k] = \mathbb{E}[\nabla_w f(w_k, x_k)] - \mathbb{E}[\nabla_w f(w_k, X)] = 0
+\end{equation*}
+$$
+
+Therefore, intuitively, the noise should not jeopardize the convergence of the SGD algorithm. 
