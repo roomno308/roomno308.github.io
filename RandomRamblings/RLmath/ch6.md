@@ -186,7 +186,7 @@ w_{k+1} = w_k - \alpha_k \nabla_w f(w_k, x_k)
 \end{equation}
 $$
 
-It is "stochastic" because it relies on a single stochastic sample \\(x_k\\) at each iteration to estimate the gradient. Now that we have replaced the expectation \\(\mathbb{E}[\nabla_w f(w_k, X)]\\) in the $\eqref{Gradient Descent}$ algorithm with a single sample gradient \\(\nabla_w f(w_k, x_k)\\) in the \\(\eqref{SGD}\\) algorithm, we might want to know if it still ensures convergence to the optimal parameter \\(w^\*\\) as \\(k \to \infty)\\. The answer is yes, and here is the intuition behind it:
+It is "stochastic" because it relies on a single stochastic sample \\(x_k\\) at each iteration to estimate the gradient. Now that we have replaced the expectation \\(\mathbb{E}[\nabla_w f(w_k, X)]\\) in the $\eqref{Gradient Descent}$ algorithm with a single sample gradient \\(\nabla_w f(w_k, x_k)\\) in the \\(\eqref{SGD}\\) algorithm, we might want to know if it still ensures convergence to the optimal parameter \\(w^\*\\) as \\(k \to \infty\\). The answer is yes, and here is the intuition behind it:
 
 $$
 \begin{equation*}
@@ -214,3 +214,7 @@ $$
 $$
 
 Therefore, intuitively, the noise should not jeopardize the convergence of the SGD algorithm. 
+
+
+## Convergence pattern of SGD
+
