@@ -148,3 +148,40 @@ These conditions have similar interpretations as the conditions in the Robbins-M
 > it holds that \\(\delta_k(s) \to 0\\) almost surely for all \\(s \in \mathcal{S}\\) if the following conditions are satisfied for all \\(s \in \mathcal{S}\\):
 
 ![alt text](../graphics/RLmath/ch6Drovetzky.png)
+
+
+## Stochastic Gradient Descent
+
+Consider the following optimization problem:
+$$
+\begin{equation*}
+\min_{w} J(w) = \mathbb{E}[f(w, X)]
+\end{equation*}
+$$
+
+where \\(w\\) is the model parameter to be optimized, \\(X\\) is a random variable, and \\(f(w, X)\\) is a scalar function and the expectation is with respect to \\(X\\). A straightforward way to solve this problem is to use the gradient descent algorithm:
+
+$$
+\begin{equation*}
+w_{k+1} = w_k - \alpha_k \nabla_w J(w_k) = w_k - \alpha_k \mathbb{E}[\nabla_w f(w_k, X)]
+\end{equation*}
+$$
+
+This is the gradient descent algorithm, which can find the optimal parameter \\(w^\*\\) under some mild conditions such as convexity of \\(f\\). One problem, though, is that calculating the expectation \\(\mathbb{E}[\nabla_w f(w_k, X)]\\) without the explicit knowledge of the distribution of \\(X\\) is not possible. Another way to calculate this expectation is to collect a large number of i.i.d samples \\(\lbrace x_i \rbrace_{i=1}^n\\) of X and approximate the expectation using monte carlo estimation:
+
+$$
+\begin{equation*}
+\mathbb{E}[\nabla_w f(w_k, X)] \approx \frac{1}{n} \sum_{i=1}^n \nabla_w f(w_k, x_i)
+\end{equation*}
+$$
+
+However, this method requires all the samples in each iteration, which is not practical. In practice, it might only be possible to collect one sample at a time. In this case, we can use the stochastic gradient descent (SGD) algorithm (which is a special case of the Robbins-Monro algorithm):
+
+$$
+\begin{equation}
+w_{k+1} = w_k - \alpha_k \nabla_w f(w_k, x_k)
+\label{SGD}
+\end{equation}
+$$
+
+It is "stochastic" because it relies on a single stochastic sample \\(x_k\\) at each iteration to estimate the gradient.
