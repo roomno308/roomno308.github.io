@@ -218,7 +218,7 @@ Therefore, intuitively, the noise should not jeopardize the convergence of the S
 
 ## Convergence pattern of SGD
 
-Intuitively, since SGD is a stochastic version of the gradient descent algorithm, with an added noise term, it should behave similarly to the gradient descent algorithm when the estimate \\(w_k\) is far from the optimal parameter \\(w^\*\\). Aslo, it is obvious that the noise term will have a larger effect as the estimate \\(w_k\\) gets closer to the optimal parameter \\(w^\*\\). To understand the convergence pattern of SGD, we analyze the relative error between the stochastic and true gradients as:
+Intuitively, since SGD is a stochastic version of the gradient descent algorithm, with an added noise term, it should behave similarly to the gradient descent algorithm when the estimate \\(w_k\\) is far from the optimal parameter \\(w^\*\\). Aslo, it is obvious that the noise term will have a larger effect as the estimate \\(w_k\\) gets closer to the optimal parameter \\(w^\*\\). To understand the convergence pattern of SGD, we analyze the relative error between the stochastic and true gradients as:
 
 $$
 \begin{equation*}
