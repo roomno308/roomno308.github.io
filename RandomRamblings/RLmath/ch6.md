@@ -230,7 +230,7 @@ since at the optimal solution \\(w^\*\\), we have \\(\mathbb{E}[\nabla_w f(w^\*,
 
 $$
 \begin{equation*}
-\delta_k = \frac{\| \nabla_w f(w_k, x_k) - \mathbb{E}[\nabla_w f(w_k, X)] \|}{\| \mathbb{E}[\nabla_w f(w_k, X)] - \mathbb{E}[\nabla_w f(w^\*, X)] \|}
+\delta_k = \frac{\| \nabla_w f(w_k, x_k) - \mathbb{E}[\nabla_w f(w_k, X)] \|}{\| \mathbb{E}[\nabla_w f(w_k, X)] - \mathbb{E}[\nabla_w f(w^*, X)] \|}
 \end{equation*}
 $$
 
@@ -249,3 +249,5 @@ $$
 \delta_k \leq \frac{ \| \overbrace{\nabla_w f(w_k, x_k)}^{\text{stochastic grad}} - \overbrace{\mathbb{E}[\nabla_w f(w_k, X)]}^{\text{true grad}} \|}{ \underbrace{c \| w_k - w^\* \|}_{\text{distance to optimal solution}}}
 \end{equation*}
 $$
+
+This shows that the relative error is inversely proportional to the distance to the optimal solution. Therefore, when the distance is large, \\(\delta_k\\) is small, and the stochastic gradient behaves similarly to the true gradient. However, as the distance decreases, the relative error increases, and the stochastic gradient deviates from the true gradient. This means that the convergence of SGD is slower when the estimate is close to the optimal solution.
