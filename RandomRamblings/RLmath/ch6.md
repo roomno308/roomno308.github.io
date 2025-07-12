@@ -251,3 +251,19 @@ $$
 $$
 
 This shows that the relative error is inversely proportional to the distance to the optimal solution. Therefore, when the distance is large, \\(\delta_k\\) is small, and the stochastic gradient behaves similarly to the true gradient. However, as the distance decreases, the relative error increases, and the stochastic gradient deviates from the true gradient. This means that the convergence of SGD is slower when the estimate is close to the optimal solution.
+
+## Mini-batch Gradient Descent
+
+In practice, it is often beneficial to use a mini-batch of \\(m\\) samples instead of a single sample to estimate the gradient. This is known as mini-batch gradient descent. The mini-batch gradient descent algorithm can be written as:
+
+$$
+\begin{equation}
+w_{k+1} = w_k - \alpha_k \frac{1}{m} \sum_{i=1}^m \nabla_w f(w_k, x_i)
+\end{equation}
+$$
+
+This is a compromise between the full-batch gradient descent and the stochastic gradient descent. It reduces the variance of the gradient estimate, which can lead to faster convergence.
+
+## Convergence of SGD
+
+
