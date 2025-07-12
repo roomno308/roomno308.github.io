@@ -43,16 +43,17 @@
           anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href').substring(1);
             const target = document.getElementById(targetId);
+
             if (target) {
-              // Find the closest .katex-html ancestor
-              const katexHtml = target.closest('.katex-html');
-              if (katexHtml) {
-                // Remove old highlight
-                katexHtml.classList.remove('highlight-target');
-                // Force reflow to reset animation
-                void katexHtml.offsetWidth;
+              // Find the closest .katex container (this is the visible equation block)
+              const katexContainer = target.closest('.katex');
+              if (katexContainer) {
+                // Remove existing highlight
+                katexContainer.classList.remove('highlight-target');
+                // Trigger reflow to restart animation
+                void katexContainer.offsetWidth;
                 // Add highlight class
-                katexHtml.classList.add('highlight-target');
+                katexContainer.classList.add('highlight-target');
               }
             }
           });
