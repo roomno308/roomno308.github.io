@@ -226,4 +226,26 @@ $$
 \end{equation*}
 $$
 
-to be continued...
+since at the optimal solution \\(w^\*\\), we have \\(\mathbb{E}[\nabla_w f(w^\*, X)] = 0\\), we can rewrite the relative error as:
+
+$$
+\begin{equation*}
+\delta_k = \frac{\| \nabla_w f(w_k, x_k) - \mathbb{E}[\nabla_w f(w_k, X)] \|}{\| \mathbb{E}[\nabla_w f(w_k, X)] - \mathbb{E}[\nabla_w f(w^\*, X)] \|}
+\end{equation*}
+$$
+
+Due to the [mean value theorem](https://en.wikipedia.org/wiki/Mean_value_theorem), we can write \\(\mathbb{E}[\nabla_w f(w_k, X)] - \mathbb{E}[\nabla_w f(w^\*, X)]\\) as \\(\mathbb{E}[\nabla^2_w f(\bar{w}_k, X)] (w_k - w^\*)\\) for some point \\(\bar{w}_k\\) between \\(w_k\\) and \\(w^\*\\). Therefore, we can rewrite the relative error as:
+
+$$
+\begin{equation*}
+\delta_k = \frac{\| \nabla_w f(w_k, x_k) - \mathbb{E}[\nabla_w f(w_k, X)] \|}{\| \mathbb{E}[\nabla^2_w f(\bar{w}_k, X)] (w_k - w^\*) \|}
+\end{equation*}
+$$
+
+If \\(f\\) is strongly convex, then \\(\mathbb{E}[\nabla^2_w f(\bar{w}_k, X)]\\) is bounded from below by a positive constant \\(c > 0\\). Therefore, we can write:
+
+$$
+\begin{equation*}
+\delta_k \leq \frac{ \| \overbrace{\nabla_w f(w_k, x_k)}^{\text{stochastic grad}} - \overbrace{\mathbb{E}[\nabla_w f(w_k, X)]}^{\text{true grad}} \|}{ \underbrace{c \| w_k - w^\* \|}_{\text{distance to optimal solution}}}
+\end{equation*}
+$$
