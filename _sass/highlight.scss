@@ -1,0 +1,8 @@
+.highlight-target {
+    animation: highlightFlash 1s ease;
+}
+
+@keyframes highlightFlash {
+    0%   { background-color: yellow; }
+    100% { background-color: transparent; }
+}

@@ -37,6 +37,24 @@
             });
         });
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+              // Remove old highlight
+              target.classList.remove('highlight-target');
+              // Trigger reflow to allow animation to restart
+              void target.offsetWidth;
+              // Add highlight
+              target.classList.add('highlight-target');
+            }
+          });
+        });
+      });
+    </script>
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
