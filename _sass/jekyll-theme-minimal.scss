@@ -290,3 +290,11 @@ footer {
   color:rgb(0, 0, 0);
   background-color:rgb(250, 170, 170);
 }
+.highlight-target {
+    animation: highlightFlash 2s ease;
+}
+
+@keyframes highlightFlash {
+    0%   { background-color: rgb(184, 118, 188); }
+    100% { background-color: transparent; }
+}
