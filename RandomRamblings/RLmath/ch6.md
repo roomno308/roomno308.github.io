@@ -266,4 +266,36 @@ This is a compromise between the full-batch gradient descent and the stochastic 
 
 ## Convergence of SGD
 
+In this section, we provide a proof of the convergence of the SGD algorithm. We show that $\eqref{SGD}$ algorithm is a special case of the Robbins-Monro algorithm, and therefore the proof of the convergence follows from the Robbins-Monro theorem.
 
+> **Theorem (Convergence of SGD)**: The SGD algorithm stated in $\eqref{SGD}$ converges almost surely to the optimal parameter \\(w^\*\\) of the optimization problem \\(\min_{w} J(w) = \mathbb{E}[f(w, X)]\\) if:
+> 1. \\( 0< c_1 \leq \nabla^2_w f(w, X) \leq c_2
+> 2. \\( \sum_{k=1}^{\infty} \alpha_k = \infty \\) and \\( \sum_{k=1}^{\infty} \alpha_k^2 < \infty \\).
+> 3. \\(\lbrace x_k \rbrace_{k=1}^{\infty}\\) are i.i.d.
+
+> **Proof**: SGD is aiming to solve the problem of minimizing the expected value of a function \\(f(w, X)\\). This can be converted to a root finding problem by defining the function \\(g(w) = \nabla_w J(w) = \mathbb{E}[\nabla_w f(w, X)]\\). Then, the SGD algorithm aims to find the root of the equation \\(g(w) = 0\\). The quantity that we can measure is the stochastic gradient \\( \tilde{g} = \nabla_w f(w, x)\\), where \\(x\\) is a sample from the random variable \\(X\\). \\(\tilde{g}\\) can also be written as:
+>
+> $$
+\begin{equation*}
+\begin{split}
+\tilde{g} &= \nabla_w f(w, x) \\
+&= \mathbb{E}[\nabla_w f(w, X)] + \left( \nabla_w f(w, x) - \mathbb{E}[\nabla_w f(w, X)] \right) \\
+&= g(w) + \eta
+\end{split}
+\end{equation*}
+>$$
+>
+> Then, the RM algorithm for solving the root finding problem can be written as:
+>
+> $$
+\begin{equation*}
+w_{k+1} = w_k - \alpha_k \tilde{g} = w_k - \alpha_k \nabla_w f(w_k, x_k) 
+\end{equation*}
+>$$
+>
+> This is exactly the SGD algorithm stated in $\eqref{SGD}$. We now need to show that the conditions of the Robbins-Monro theorem are satisfied:
+> 1. The first condition \\( 0< c_1 \leq \nabla_w g(w) \leq c_2 < \infty \\) is satisfied because of the first condition of this theorem.
+> 2. The second condition of both the Robbins-Monro theorem and this theorem is the same.
+> 3. We have already shown that \\( \mathbb{E}[\eta_k | \mathcal{H}_k] = 0 \\) in the [SGD section](#Stochastic Gradient Descent).
+>
+> Therefore, the conditions of the Robbins-Monro theorem are satisfied, and hence the SGD algorithm converges almost surely to the optimal parameter \\(w^\*\\).
