@@ -46,7 +46,7 @@
 
             if (target) {
               // Find the closest .katex container (this is the visible equation block)
-              const katexContainer = target.closest('.katex');
+              const katexContainer = target.closest('.katex-display');
               if (katexContainer) {
                 // Remove existing highlight
                 katexContainer.classList.remove('highlight-target');
