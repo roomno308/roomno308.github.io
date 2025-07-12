@@ -44,12 +44,16 @@
             const targetId = this.getAttribute('href').substring(1);
             const target = document.getElementById(targetId);
             if (target) {
-              // Remove old highlight
-              target.classList.remove('highlight-target');
-              // Trigger reflow to allow animation to restart
-              void target.offsetWidth;
-              // Add highlight
-              target.classList.add('highlight-target');
+              // Find the closest .katex-html ancestor
+              const katexHtml = target.closest('.katex-html');
+              if (katexHtml) {
+                // Remove old highlight
+                katexHtml.classList.remove('highlight-target');
+                // Force reflow to reset animation
+                void katexHtml.offsetWidth;
+                // Add highlight class
+                katexHtml.classList.add('highlight-target');
+              }
             }
           });
         });
