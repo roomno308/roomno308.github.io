@@ -21,4 +21,6 @@ These notes are based on **Mathematical Foundations of Reinforcement Learning** 
 
 <li> <a href = "ch6.html"> Chapter 6: Stochastic Approximation </a> </li>
 
+<li> <a href = "ch7.html"> Chapter 7: Temporal Difference Methods </a> </li>
+
 </ol>
