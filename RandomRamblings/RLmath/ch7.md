@@ -60,5 +60,5 @@ v_{t+1}(s_t) &= v_t(s_t) - \alpha \tilde{g}(v_t(s_t)) \\
 \end{equation*}
 >$$
 >
-> Note that this assumes that we alread have the correct value estimates for every other state $$s \neq s_t$$. If we were to estimate the value function for all states, there would have been $$\v_{t}(s_{t+1})$$ instead of 
+> Note that this assumes that we alread have the correct value estimates for every other state $$s \neq s_t$$. If we were to estimate the value function for all states, there would have been $$v_{t}(s_{t+1})$$ instead of 
 > $$v_\pi(s_{t+1})$$ in the above equation. Nevertheless, as shown later, this algorithm still converges to the correct value function if we estimate the value function for all states.
