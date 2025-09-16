@@ -39,6 +39,7 @@ This TD algorithm can be derived by applying robbins-monro algorithm to the abov
 > Hence, the Bellman equation is equivalent to solving $$g(v_\pi(s)) = 0$$.
 >
 > Every timestep, we observe a noisy sample of $$g(v_\pi(s))$$:
+>
 > $$
 \begin{align*}
 \tilde{g}(v_\pi(s_t)) &= v_\pi(s_t) - (r_{t+1} + \gamma v_\pi(s_{t+1}))\\
