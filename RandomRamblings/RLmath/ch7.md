@@ -43,7 +43,7 @@ This TD algorithm can be derived by applying robbins-monro algorithm to the abov
 \begin{equation*}
 \begin{split}
 \tilde{g}(v_\pi(s_t)) &= v_\pi(s_t) - (r_{t+1} + \gamma v_\pi(s_{t+1}))\\
-&= \underbrace{\left( v_\pi(s_t) - \mathbb{E}\big[ R_{t+1} + \gamma v_\pi(s_{t+1}) \mid S_t = s_t \big] \right)}_{g(v_\pi(s_t))} + \left( \mathbb{E}\big[ R_{t+1} + \gamma v_\pi(s_{t+1}) \mid S_t = s_t \big] - (r_{t+1} + \gamma v_\pi(s_{t+1})) \right)
+&= \underbrace{\left( v_\pi(s_t) - \mathbb{E}\big[ R_{t+1} + \gamma v_\pi(s_{t+1}) \mid S_t = s_t \big] \right)}_{g(v_\pi(s_t))} + \underbrace{\left( \mathbb{E}\big[ R_{t+1} + \gamma v_\pi(s_{t+1}) \mid S_t = s_t \big] - (r_{t+1} + \gamma v_\pi(s_{t+1})) \right)}_{\eta_t}
 \end{split}
 \end{equation*}
 >$$
