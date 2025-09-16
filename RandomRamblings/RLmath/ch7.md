@@ -35,7 +35,7 @@ $$
 This TD algorithm can be derived by applying robbins-monro algorithm to the above Bellman equation:
 
 > For evey state, we define a function:
-> $g(v_\pi(s)) = v_\pi(s) - \mathbb{E}_\pi \big[ R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s \big]$
+> $$g(v_\pi(s)) = v_\pi(s) - \mathbb{E}_\pi \big[ R_{t+1} + \gamma v_\pi(S_{t+1}) \mid S_t = s \big]$$
 > Hence, the Bellman equation is equivalent to solving $g(v_\pi(s)) = 0$.
 > Every timestep, we observe a noisy sample of $g(v_\pi(s))$:
 > $$
