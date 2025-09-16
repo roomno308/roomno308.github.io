@@ -54,7 +54,8 @@ This TD algorithm can be derived by applying robbins-monro algorithm to the abov
 >$$
 \begin{equation*}
 \begin{split}
-v_{t+1}(s_t) &= v_t(s_t) - \alpha \tilde{g}(v_t(s_t))
+v_{t+1}(s_t) &= v_t(s_t) - \alpha \tilde{g}(v_t(s_t)) \\
+&= v_t(s_t) - \alpha \big[v_t(s_t) - (r_{t+1} + \gamma v_\pi(s_{t+1}))\big]
 \end{split}
 \end{equation*}
 >$$
