@@ -26,10 +26,11 @@ Here, $v_t(s)$ is the estimate of $v^\pi(s)$ at time $t$, $\alpha$ is the step-s
 This TD algorithm can be thought of as a special case of the [stochastic approximation algorithm](ch5.html#robbins-monro-algorithm) for solving the Bellman equation for $v^\pi$:
 
 $$
-\begin{align*}
+\begin{align}
 v^\pi(s) &= \mathbb{E}_\pi \big[ R_{t+1} + \gamma G_{t+1} \mid S_t = s \big] \\
 &= \mathbb{E}_\pi \big[ R_{t+1} + \gamma v^\pi(S_{t+1}) \mid S_t = s \big]
-\end{align*}
+\label{TD-value}
+\end{align}
 $$
 
 This TD algorithm can be derived by applying robbins-monro algorithm to the above Bellman equation:
@@ -53,8 +54,7 @@ This TD algorithm can be derived by applying robbins-monro algorithm to the abov
 >$$
 \begin{equation*}
 \begin{split}
-v_{t+1}(s_t) &= v_t(s_t) - \alpha \tilde{g}(v_t(s_t)) \\
-&= v_t(s_t) - \alpha \big[v_t(s_t) - (r_{t+1} + \gamma v_\pi(s_{t+1}))\big]
+v_{t+1}(s_t) &= v_t(s_t) - \alpha \tilde{g}(v_t(s_t))
 \end{split}
 \end{equation*}
 >$$
