@@ -65,7 +65,8 @@ v_{t+1}(s_t) &= v_t(s_t) - \alpha \tilde{g}(v_t(s_t)) \\
 
 ### Property analysis of TD algorithm
 
-1. **TD target**: The quantity \\(\overline{v}_t = r_{t+1} + \gamma v_t(s_{t+1})\\) is called the TD target. It is the value that the algorithm is trying to make $v_t(s_t)$ approach. 
+1. **TD target**: The quantity \\( \overline{v}_t = (r_{t+1} + \gamma v_t(s_{t+1})) \\) is called the TD target. It is the value that the algorithm is trying to make 
+$v_t(s_t)$ approach. 
 
 $$
 \begin{equation*}
