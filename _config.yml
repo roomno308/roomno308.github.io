@@ -3,7 +3,7 @@ title: Room no. 308
 description: The room of our random experiments
 markdown: kramdown
 kramdown:
-    math_engine: mathjax
+    math_engine: katex
 google_analytics: UA-192680612-1
 
 url: "https://roomno308.github.io/" # the base hostname & protocol for your site
