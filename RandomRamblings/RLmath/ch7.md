@@ -62,3 +62,23 @@ v_{t+1}(s_t) &= v_t(s_t) - \alpha \tilde{g}(v_t(s_t)) \\
 >
 > Note that this assumes that we alread have the correct value estimates for every other state $$s \neq s_t$$. If we were to estimate the value function for all states, there would have been $$v_{t}(s_{t+1})$$ instead of 
 > $$v_\pi(s_{t+1})$$ in the above equation. Nevertheless, as shown later, this algorithm still converges to the correct value function if we estimate the value function for all states.
+
+### Property analysis of TD algorithm
+
+1. **TD target**: The quantity $\overline{v}_t = r_{t+1} + \gamma v_t(s_{t+1})$ is called the TD target. It is the value that the algorithm is trying to make $v_t(s_t)$ approach. 
+
+$$
+\begin{equation*}
+\begin{split}
+v_{t+1}(s_t) - \overline{v}_t &= v_t(s_t) - \alpha \big[v_t(s_t) - (r_{t+1} + \gamma v_t(s_{t+1}))\big] - \overline{v}_t \\
+&= v_t(s_t) - \overline{v}_t - \alpha (v_t(s_t) - \overline{v}_t) \\
+&= (1 - \alpha)(v_t(s_t) - \overline{v}_t)
+\implies \|v_{t+1}(s_t) - \overline{v}_t\| = (1 - \alpha) \|v_t(s_t) - \overline{v}_t\|
+\end{split}
+\end{equation*}
+$$
+
+Therefore, for $0 < \alpha < 1$, the estimate $v_{t+1}(s_t)$ is closer to the TD target $\overline{v}_t$ than $v_t(s_t)$.
+
+
+### Convergence of TD algorithm
