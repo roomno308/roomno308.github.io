@@ -82,4 +82,44 @@ $$
 Therefore, for $0 < \alpha < 1$, the estimate $v_{t+1}(s_t)$ is closer to the TD target $\overline{v}_t$ than $v_t(s_t)$.
 
 
-### Convergence of TD algorithm
+2. **TD error**: The quantity $$\delta_t = r_{t+1} + \gamma v_t(s_{t+1}) - v_t(s_t)$$ is called the TD error. It is the difference between the TD target and the current estimate. TD error is 0 in expectation at the true value function.
+
+$$
+\begin{equation*}
+\begin{split}
+\mathbb{E}_\pi[\delta_t \mid S_t = s_t] &= \mathbb{E}_\pi[r_{t+1} + \gamma v_\pi(s_{t+1}) - v_\pi(s_t) \mid S_t = s_t] \\
+&= 0
+\end{split}
+\end{equation*}
+$$
+
+3. This TD algorithm can only estimate state values for a given policy $\pi$. It cannot be used to find the optimal value function $v^*$.
+
+## SARSA - On-policy TD
+
+SARSA (State-Action-Reward-State-Action) is a TD algorithm for estimating the action-value function $$q^\pi(s, a)$$ for a given policy $$\pi$$. It is a simple extension of the TD algorithm for state values discussed above.
+
+$$
+\begin{equation}
+\begin{split}
+q_{t+1}(s_t, a_t) &= q_t(s_t, a_t) - \alpha \big[q_t(s_t, a_t)  - (r_{t+1} + \gamma q_t(s_{t+1}, a_{t+1}))\big] \\
+q_{t+1}(s, a) &= q_t(s, a) \quad \text{for } (s, a) \neq (s_t, a_t)
+\end{split}
+\label{SARSA}
+\end{equation}
+$$
+
+Since SARSA requires the action $$a_{t+1}$$ taken in state $$s_{t+1}$$ using the policy $$\pi$$, it can't estimate the action values for any other policy. In other words, the behavior policy (the policy used to generate the data) and the target policy (the policy whose value function is being estimated) are the same. Hence, SARSA is an **on-policy algorithm**.
+
+Mathematically, SARSA solves the Bellman evaluation equation for $$q^\pi$$:
+
+$$
+\begin{equation}
+\begin{split}
+q^\pi(s, a) &= \mathbb{E}_\pi \big[ R + \gamma q_\pi(S', A') \mid S = s, A = a \big]  \forall s \in \mathcal{S}, a \in \mathcal{A}(s)
+\end{split}
+\label{TD-action-value}
+\end{equation}
+$$
+
+SARSA's convergence can be proven using the stochastic approximation framework, similar to the TD algorithm for state values. (see proof in book)
