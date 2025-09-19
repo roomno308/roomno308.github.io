@@ -136,3 +136,16 @@ Also, note that we are not running SARSA policy evaluation to convergence before
 
 ### Expected SARSA
 
+Expected SARSA is a variant of SARSA that uses the expected next action value instead of the sampled next action value in the update rule. The update rule for Expected SARSA is as follows:
+
+$$
+\begin{equation}
+\begin{split}
+q_{t+1}(s_t, a_t) &= q_t(s_t, a_t) - \alpha \big[q_t(s_t, a_t)  - (r_{t+1} + \gamma \mathbb{E}_\pi[q_t(s_{t+1}, A)])\big] \\
+&= q_t(s_t, a_t) - \alpha \big[q_t(s_t, a_t)  - (r_{t+1} + \gamma \sum_{a} \pi(a \mid s_{t+1}) q_t(s_{t+1}, a))\big] \\
+\end{split}
+\label{Expected-SARSA}
+\end{equation}
+$$
+
+Since this algorithm uses the expected next action value, it has lower variance than SARSA. Furthermore, it can be used with any behavior policy, not just the target policy. Hence, Expected SARSA is an **off-policy algorithm**.
