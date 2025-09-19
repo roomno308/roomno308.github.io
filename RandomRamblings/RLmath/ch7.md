@@ -149,3 +149,15 @@ q_{t+1}(s_t, a_t) &= q_t(s_t, a_t) - \alpha \big[q_t(s_t, a_t)  - (r_{t+1} + \ga
 $$
 
 Since this algorithm uses the expected next action value, it has lower variance than SARSA. Furthermore, it can be used with any behavior policy, not just the target policy. Hence, Expected SARSA is an **off-policy algorithm**.
+
+### N-step updates in SARSA
+
+**Credit assignment** is an important problem in Reinforcement Learning. It refers to the problem of determining which actions are responsible for the received rewards. In one-step TD methods like SARSA, credit flows back ony one step at a time. This can be slow in environments where rewards are sparse or delayed. for example, in a 6x6 grid:
+
+![alt text](../graphics/RLmath/ch7Grid.png)
+
+<center><i> A 6x6 grid environment. The agent starts at S and needs to reach G to get a reward of +1. All other transitions give a reward of 0. Image taken from Prof. Machado's <a href="https://webdocs.cs.ualberta.ca/~machado/cmput628/w25/slides/lecture_9_25.pdf"> Lecture Notes </a> </i></center>
+
+with a [random walk](https://en.wikipedia.org/wiki/Random_walk), the agent will need $$n^2$$ steps on average to reach the goal state, where $$n$$ is the distance from the start state to the goal state (12 steps in this case). Therefore, the agent will need to wait for 144 steps before it can update the value of the state only one step before the goal state. This can make learning very slow.
+
+To counter this, we can use **n-step TD methods**. In n-step TD methods, credit flows back n steps at a time. This can make learning faster as the agent can update the value of states that are n steps away from the goal state. But, one needs to be careful while performing n-step updates as it requires careful rebalancing of the estimates (see [Importance Sampling](https://en.wikipedia.org/wiki/Importance_sampling)).
