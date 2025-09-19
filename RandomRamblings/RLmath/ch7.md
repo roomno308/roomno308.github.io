@@ -195,3 +195,21 @@ q_{t+n}(s_t, a_t) &= q_t(s_t, a_t) - \alpha \big[q_t(s_t, a_t)  - r_{t+1} - \gam
 $$
 
 Therefore, to update the action-value function for a state-action pair, we need to wait for n steps to get the n-step return. This can make learning faster as the agent can update the value of states that are n steps away from the goal state. But, it also increases the variance of the updates as we are using more random variables (rewards and next action values) in the update.
+
+## Q-learning
+
+In contrast to SARSA which learns the action-value function for the policy used to generate the data, Q-learning aims to solve the Bellman optimality equation and learn the optimal action-value function $$q^*$$ directly:
+
+$$
+\begin{equation}
+\begin{split}
+q_{t+1}(s_t, a_t) &= q_t(s_t, a_t) - \alpha \big[q_t(s_t, a_t)  - (r_{t+1} + \gamma \max_{a} q_t(s_{t+1}, a))\big] \\
+q_{t+1}(s, a) &= q_t(s, a) \quad \text{for } (s, a) \neq (s_t, a_t)
+\end{split}
+\label{Q-learning}
+\end{equation}
+$$
+
+Here, the action-value function is updated towards the maximum action-value of the next state, instead of the action-value of the action taken in the next state as in SARSA. Therefore, Q-learning is an **off-policy algorithm** as it can learn the optimal policy regardless of the policy used to generate the data.
+
+![alt text](../graphics/RLmath/ch7QLearning.png)
