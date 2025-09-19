@@ -161,3 +161,37 @@ Since this algorithm uses the expected next action value, it has lower variance 
 with a [random walk](https://en.wikipedia.org/wiki/Random_walk), the agent will need $$n^2$$ steps on average to reach the goal state, where $$n$$ is the distance from the start state to the goal state (12 steps in this case). Therefore, the agent will need to wait for 144 steps before it can update the value of the state only one step before the goal state. This can make learning very slow.
 
 To counter this, we can use **n-step TD methods**. In n-step TD methods, credit flows back n steps at a time. This can make learning faster as the agent can update the value of states that are n steps away from the goal state. But, one needs to be careful while performing n-step updates as it requires careful rebalancing of the estimates (see [Importance Sampling](https://en.wikipedia.org/wiki/Importance_sampling)).
+
+Taking this into consideration, n-step SARSA uses an n-step decomposition of the return to update the action-value function instead of the one-step decomposition used in SARSA:
+
+$$
+\begin{equation*}
+\begin{split}
+\text{SARSA} \leftarrow G_t^{(1)} &= R_{t+1} + \gamma q_t(S_{t+1}, A_{t+1}) \\
+
+G_t^{(2)} &= R_{t+1} + \gamma R_{t+2} + \gamma^2 q_t(S_{t+2}, A_{t+2}) \\
+
+& \vdots \\
+
+\text{n-step SARSA} \leftarrow G_t^{(n)} &= R_{t+1} + \gamma R_{t+2} + \ldots + \gamma^{n-1} R_{t+n} + \gamma^n q_t(S_{t+n}, A_{t+n}) \\
+
+& \vdots \\
+
+\text{Monte Carlo} \leftarrow G_t^{(\infty)} &= R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \ldots
+
+\end{split}
+\end{equation*}
+$$
+
+Therefore, the update rule for n-step SARSA is as follows:
+
+$$
+\begin{equation}
+\begin{split}
+q_{t+n}(s_t, a_t) &= q_t(s_t, a_t) - \alpha \big[q_t(s_t, a_t)  - r_{t+1} - \gamma r_{t+2} - \ldots - \gamma^{n-1} r_{t+n} - \gamma^n q_t(s_{t+n}, a_{t+n})\big] \\
+\end{split}
+\label{n-step-SARSA}
+\end{equation}
+$$
+
+Therefore, to update the action-value function for a state-action pair, we need to wait for n steps to get the n-step return. This can make learning faster as the agent can update the value of states that are n steps away from the goal state. But, it also increases the variance of the updates as we are using more random variables (rewards and next action values) in the update.
