@@ -65,7 +65,7 @@ v_{t+1}(s_t) &= v_t(s_t) - \alpha \tilde{g}(v_t(s_t)) \\
 
 ### Property analysis of TD algorithm
 
-1. **TD target**: The quantity $$\overline{v}_t = (r_{t+1} + \gamma v_t(s_{t+1}))$$ is called the TD target. It is the value that the algorithm is trying to make 
+* **TD target**: The quantity $$\overline{v}_t = (r_{t+1} + \gamma v_t(s_{t+1}))$$ is called the TD target. It is the value that the algorithm is trying to make 
 $v_t(s_t)$ approach. 
 
 $$
@@ -82,7 +82,7 @@ $$
 Therefore, for $0 < \alpha < 1$, the estimate $v_{t+1}(s_t)$ is closer to the TD target $\overline{v}_t$ than $v_t(s_t)$.
 
 
-2. **TD error**: The quantity $$\delta_t = r_{t+1} + \gamma v_t(s_{t+1}) - v_t(s_t)$$ is called the TD error. It is the difference between the TD target and the current estimate. TD error is 0 in expectation at the true value function.
+- **TD error**: The quantity $$\delta_t = r_{t+1} + \gamma v_t(s_{t+1}) - v_t(s_t)$$ is called the TD error. It is the difference between the TD target and the current estimate. TD error is 0 in expectation at the true value function.
 
 $$
 \begin{equation*}
@@ -93,7 +93,7 @@ $$
 \end{equation*}
 $$
 
-3. This TD algorithm can only estimate state values for a given policy $\pi$. It cannot be used to find the optimal value function $v^*$.
+- This TD algorithm can only estimate state values for a given policy $\pi$. It cannot be used to find the optimal value function $v^*$.
 
 ## SARSA - On-policy TD
 
@@ -123,3 +123,16 @@ q^\pi(s, a) &= \mathbb{E}_\pi \big[ R + \gamma q_\pi(S', A') \mid S = s, A = a \
 $$
 
 SARSA's convergence can be proven using the stochastic approximation framework, similar to the TD algorithm for state values. (see proof in book)
+
+### Learning control using SARSA
+
+Since SARSA estimates the action-value function $$q^\pi$$, this is like the policy evaluation step in the policy iteration algorithm. Therefore, we can use a policy improvement step to improve the policy $$\pi$$ along with SARSA to learn the optimal policy $$\pi^*$$.
+
+![alt text](../graphics/RLmath/ch7SARSA.png)
+
+Since SARSA is an on-policy algorithm (we need to use the policy $$\pi$$ to generate the data), we need to ensure that the policy has sufficient exploration at all times. Therefore, an $$\epsilon$$-greedy policy is used for $$\pi$$, where the greedy action is selected with probability $$1 - \epsilon$$ and a random action is selected with probability $$\epsilon$$.
+
+Also, note that we are not running SARSA policy evaluation to convergence before improving the policy. Instead, we are interleaving the policy evaluation and policy improvement steps. This is based on the idea of **generalized policy iteration**.
+
+### Expected SARSA
+
